@@ -12,7 +12,6 @@ public enum FeedViewLayout {
     case grouped
 }
 
-//https://www.raywenderlich.com/5436806-modern-collection-views-with-compositional-layouts
 class FeedLayout: UICollectionViewLayout {
     
     private let numberOfColums = 3
@@ -23,7 +22,6 @@ class FeedLayout: UICollectionViewLayout {
     private var contentHeight: CGFloat = 0
     private var contentWidth: CGFloat {
         guard let collectionView = collectionView else { return 0 }
-//        let insets = collectionView.contentInset
         return collectionView.bounds.size.width - ( padding * ( CGFloat(numberOfColums) - 1) )
     }
     

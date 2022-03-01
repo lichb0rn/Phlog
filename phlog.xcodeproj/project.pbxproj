@@ -72,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8907D28927CE1B5F00DFA463 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		8931D127275CF3A8009284D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 		89ACD9C6275B3237009373E1 = {
 			isa = PBXGroup;
 			children = (
+				8907D28927CE1B5F00DFA463 /* README.md */,
 				89ACD9D1275B3237009373E1 /* phlog */,
 				89ACD9EB275B3239009373E1 /* phlogTests */,
 				89ACD9F5275B3239009373E1 /* phlogUITests */,
