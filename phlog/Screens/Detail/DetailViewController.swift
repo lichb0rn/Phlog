@@ -19,7 +19,7 @@ public class DetailViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     private var cancellable = Set<AnyCancellable>()
-    public var viewModel: PhlogDetailViewModel?
+    public var viewModel: DetailViewModel?
     public weak var delegate: DetailViewControllerDelegate?
     
     // --------------------------------------
@@ -53,7 +53,7 @@ public class DetailViewController: UIViewController {
         }
     }
     
-    private func configureView(with viewModel: PhlogDetailViewModel) {
+    private func configureView(with viewModel: DetailViewModel) {
         title = viewModel.date
         textView.text = viewModel.body
         // Because setting text property programmatically doesn't trigger textViewDidChange
