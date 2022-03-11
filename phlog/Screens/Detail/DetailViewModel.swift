@@ -21,10 +21,10 @@ public class DetailViewModel {
     }
     
     private let imageManager: PHImageManager = PHImageManager.default()
-    
     private let phlogManager: PhlogManager
-    
     private var phlog: PhlogPost
+    
+    // Something has to retain child context because NSManagedObject doesn't
     private var context: NSManagedObjectContext!
 
     
@@ -93,10 +93,17 @@ extension DetailViewModel {
     }
     
     private func thumbnailSize(from imageSize: CGSize) -> CGSize {
-        let availableWidth = UIScreen.main.bounds.width
-        let approximateCellWidth = availableWidth / 3
-        let thumbSize = CGSize(width: approximateCellWidth, height: approximateCellWidth)
-        return thumbSize
+        let approximateCellWidth = UIScreen.main.bounds.width / 3
+        let desiredSize = CGSize(width: approximateCellWidth, height: approximateCellWidth)
+        
+        let widthScale = desiredSize.width / imageSize.width
+        let heightScale = desiredSize.height / imageSize.height
+        
+        let scaleFactor = min(widthScale, heightScale)
+        let scaledSize = CGSize(width: imageSize.width * scaleFactor,
+                                height: imageSize.height * scaleFactor)
+        
+        return scaledSize
     }
     
     public func remove() {

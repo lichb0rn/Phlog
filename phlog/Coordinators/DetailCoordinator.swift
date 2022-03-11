@@ -18,11 +18,6 @@ public class DetailCoordinator: Coordinator {
     private let viewController = DetailViewController.instantiate(from: .detail)
     
     
-//    public init(router: Router, viewModel: DetailViewModel) {
-//        self.router = router
-//        self.viewModel = viewModel
-//    }
-    
     public init(router: Router, phlogManager: PhlogManager, phlog: PhlogPost? = nil) {
         self.router = router
         self.phlogManager = phlogManager
