@@ -100,7 +100,7 @@ extension DetailViewModel {
         let heightScale = desiredSize.height / imageSize.height
         
         let scaleFactor = min(widthScale, heightScale)
-        let scaledSize = CGSize(width: imageSize.width * scaleFactor,
+        let scaledSize = CGSize(width: imageSize.width * scaleFactor, 
                                 height: imageSize.height * scaleFactor)
         
         return scaledSize

@@ -17,10 +17,9 @@ public class TabController: UITabBarController {
     
     public weak var coordinator: TabViewActionControll?
 
-    // Creating a circle "plus" button
-    private var actionButtonWidth: CGFloat = 55
-    private var actionButtonHeight: CGFloat = 30
-    private lazy var actionButton = ActionButton()
+    private var actionButtonWidth: CGFloat = 50
+    private var actionButtonHeight: CGFloat = 50
+    private var actionButton: ActionButton!
         
     
     public override func viewDidLoad() {
@@ -37,13 +36,11 @@ public class TabController: UITabBarController {
     }
     
     private func configureButton() {
+        let actionButton = ActionButton(frame: CGRect(x: tabBar.bounds.midX - 25,
+                                                      y: tabBar.bounds.midY - 35,
+                                                      width: actionButtonWidth,
+                                                      height: actionButtonHeight))
         tabBar.addSubview(actionButton)
-        NSLayoutConstraint.activate([
-            actionButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
-            actionButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
-            actionButton.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor),
-            actionButton.centerYAnchor.constraint(equalTo: tabBar.centerYAnchor, constant: -20)
-        ])
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
     
@@ -51,7 +48,6 @@ public class TabController: UITabBarController {
     @objc private func actionButtonTapped() {
         
         // Presenting the library
-        actionButton.rotateImage()
         coordinator?.tabViewActionButtonTapped(self)
     }
 }
