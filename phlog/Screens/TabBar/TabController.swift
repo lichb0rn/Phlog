@@ -25,6 +25,7 @@ public class TabController: UITabBarController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = .white
+        tabBar.backgroundColor = UIColor(named: "shadedBlack")
         configureButton()
     }
     
