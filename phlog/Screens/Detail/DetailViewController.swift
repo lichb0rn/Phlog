@@ -54,6 +54,11 @@ public class DetailViewController: UIViewController {
         }
     }
     
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        roundImageCorners()
+    }
+    
     private func configureView(with viewModel: DetailViewModel) {
         title = viewModel.date
         textView.text = viewModel.body
@@ -80,6 +85,16 @@ public class DetailViewController: UIViewController {
                 }
             })
             .store(in: &cancellable)
+    }
+    
+    private func roundImageCorners() {
+        let corners: UIRectCorner = [.bottomLeft, .bottomRight]
+        let path = UIBezierPath(roundedRect: imageView.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: 25, height: 25))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        imageView.layer.mask = maskLayer
     }
 
     
