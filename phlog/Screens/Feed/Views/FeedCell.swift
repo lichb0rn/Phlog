@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Combine
+
 
 public class FeedCell: UICollectionViewCell {
 
@@ -15,7 +15,6 @@ public class FeedCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var cancellable: AnyCancellable?
     
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,13 +28,11 @@ public class FeedCell: UICollectionViewCell {
     private func showImage(_ image: UIImage?) {
         stopPreviosActivity()
         imageView.image = image
-        imageView.setNeedsDisplay()
     }
     
     private func stopPreviosActivity() {
         activityIndicator.stopAnimating()
         imageView.image = nil
-        cancellable?.cancel()
     }
 }
 

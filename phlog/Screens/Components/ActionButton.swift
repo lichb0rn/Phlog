@@ -10,7 +10,7 @@ import UIKit
 public class ActionButton: UIButton {
     
     public var plusColor: UIColor = UIColor.white
-    public var fillColor: UIColor = UIColor(named: "shadedBlack")!  
+    public var fillColor: UIColor = UIColor(named: "shadedBlack")!
     public var borderColor: UIColor = UIColor.darkGray
     
     private let shape = CAShapeLayer()

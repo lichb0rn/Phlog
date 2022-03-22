@@ -7,10 +7,7 @@
 
 import UIKit
 
-public enum FeedViewLayout {
-    case feed
-    case grouped
-}
+
 
 class FeedLayout: UICollectionViewLayout {
     

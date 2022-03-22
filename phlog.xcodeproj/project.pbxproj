@@ -17,6 +17,7 @@
 		894046D927744CDB00C144CE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D827744CDB00C144CE /* Settings.storyboard */; };
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
+		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
@@ -82,6 +83,7 @@
 		894046D827744CDB00C144CE /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
+		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		8932AFFD275CCCA800B5242D /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */,
 				89ACD9D6275B3237009373E1 /* FeedViewController.swift */,
 				8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */,
 				89E192E527745873004CC365 /* Views */,
@@ -336,9 +339,9 @@
 			isa = PBXGroup;
 			children = (
 				894046D627744C7800C144CE /* Feed.storyboard */,
-				89EA3AFA276B74C80084D041 /* FeedLayout.swift */,
 				89C49654276A516D00BF8D30 /* FeedCell.swift */,
 				89C49655276A516D00BF8D30 /* FeedCell.xib */,
+				89EA3AFA276B74C80084D041 /* FeedLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				89BE6A392770818600C7ABC7 /* Router.swift in Sources */,
 				89BE6A3B2770859300C7ABC7 /* MainRouter.swift in Sources */,
 				8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */,
+				895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */,
 				899986DA276906D50023229A /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

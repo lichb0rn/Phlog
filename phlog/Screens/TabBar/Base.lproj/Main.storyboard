@@ -10,7 +10,7 @@
         <scene sceneID="01M-Rc-V5x">
             <objects>
                 <tabBarController storyboardIdentifier="TabController" hidesBottomBarWhenPushed="YES" id="kRR-Bs-Rhe" customClass="TabController" customModule="phlog" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DTZ-yn-4w7">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="DTZ-yn-4w7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
