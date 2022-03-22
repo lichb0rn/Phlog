@@ -47,6 +47,7 @@ public class DetailViewController: UIViewController {
         // it display the date in title
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         if let viewModel = viewModel {
             configureView(with: viewModel)
