@@ -19,7 +19,7 @@ public class DetailViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     private var cancellable = Set<AnyCancellable>()
-    public var viewModel: PhlogDetailViewModel?
+    public var viewModel: DetailViewModel?
     public weak var delegate: DetailViewControllerDelegate?
     
     // --------------------------------------
@@ -47,13 +47,19 @@ public class DetailViewController: UIViewController {
         // it display the date in title
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         if let viewModel = viewModel {
             configureView(with: viewModel)
         }
     }
     
-    private func configureView(with viewModel: PhlogDetailViewModel) {
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        roundImageCorners()
+    }
+    
+    private func configureView(with viewModel: DetailViewModel) {
         title = viewModel.date
         textView.text = viewModel.body
         // Because setting text property programmatically doesn't trigger textViewDidChange
@@ -79,6 +85,16 @@ public class DetailViewController: UIViewController {
                 }
             })
             .store(in: &cancellable)
+    }
+    
+    private func roundImageCorners() {
+        let corners: UIRectCorner = [.bottomLeft, .bottomRight]
+        let path = UIBezierPath(roundedRect: imageView.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: 25, height: 25))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        imageView.layer.mask = maskLayer
     }
 
     

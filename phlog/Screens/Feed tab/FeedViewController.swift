@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import Photos
-import Combine
+
 
 public protocol FeedViewControllerDelegate: AnyObject {
     func didSelectPhlog(_ viewController: FeedViewContoller, phlog: PhlogPost)
@@ -21,7 +20,6 @@ public final class FeedViewContoller: UIViewController {
     public weak var delegate: FeedViewControllerDelegate?
     public var phlogManager: PhlogManager!
     public var viewModel: FeedViewModel!
-    private var cancellables: Set<AnyCancellable> = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     

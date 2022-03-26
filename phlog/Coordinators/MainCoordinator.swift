@@ -88,7 +88,7 @@ extension MainCoordinator: TabViewActionControll {
     
     public func tabViewActionButtonTapped(_ viewController: UIViewController) {
         let modalRouter = ModalNavigationRouter(parentViewController: viewController)
-        let actionCoordinator = ActionCoordinator(router: modalRouter, phlogManager: phlogManager)
-        self.startChild(actionCoordinator, animated: true, completion: nil)
+        let coordinator = DetailCoordinator(router: modalRouter, phlogManager: phlogManager)
+        self.startChild(coordinator, animated: true, completion: nil)
     }
 }

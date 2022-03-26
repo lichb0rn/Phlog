@@ -17,13 +17,17 @@ public class PhlogPost: NSManagedObject {
     @NSManaged public var id: UUID
     @NSManaged public var pictureThumbnail: Data?
     @NSManaged public var picture: PhlogPicture?
-
+    @NSManaged public var dateString: String
+    
     
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         dateCreated = Date()
+        dateString = convertDateToMonth()
         id = UUID()
     }
+    
+    
     
 }
 
@@ -32,5 +36,13 @@ extension PhlogPost {
         return NSFetchRequest<PhlogPost>(entityName: "PhlogPost")
     }
 }
-
 extension PhlogPost: Identifiable { }
+
+
+extension PhlogPost {
+    func convertDateToMonth() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL, Y"
+        return formatter.string(from: self.dateCreated).capitalized
+    }
+}

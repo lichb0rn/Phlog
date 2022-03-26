@@ -11,7 +11,7 @@ import CoreData
 public class FeedViewModel: NSObject {
     
     private let phlogManager: PhlogManager
-    private var dataSource: UICollectionViewDiffableDataSource<Section, NSManagedObjectID>!
+    private var dataSource: FeedDataSource!
     
     private lazy var fetchedResultController: NSFetchedResultsController<PhlogPost> = {
         let fetchRequest: NSFetchRequest = PhlogPost.fetchRequest()
@@ -33,7 +33,9 @@ public class FeedViewModel: NSObject {
     public init(collectionView: UICollectionView, phlogManager: PhlogManager) {
         self.phlogManager = phlogManager
         super.init()
-        dataSource = makeDataSource(with: collectionView)
+        dataSource = FeedCollectionViewDataSource(collectionView: collectionView,
+                                                  controller: fetchedResultController,
+                                                  configure: configureCell(_:with:))
     }
     
     public func fetch() {
@@ -43,9 +45,9 @@ public class FeedViewModel: NSObject {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-
     
-    func configureCell(_ cell: FeedCell, with phlog: PhlogPost) {
+    
+    private func configureCell(_ cell: FeedCell, with phlog: PhlogPost) {
         
         guard let thumbnailData = phlog.pictureThumbnail,
               let thumbnail = UIImage(data: thumbnailData) else {
@@ -61,37 +63,14 @@ public class FeedViewModel: NSObject {
     }
 }
 
-
-// --------------------------------------
-// MARK: - DataSource
-// --------------------------------------
-extension FeedViewModel {
-    private enum Section: Int {
-        case main = 0
-    }
-    
-    private func makeDataSource(with collectionView: UICollectionView) -> UICollectionViewDiffableDataSource<Section, NSManagedObjectID> {
-        return UICollectionViewDiffableDataSource(collectionView: collectionView) {
-            [unowned self] collectionView, indexPath, managedObjectID in
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCell.identifier, for: indexPath) as! FeedCell
-            if let phlog = try? fetchedResultController.managedObjectContext.existingObject(with: managedObjectID) as? PhlogPost {
-                self.configureCell(cell, with: phlog)
-            }
-            return cell
-        }
-    }
-}
-
-
 extension FeedViewModel: NSFetchedResultsControllerDelegate {
     
     public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                            didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         
-        var snapshot = snapshot as NSDiffableDataSourceSnapshot<Section, NSManagedObjectID>
-        
-        let existingSnapshot = dataSource.snapshot() as NSDiffableDataSourceSnapshot<Section, NSManagedObjectID>
+        var snapshot = snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+
+        let existingSnapshot = dataSource.snapshot() as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
         let reloadIDs: [NSManagedObjectID] = existingSnapshot.itemIdentifiers.compactMap { objectID in
             guard let currentIndex = existingSnapshot.indexOfItem(objectID),
                   let index = snapshot.indexOfItem(objectID),
@@ -100,17 +79,15 @@ extension FeedViewModel: NSFetchedResultsControllerDelegate {
                 return nil
             }
 
-            guard let existingObject = try? fetchedResultController.managedObjectContext.existingObject(with: objectID),
-                    existingObject.isUpdated else { return nil }
-            
+            guard let existingObject = try? controller.managedObjectContext.existingObject(with: objectID),
+                  existingObject.isUpdated else { return nil }
+
             return objectID
         }
-        snapshot.appendSections([Section.main])
+
         snapshot.reloadItems(reloadIDs)
         
         let shouldAnimate:Bool = !snapshot.itemIdentifiers.isEmpty
         dataSource.apply(snapshot, animatingDifferences: shouldAnimate)
     }
 }
-
-

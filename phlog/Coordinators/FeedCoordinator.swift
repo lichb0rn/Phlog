@@ -32,8 +32,7 @@ public class FeedCoordinator: Coordinator {
 extension FeedCoordinator: FeedViewControllerDelegate {
     public func didSelectPhlog(_ viewController: FeedViewContoller, phlog: PhlogPost) {
         let modalNavigationRouter = ModalNavigationRouter(parentViewController: toPresentable())
-        let phlogViewModel = PhlogDetailViewModel(phlog: phlog, phlogManager: phlogManager)
-        let coordinator = DetailCoordinator(router: modalNavigationRouter, viewModel: phlogViewModel)
+        let coordinator = DetailCoordinator(router: modalNavigationRouter, phlogManager: phlogManager, phlog: phlog)
         self.startChild(coordinator, animated: true, completion: nil)
     }
 }

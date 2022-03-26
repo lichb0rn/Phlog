@@ -14,7 +14,7 @@ public class CoreDataStack {
     
     private init() {}
     
-    public var managedContext: NSManagedObjectContext {
+    public var mainContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
@@ -29,10 +29,10 @@ public class CoreDataStack {
     }()
     
     // MARK: - Core Data Saving support
-    public func saveContext () {
-        if managedContext.hasChanges {
+    public func saveMainContext () {
+        if mainContext.hasChanges {
             do {
-                try managedContext.save()
+                try mainContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -40,20 +40,19 @@ public class CoreDataStack {
         }
     }
 
-    
+
+    // Brutal reset for testing purposes
     public func reset() {
         let storeContainer = persistentContainer.persistentStoreCoordinator
         
         for store in storeContainer.persistentStores {
-            print("Removing \(store.debugDescription)")
             try! storeContainer.destroyPersistentStore(
                 at: store.url!,
                 ofType: store.type,
                 options: nil
             )
         }
-        
-        print("Recreating store")
+    
         persistentContainer = NSPersistentContainer(name: "phlog")
         
         persistentContainer.loadPersistentStores { (storeDescription, error) in

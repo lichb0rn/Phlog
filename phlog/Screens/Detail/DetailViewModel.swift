@@ -8,8 +8,9 @@
 import UIKit
 import Photos
 import Combine
+import CoreData
 
-public class PhlogDetailViewModel: ObservableObject {
+public class DetailViewModel {
     
     public var imageViewSize: CGSize = .zero
     
@@ -20,13 +21,24 @@ public class PhlogDetailViewModel: ObservableObject {
     }
     
     private let imageManager: PHImageManager = PHImageManager.default()
-    private let phlog: PhlogPost
     private let phlogManager: PhlogManager
+    private var phlog: PhlogPost
     
-    public init(phlog: PhlogPost, phlogManager: PhlogManager) {
-        self.phlog = phlog
-        self.body = phlog.body
+    // Something has to retain child context because NSManagedObject doesn't
+    private var context: NSManagedObjectContext!
+
+    
+    public init(phlogManager: PhlogManager, phlog: PhlogPost? = nil) {
         self.phlogManager = phlogManager
+        self.context = phlogManager.childContext()
+        
+        if let phlog = phlog {
+            let objectId = phlog.objectID
+            self.phlog = context.object(with: objectId) as! PhlogPost
+            self.body = phlog.body
+        } else {
+            self.phlog = phlogManager.newPhlog(context: context)
+        }
     }
     
 }
@@ -34,7 +46,7 @@ public class PhlogDetailViewModel: ObservableObject {
 // --------------------------------------
 // MARK: - Data operations
 // --------------------------------------
-extension PhlogDetailViewModel {
+extension DetailViewModel {
     
     public func fetchImage() {
         if let pictureData = phlog.picture?.pictureData {
@@ -47,6 +59,8 @@ extension PhlogDetailViewModel {
     private func fetchImageFromGallery(with size: CGSize) {
         if let localIdentifier = phlog.picture?.pictureIdentifier,
            let asset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil).lastObject {
+            
+            
             
             let requestOptions = PHImageRequestOptions()
             requestOptions.deliveryMode = .opportunistic
@@ -67,19 +81,29 @@ extension PhlogDetailViewModel {
     public func save() {
         phlog.picture?.pictureData = self.image?.pngData()
         
+        // This view model doesn't know a particular cell size
+        // So, we consider it's about 1/3 of the screen width
+        // And calculation thumbnail for the feed accordingly
+        // Not the best idea
         let thumbSize = thumbnailSize(from: image?.size ?? CGSize.zero)
         phlog.pictureThumbnail = self.image?.resizeTo(size: thumbSize)?.jpegData(compressionQuality: 0.8)
         
         phlog.body = body
-        phlogManager.saveChanges()
+        phlogManager.saveChanges(context)
     }
     
     private func thumbnailSize(from imageSize: CGSize) -> CGSize {
-        let availableWidth = UIScreen.main.bounds.width
-        // We don't know the exact feed cell size, so we approximate it
-        let approximateCellWidth = availableWidth / 3
-        let thumbSize = CGSize(width: approximateCellWidth, height: approximateCellWidth)
-        return thumbSize
+        let approximateCellWidth = UIScreen.main.bounds.width / 3
+        let desiredSize = CGSize(width: approximateCellWidth, height: approximateCellWidth)
+        
+        let widthScale = desiredSize.width / imageSize.width
+        let heightScale = desiredSize.height / imageSize.height
+        
+        let scaleFactor = min(widthScale, heightScale)
+        let scaledSize = CGSize(width: imageSize.width * scaleFactor, 
+                                height: imageSize.height * scaleFactor)
+        
+        return scaledSize
     }
     
     public func remove() {
@@ -88,9 +112,13 @@ extension PhlogDetailViewModel {
         phlogManager.remove(phlog)
     }
     
-    public func updatePhoto(with localIdentifier: String) {
-        // Here we just updating the view model, we are not saving until "save" button is pressed
-        phlog.picture?.pictureIdentifier = localIdentifier
+    public func updatePhoto(with photoIdentifier: String) {
+        if let picture = phlog.picture {
+            picture.pictureIdentifier = photoIdentifier
+        } else {
+            let newPicture = phlogManager.newPicture(with: photoIdentifier, context: context)
+            phlog.picture = newPicture
+        }
         fetchImageFromGallery(with: imageViewSize)
     }
 }

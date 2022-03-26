@@ -13,24 +13,26 @@ public class DetailCoordinator: Coordinator {
     
     public var childCoordinators: [Coordinator] = []
     public var router: Router
-    private let viewModel: PhlogDetailViewModel
+    private var viewModel: DetailViewModel?
+    private let phlogManager: PhlogManager
     private let viewController = DetailViewController.instantiate(from: .detail)
     
     
-    public init(router: Router, viewModel: PhlogDetailViewModel) {
+    public init(router: Router, phlogManager: PhlogManager, phlog: PhlogPost? = nil) {
         self.router = router
-        self.viewModel = viewModel
+        self.phlogManager = phlogManager
+        self.viewModel = DetailViewModel(phlogManager: phlogManager, phlog: phlog)
     }
     
     public func start(animated: Bool, completion: (() -> Void)?) {
         viewController.viewModel = viewModel
         viewController.delegate = self
-        addSaveButton()
+        addMenu()
         router.present(viewController, animated: animated, completion: completion)
         viewController.navigationController?.isNavigationBarHidden = false
     }
     
-    private func addSaveButton() {
+    private func addMenu() {
         let menuImage = UIImage(systemName: "circle.grid.2x1.fill")
         
         let barButtonMenu = UIMenu(title: "", children: [
@@ -72,7 +74,7 @@ extension DetailCoordinator: DetailViewControllerDelegate {
 extension DetailCoordinator: ImagePickerCoordinatorDelegate {
 
     public func didChoosePhoto(_ asset: String) {
-        viewModel.updatePhoto(with: asset)
+        viewModel?.updatePhoto(with: asset)
     }
 
 }

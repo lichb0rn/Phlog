@@ -17,6 +17,7 @@
 		894046D727744C7800C144CE /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D627744C7800C144CE /* Feed.storyboard */; };
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
+		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
@@ -40,10 +41,9 @@
 		89ACDA0A275B3384009373E1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACDA09275B3384009373E1 /* CoreDataStack.swift */; };
 		89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B700FA27C4AB3D00E66961 /* PhlogPost.swift */; };
 		89B765E7278967250091DD91 /* PhlogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B765E6278967250091DD91 /* PhlogManager.swift */; };
-		89BA4D332794500E001A72F6 /* PhlogDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA4D322794500E001A72F6 /* PhlogDetailViewModel.swift */; };
+		89BA4D332794500E001A72F6 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA4D322794500E001A72F6 /* DetailViewModel.swift */; };
 		89BE6A392770818600C7ABC7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6A382770818600C7ABC7 /* Router.swift */; };
 		89BE6A3B2770859300C7ABC7 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6A3A2770859300C7ABC7 /* MainRouter.swift */; };
-		89C48F302765120600C0408B /* ActionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C48F2F2765120600C0408B /* ActionCoordinator.swift */; };
 		89C49656276A516D00BF8D30 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C49654276A516D00BF8D30 /* FeedCell.swift */; };
 		89C49657276A516D00BF8D30 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C49655276A516D00BF8D30 /* FeedCell.xib */; };
 		89E192E327745397004CC365 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E192E227745397004CC365 /* NavigationRouter.swift */; };
@@ -83,6 +83,7 @@
 		894046D627744C7800C144CE /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
+		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -110,10 +111,9 @@
 		89ACDA09275B3384009373E1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		89B700FA27C4AB3D00E66961 /* PhlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPost.swift; sourceTree = "<group>"; };
 		89B765E6278967250091DD91 /* PhlogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogManager.swift; sourceTree = "<group>"; };
-		89BA4D322794500E001A72F6 /* PhlogDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogDetailViewModel.swift; sourceTree = "<group>"; };
+		89BA4D322794500E001A72F6 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		89BE6A382770818600C7ABC7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		89BE6A3A2770859300C7ABC7 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
-		89C48F2F2765120600C0408B /* ActionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCoordinator.swift; sourceTree = "<group>"; };
 		89C49654276A516D00BF8D30 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		89C49655276A516D00BF8D30 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		89E192E227745397004CC365 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
@@ -152,6 +152,7 @@
 		8932AFFD275CCCA800B5242D /* Feed tab */ = {
 			isa = PBXGroup;
 			children = (
+				895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */,
 				89ACD9D6275B3237009373E1 /* FeedViewController.swift */,
 				8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */,
 				89E192E527745873004CC365 /* Views */,
@@ -211,7 +212,6 @@
 		898C386927A520A800286F49 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				89C48F2F2765120600C0408B /* ActionCoordinator.swift */,
 				89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */,
 				8932B000275CCCCD00B5242D /* FeedCoordinator.swift */,
 				89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */,
@@ -339,9 +339,9 @@
 			isa = PBXGroup;
 			children = (
 				894046D627744C7800C144CE /* Feed.storyboard */,
-				89EA3AFA276B74C80084D041 /* FeedLayout.swift */,
 				89C49654276A516D00BF8D30 /* FeedCell.swift */,
 				89C49655276A516D00BF8D30 /* FeedCell.xib */,
+				89EA3AFA276B74C80084D041 /* FeedLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				89E5FB3D278C6D9100D40A47 /* Detail.storyboard */,
-				89BA4D322794500E001A72F6 /* PhlogDetailViewModel.swift */,
+				89BA4D322794500E001A72F6 /* DetailViewModel.swift */,
 				898C386727A5199B00286F49 /* DetailView.storyboard */,
 				89E5FB40278C7D2600D40A47 /* DetailViewController.swift */,
 			);
@@ -510,7 +510,6 @@
 				89757209275C875A00E1E6AF /* TabController.swift in Sources */,
 				89A17FB127788715001F5718 /* ModalNavigationRouter.swift in Sources */,
 				89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */,
-				89C48F302765120600C0408B /* ActionCoordinator.swift in Sources */,
 				89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */,
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,
 				89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */,
@@ -520,12 +519,13 @@
 				89ACD9D7275B3237009373E1 /* FeedViewController.swift in Sources */,
 				89ACD9D3275B3237009373E1 /* AppDelegate.swift in Sources */,
 				896289182792BAEC002C26E3 /* Presentable.swift in Sources */,
-				89BA4D332794500E001A72F6 /* PhlogDetailViewModel.swift in Sources */,
+				89BA4D332794500E001A72F6 /* DetailViewModel.swift in Sources */,
 				89ACD9D5275B3237009373E1 /* SceneDelegate.swift in Sources */,
 				899B4D8627C9FDC800CE3CFA /* UIImage+Extension.swift in Sources */,
 				89BE6A392770818600C7ABC7 /* Router.swift in Sources */,
 				89BE6A3B2770859300C7ABC7 /* MainRouter.swift in Sources */,
 				8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */,
+				895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */,
 				899986DA276906D50023229A /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
