@@ -7,13 +7,9 @@
 
 import UIKit
 
-<<<<<<< HEAD
-class ActionButton: UIButton {
 
-=======
 public class ActionButton: UIButton {
     
->>>>>>> main
     public var plusColor: UIColor = UIColor.white
     public var fillColor: UIColor = UIColor(named: "shadedBlack")!
     public var borderColor: UIColor = UIColor.darkGray
@@ -32,62 +28,8 @@ public class ActionButton: UIButton {
         super.init(coder: coder)
         
         makeShadow()
-<<<<<<< HEAD
     }
     
-    
-    public override func draw(_ rect: CGRect) {
-        
-        // Shape
-        shape.frame = self.bounds
-        shape.lineWidth = Constants.shapeLineWidth
-        shape.fillColor = fillColor.cgColor
-        shape.strokeColor = borderColor.cgColor
-        let center = CGPoint(x: halfWidth, y: halfHeight)
-        let radius: CGFloat = min(bounds.width, bounds.height)
-        
-        let startAngle: CGFloat = 2 * .pi / 3
-        let endAngle: CGFloat = .pi / 3
-        
-        shape.path = UIBezierPath(arcCenter: center,
-                                  radius: radius / 2 - Constants.shapeLineWidth,
-                                  startAngle: startAngle,
-                                  endAngle: endAngle,
-                                  clockwise: true).cgPath
-        
-        self.layer.addSublayer(shape)
-        
-        // Plus sign
-        let plusWidth = min(bounds.width, bounds.height) * Constants.plusSizeFactor
-        
-        let plusPath = UIBezierPath()
-        plusPath.lineWidth = Constants.plusLineWidth
-        
-        plusPath.move(to: CGPoint(x: halfWidth - plusWidth + Constants.pixelShift,
-                                  y: halfHeight + Constants.pixelShift))
-        
-        plusPath.addLine(to: CGPoint(x: halfWidth + plusWidth + Constants.pixelShift,
-                                     y: halfHeight + Constants.pixelShift))
-        
-        plusPath.move(to: CGPoint(x: halfWidth + Constants.pixelShift,
-                                  y: halfHeight - plusWidth + Constants.pixelShift))
-        
-        plusPath.addLine(to: CGPoint(x: halfWidth + Constants.pixelShift,
-                                     y: halfHeight + plusWidth + Constants.pixelShift))
-        
-        plus.path = plusPath.cgPath
-        plus.strokeColor = plusColor.cgColor
-        plus.lineWidth = Constants.plusLineWidth
-        plus.borderColor = UIColor.cyan.cgColor
-        plus.borderWidth = 1
-        self.layer.addSublayer(plus)
-        
-        addTarget(self, action: #selector(onTap), for: .touchUpInside)
-        
-    }
-    
-=======
-    }
 
     
     public override func draw(_ rect: CGRect) {
@@ -140,7 +82,6 @@ public class ActionButton: UIButton {
         
     }
     
->>>>>>> main
     @objc private func onTap() {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 2, options: .curveEaseInOut) {
             self.transform = CGAffineTransform(translationX: 0, y: -10)
@@ -149,11 +90,6 @@ public class ActionButton: UIButton {
             self.transform = .identity
             self.shape.fillColor = self.fillColor.cgColor
         }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> main
     }
     
     private func makeShadow() {
