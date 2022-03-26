@@ -15,7 +15,7 @@ protocol Storyboarded {
 
 public enum StoryboardType: String {
     case feed = "Feed"
-    case settings = "Settings"
+    case journal = "Journal"
     case main = "Main"
     case detail = "DetailView"
 }

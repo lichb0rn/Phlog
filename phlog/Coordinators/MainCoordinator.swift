@@ -16,7 +16,7 @@ public class MainCoordinator: NSObject, Coordinator {
     
     private var tabBarController = TabController.instantiate(from: .main)
     private lazy var feedCoordinator = makeFeedCoordinator()
-    private lazy var settingsCoordinator = makeSettingsCoordinator()
+    private lazy var settingsCoordinator = makeJournalDetailCoordinator()
     private var tabs: [UIViewController: Coordinator] = [:]
     
     // --------------------------------------
@@ -62,7 +62,7 @@ extension MainCoordinator {
     
     private func makeFeedCoordinator() -> FeedCoordinator {
         let navigationController = UINavigationController()
-        navigationController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "photo.on.rectangle.fill"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "Your Feed", image: UIImage(systemName: "photo.on.rectangle.fill"), tag: 0)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = .white
         let router = NavigationRouter(navigationController: navigationController)
@@ -70,13 +70,13 @@ extension MainCoordinator {
         return coordinator
     }
     
-    private func makeSettingsCoordinator() -> SettingsCoordinator {
+    private func makeJournalDetailCoordinator() -> JournalDetailCoordinator {
         let navigationController = UINavigationController()
-        navigationController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
+        navigationController.tabBarItem = UITabBarItem(title: "Your Journal", image: UIImage(systemName: "text.book.closed.fill"), tag: 1)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = .white
         let router = NavigationRouter(navigationController: navigationController)
-        let coordinator = SettingsCoordinator(router: router, phlogManager: phlogManager)
+        let coordinator = JournalDetailCoordinator(router: router, phlogManager: phlogManager)
         return coordinator
     }
 }

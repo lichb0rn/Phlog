@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */; };
 		8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */; };
+		892A941F27EEF4910019A09E /* Journal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892A941E27EEF4910019A09E /* Journal.storyboard */; };
 		8931D128275CF3A8009284D8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931D127275CF3A8009284D8 /* Coordinator.swift */; };
 		8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B000275CCCCD00B5242D /* FeedCoordinator.swift */; };
-		8932B003275CCCED00B5242D /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B002275CCCED00B5242D /* SettingsCoordinator.swift */; };
+		8932B003275CCCED00B5242D /* JournalDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B002275CCCED00B5242D /* JournalDetailCoordinator.swift */; };
 		893ABCD127646CD8003A2387 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893ABCD027646CD8003A2387 /* ModalViewController.swift */; };
 		894046D727744C7800C144CE /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D627744C7800C144CE /* Feed.storyboard */; };
-		894046D927744CDB00C144CE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D827744CDB00C144CE /* Settings.storyboard */; };
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
 		8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */; };
-		89765A9C275BA0700076E2A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89765A9B275BA0700076E2A1 /* SettingsViewController.swift */; };
+		89765A9C275BA0700076E2A1 /* JournalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89765A9B275BA0700076E2A1 /* JournalDetailViewController.swift */; };
 		898C386827A5199B00286F49 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898C386727A5199B00286F49 /* DetailView.storyboard */; };
 		898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */; };
 		899986DA276906D50023229A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899986D9276906D50023229A /* ActionButton.swift */; };
@@ -75,19 +75,19 @@
 		8907D28927CE1B5F00DFA463 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		892A941E27EEF4910019A09E /* Journal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Journal.storyboard; sourceTree = "<group>"; };
 		8931D127275CF3A8009284D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8932B000275CCCCD00B5242D /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
-		8932B002275CCCED00B5242D /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		8932B002275CCCED00B5242D /* JournalDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailCoordinator.swift; sourceTree = "<group>"; };
 		893ABCD027646CD8003A2387 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		894046D627744C7800C144CE /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
-		894046D827744CDB00C144CE /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardedProtocol.swift; sourceTree = "<group>"; };
-		89765A9B275BA0700076E2A1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		89765A9B275BA0700076E2A1 /* JournalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailViewController.swift; sourceTree = "<group>"; };
 		898C386727A5199B00286F49 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
 		899986D9276906D50023229A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -149,23 +149,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8932AFFD275CCCA800B5242D /* Feed */ = {
+		8932AFFD275CCCA800B5242D /* Feed tab */ = {
 			isa = PBXGroup;
 			children = (
 				89ACD9D6275B3237009373E1 /* FeedViewController.swift */,
 				8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */,
 				89E192E527745873004CC365 /* Views */,
 			);
-			path = Feed;
+			path = "Feed tab";
 			sourceTree = "<group>";
 		};
-		8932AFFE275CCCAE00B5242D /* Settings */ = {
+		8932AFFE275CCCAE00B5242D /* Your journal tab */ = {
 			isa = PBXGroup;
 			children = (
-				894046D827744CDB00C144CE /* Settings.storyboard */,
-				89765A9B275BA0700076E2A1 /* SettingsViewController.swift */,
+				89765A9B275BA0700076E2A1 /* JournalDetailViewController.swift */,
+				892A941E27EEF4910019A09E /* Journal.storyboard */,
 			);
-			path = Settings;
+			path = "Your journal tab";
 			sourceTree = "<group>";
 		};
 		893ABCCF27646BD9003A2387 /* Components */ = {
@@ -201,8 +201,8 @@
 			children = (
 				893ABCCF27646BD9003A2387 /* Components */,
 				89E5FB3F278C7D0D00D40A47 /* Detail */,
-				8932AFFD275CCCA800B5242D /* Feed */,
-				8932AFFE275CCCAE00B5242D /* Settings */,
+				8932AFFD275CCCA800B5242D /* Feed tab */,
+				8932AFFE275CCCAE00B5242D /* Your journal tab */,
 				8975720A275C881100E1E6AF /* TabBar */,
 			);
 			path = Screens;
@@ -215,7 +215,7 @@
 				89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */,
 				8932B000275CCCCD00B5242D /* FeedCoordinator.swift */,
 				89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */,
-				8932B002275CCCED00B5242D /* SettingsCoordinator.swift */,
+				8932B002275CCCED00B5242D /* JournalDetailCoordinator.swift */,
 				898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -468,7 +468,7 @@
 				89ACD9DA275B3237009373E1 /* Main.storyboard in Resources */,
 				898C386827A5199B00286F49 /* DetailView.storyboard in Resources */,
 				89C49657276A516D00BF8D30 /* FeedCell.xib in Resources */,
-				894046D927744CDB00C144CE /* Settings.storyboard in Resources */,
+				892A941F27EEF4910019A09E /* Journal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +504,7 @@
 				89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */,
 				898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */,
 				89E192E327745397004CC365 /* NavigationRouter.swift in Sources */,
-				8932B003275CCCED00B5242D /* SettingsCoordinator.swift in Sources */,
+				8932B003275CCCED00B5242D /* JournalDetailCoordinator.swift in Sources */,
 				894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */,
 				89E4F73D276E0F21004D5FBE /* MainCoordinator.swift in Sources */,
 				89757209275C875A00E1E6AF /* TabController.swift in Sources */,
@@ -515,7 +515,7 @@
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,
 				89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */,
 				890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */,
-				89765A9C275BA0700076E2A1 /* SettingsViewController.swift in Sources */,
+				89765A9C275BA0700076E2A1 /* JournalDetailViewController.swift in Sources */,
 				89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */,
 				89ACD9D7275B3237009373E1 /* FeedViewController.swift in Sources */,
 				89ACD9D3275B3237009373E1 /* AppDelegate.swift in Sources */,

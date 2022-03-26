@@ -51,7 +51,6 @@ public class TabController: UITabBarController {
     @objc private func actionButtonTapped() {
         
         // Presenting the library
-        actionButton.rotateImage()
         coordinator?.tabViewActionButtonTapped(self)
     }
 }

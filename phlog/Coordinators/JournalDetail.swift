@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-public class SettingsCoordinator: Coordinator {
+public class JournalDetailCoordinator: Coordinator {
     
     public var childCoordinators: [Coordinator] = []
     public var router: Router
     private var phlogManager: PhlogManager
     
-    private lazy var settingsViewController = SettingsViewController.instantiate(from: .settings)
+    private lazy var journalDetailViewController = JournalDetailViewController.instantiate(from: .settings)
     
     public init(router: Router, phlogManager: PhlogManager) {
         self.router = router
@@ -23,14 +23,14 @@ public class SettingsCoordinator: Coordinator {
     
     
     public func start(animated: Bool, completion: (() -> Void)?) {
-        settingsViewController.delegate = self
-        router.present(settingsViewController, animated: animated, completion: completion)
+        journalDetailViewController.delegate = self
+        router.present(journalDetailViewController, animated: animated, completion: completion)
     }
     
 }
 
 
-extension SettingsCoordinator: SettingsViewControllerDelegate {
+extension JournalDetailCoordinator: JournalDetailDelegate {
     
     public func changedLayout(to layoutIndex: Int) {
         print(layoutIndex)
