@@ -10,7 +10,7 @@ import UIKit
 
 public class MainCoordinator: NSObject, Coordinator {
     
-    private let phlogManager = PhlogManager(db: CoreDataStack.shared)
+//    private let phlogManager = PhlogManager(db: CoreDataStack.shared)
     public var childCoordinators: [Coordinator] = []
     public var router: Router
     
@@ -19,11 +19,17 @@ public class MainCoordinator: NSObject, Coordinator {
     private lazy var settingsCoordinator = makeJournalDetailCoordinator()
     private var tabs: [UIViewController: Coordinator] = [:]
     
+    private let phlogManager: PhlogManager
+    
     // --------------------------------------
     // MARK: - Lifecycle
     // --------------------------------------
     public init(router: Router) {
         self.router = router
+        
+        let coreDataStack = CoreDataStack()
+        self.phlogManager = PhlogManager(db: coreDataStack)
+        
         super.init()
     }
     

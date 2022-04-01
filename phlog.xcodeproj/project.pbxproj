@@ -18,6 +18,7 @@
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
 		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
+		8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753127F6CF6B00845657 /* MockCoreDataStack.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
@@ -35,7 +36,6 @@
 		89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9DB275B3237009373E1 /* phlog.xcdatamodeld */; };
 		89ACD9DF275B3239009373E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89ACD9DE275B3239009373E1 /* Assets.xcassets */; };
 		89ACD9E2275B3239009373E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89ACD9E0275B3239009373E1 /* LaunchScreen.storyboard */; };
-		89ACD9ED275B3239009373E1 /* phlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9EC275B3239009373E1 /* phlogTests.swift */; };
 		89ACD9F7275B3239009373E1 /* phlogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9F6275B3239009373E1 /* phlogUITests.swift */; };
 		89ACD9F9275B3239009373E1 /* phlogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */; };
 		89ACDA0A275B3384009373E1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACDA09275B3384009373E1 /* CoreDataStack.swift */; };
@@ -87,6 +87,7 @@
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
 		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		8960753127F6CF6B00845657 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		89ACD9E1275B3239009373E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89ACD9E3275B3239009373E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89ACD9E8275B3239009373E1 /* phlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89ACD9EC275B3239009373E1 /* phlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogTests.swift; sourceTree = "<group>"; };
 		89ACD9F2275B3239009373E1 /* phlogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phlogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ACD9F6275B3239009373E1 /* phlogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogUITests.swift; sourceTree = "<group>"; };
 		89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -196,6 +196,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8960752F27F6CF1A00845657 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				8960753127F6CF6B00845657 /* MockCoreDataStack.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		8960753027F6CF1F00845657 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		8975720A275C881100E1E6AF /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,7 +284,8 @@
 		89ACD9EB275B3239009373E1 /* phlogTests */ = {
 			isa = PBXGroup;
 			children = (
-				89ACD9EC275B3239009373E1 /* phlogTests.swift */,
+				8960753027F6CF1F00845657 /* Managers */,
+				8960752F27F6CF1A00845657 /* Mock */,
 			);
 			path = phlogTests;
 			sourceTree = "<group>";
@@ -445,6 +461,7 @@
 					};
 					89ACD9E7275B3239009373E1 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1330;
 						TestTargetID = 89ACD9CE275B3237009373E1;
 					};
 					89ACD9F1275B3239009373E1 = {
@@ -554,7 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89ACD9ED275B3239009373E1 /* phlogTests.swift in Sources */,
+				8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +808,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54893W6U2X;
@@ -805,6 +823,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mtaleiko.phlogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/phlog.app/phlog";
@@ -816,6 +835,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54893W6U2X;

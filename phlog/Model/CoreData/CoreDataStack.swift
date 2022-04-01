@@ -9,10 +9,7 @@ import Foundation
 import CoreData
 
 public class CoreDataStack {
-    
-    public static let shared = CoreDataStack()
-    
-    private init() {}
+    public init() { }
     
     public var mainContext: NSManagedObjectContext {
         return persistentContainer.viewContext
