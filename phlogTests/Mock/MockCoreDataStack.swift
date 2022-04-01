@@ -10,8 +10,20 @@ import CoreData
 
 class MockCoreDataStack: CoreDataStack {
     
-//    override init() {
-//        super.init()
-//        
-//    }
+    override init() {
+        super.init()
+        
+        let storeDescription = NSPersistentStoreDescription()
+        storeDescription.type = NSInMemoryStoreType
+        
+        let container = NSPersistentContainer(name: CoreDataStack.modelName)
+        container.persistentStoreDescriptions = [storeDescription]
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        
+        persistentContainer = container
+    }
 }

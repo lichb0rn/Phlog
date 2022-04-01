@@ -9,14 +9,17 @@ import Foundation
 import CoreData
 
 public class CoreDataStack {
+    
+    public static let modelName = "phlog"
+    
     public init() { }
     
     public var mainContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
-    private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "phlog")
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: CoreDataStack.modelName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
