@@ -46,6 +46,9 @@
 		89BE6A3B2770859300C7ABC7 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6A3A2770859300C7ABC7 /* MainRouter.swift */; };
 		89C49656276A516D00BF8D30 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C49654276A516D00BF8D30 /* FeedCell.swift */; };
 		89C49657276A516D00BF8D30 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C49655276A516D00BF8D30 /* FeedCell.xib */; };
+		89D0CE8A27F02D2500DA09EE /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0CE8927F02D2500DA09EE /* JournalViewModel.swift */; };
+		89D0CE8C27F02E6200DA09EE /* JournalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0CE8B27F02E6200DA09EE /* JournalManager.swift */; };
+		89D0CE9127F058A000DA09EE /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0CE9027F058A000DA09EE /* UIImageView+Extension.swift */; };
 		89E192E327745397004CC365 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E192E227745397004CC365 /* NavigationRouter.swift */; };
 		89E4F73D276E0F21004D5FBE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */; };
 		89E5FB3E278C6D9100D40A47 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E5FB3D278C6D9100D40A47 /* Detail.storyboard */; };
@@ -116,6 +119,9 @@
 		89BE6A3A2770859300C7ABC7 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		89C49654276A516D00BF8D30 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		89C49655276A516D00BF8D30 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		89D0CE8927F02D2500DA09EE /* JournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
+		89D0CE8B27F02E6200DA09EE /* JournalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalManager.swift; sourceTree = "<group>"; };
+		89D0CE9027F058A000DA09EE /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		89E192E227745397004CC365 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		89E5FB3D278C6D9100D40A47 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 			children = (
 				89765A9B275BA0700076E2A1 /* JournalDetailViewController.swift */,
 				892A941E27EEF4910019A09E /* Journal.storyboard */,
+				89D0CE8927F02D2500DA09EE /* JournalViewModel.swift */,
 			);
 			path = "Your journal tab";
 			sourceTree = "<group>";
@@ -184,6 +191,7 @@
 				890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */,
 				894175E0279C474E0071A6B4 /* UITextView+Extension.swift */,
 				899B4D8527C9FDC800CE3CFA /* UIImage+Extension.swift */,
+				89D0CE9027F058A000DA09EE /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 				89ACDA05275B3263009373E1 /* App */,
 				898C386927A520A800286F49 /* Coordinators */,
 				893CC5B727A3B8C4007E9DBA /* Extensions */,
+				89D0CE8D27F045E200DA09EE /* Managers */,
 				89ACDA07275B32EC009373E1 /* Model */,
 				89AD913F2765DFE40042C367 /* Protocols */,
 				89ACDA06275B3282009373E1 /* Resources */,
@@ -297,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				89ACDA08275B336E009373E1 /* CoreData */,
-				89B765E6278967250091DD91 /* PhlogManager.swift */,
 				89472E3627C7CE03005543F7 /* PhlogPicture.swift */,
 				89B700FA27C4AB3D00E66961 /* PhlogPost.swift */,
 			);
@@ -333,6 +341,15 @@
 				89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */,
 			);
 			path = Routers;
+			sourceTree = "<group>";
+		};
+		89D0CE8D27F045E200DA09EE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				89B765E6278967250091DD91 /* PhlogManager.swift */,
+				89D0CE8B27F02E6200DA09EE /* JournalManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		89E192E527745873004CC365 /* Views */ = {
@@ -500,6 +517,7 @@
 				8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */,
 				8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */,
 				8931D128275CF3A8009284D8 /* Coordinator.swift in Sources */,
+				89D0CE8A27F02D2500DA09EE /* JournalViewModel.swift in Sources */,
 				89C49656276A516D00BF8D30 /* FeedCell.swift in Sources */,
 				89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */,
 				898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */,
@@ -508,7 +526,9 @@
 				894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */,
 				89E4F73D276E0F21004D5FBE /* MainCoordinator.swift in Sources */,
 				89757209275C875A00E1E6AF /* TabController.swift in Sources */,
+				89D0CE9127F058A000DA09EE /* UIImageView+Extension.swift in Sources */,
 				89A17FB127788715001F5718 /* ModalNavigationRouter.swift in Sources */,
+				89D0CE8C27F02E6200DA09EE /* JournalManager.swift in Sources */,
 				89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */,
 				89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */,
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,

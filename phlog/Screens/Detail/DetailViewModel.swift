@@ -11,8 +11,8 @@ import Combine
 import CoreData
 
 public class DetailViewModel {
-    
-    public var imageViewSize: CGSize = .zero
+
+    var imageView: UIImageView?
     
     @Published public private(set) var image: UIImage? = nil
     @Published public var body: String? = nil
@@ -20,13 +20,12 @@ public class DetailViewModel {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
     }
     
-    private let imageManager: PHImageManager = PHImageManager.default()
     private let phlogManager: PhlogManager
     private var phlog: PhlogPost
     
     // Something has to retain child context because NSManagedObject doesn't
     private var context: NSManagedObjectContext!
-
+    
     
     public init(phlogManager: PhlogManager, phlog: PhlogPost? = nil) {
         self.phlogManager = phlogManager
@@ -40,7 +39,6 @@ public class DetailViewModel {
             self.phlog = phlogManager.newPhlog(context: context)
         }
     }
-    
 }
 
 // --------------------------------------
@@ -52,29 +50,18 @@ extension DetailViewModel {
         if let pictureData = phlog.picture?.pictureData {
             image = UIImage(data: pictureData)
         } else {
-            fetchImageFromGallery(with: imageViewSize)
+            fetchImageFromGallery()
         }
     }
     
-    private func fetchImageFromGallery(with size: CGSize) {
+    private func fetchImageFromGallery() {
         if let localIdentifier = phlog.picture?.pictureIdentifier,
-           let asset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil).lastObject {
+           let asset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil).firstObject {
             
-            
-            
-            let requestOptions = PHImageRequestOptions()
-            requestOptions.deliveryMode = .opportunistic
-            requestOptions.isNetworkAccessAllowed = true
-            requestOptions.resizeMode = .exact
-            requestOptions.version = .current
-            
-            imageManager.requestImage(for: asset,
-                                         targetSize: size,
-                                         contentMode: .aspectFill,
-                                         options: requestOptions) { image, _ in
-                
-                self.image = image
-            }
+            self.imageView?.fetchImageAsset(asset, targetSize: self.imageView!.frame.size, completion: { [weak self] _ in
+                guard let self = self else { return }
+                self.imageView?.contentMode = .scaleAspectFill
+            })
         }
     }
     
@@ -100,7 +87,7 @@ extension DetailViewModel {
         let heightScale = desiredSize.height / imageSize.height
         
         let scaleFactor = min(widthScale, heightScale)
-        let scaledSize = CGSize(width: imageSize.width * scaleFactor, 
+        let scaledSize = CGSize(width: imageSize.width * scaleFactor,
                                 height: imageSize.height * scaleFactor)
         
         return scaledSize
@@ -119,6 +106,6 @@ extension DetailViewModel {
             let newPicture = phlogManager.newPicture(with: photoIdentifier, context: context)
             phlog.picture = newPicture
         }
-        fetchImageFromGallery(with: imageViewSize)
+        fetchImageFromGallery()
     }
 }

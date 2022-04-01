@@ -18,7 +18,6 @@ public class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
-    private var cancellable = Set<AnyCancellable>()
     public var viewModel: DetailViewModel?
     public weak var delegate: DetailViewControllerDelegate?
     
@@ -66,25 +65,11 @@ public class DetailViewController: UIViewController {
         // It's either calling this method manually or subclassing UITextView
         textView.textViewDidChange(NSNotification(name: UITextView.textDidChangeNotification,
                                                   object: textView))
-    
         textView.textPublisher
             .assign(to: &viewModel.$body)
         
-        viewModel.imageViewSize = imageView.frame.size
+        viewModel.imageView = imageView
         viewModel.fetchImage()
-        viewModel.$image
-            .sink(receiveValue: { [weak self] image in
-                if let image = image {
-                    self?.imageView.image = image
-                    self?.imageView.contentMode = .scaleAspectFill
-                } else {
-            
-                    // TODO: Make and image with description "tap to add image"
-                    self?.imageView.image = UIImage(systemName: "camera")
-                    self?.imageView.contentMode = .scaleAspectFit
-                }
-            })
-            .store(in: &cancellable)
     }
     
     private func roundImageCorners() {

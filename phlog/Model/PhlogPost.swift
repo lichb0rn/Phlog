@@ -17,17 +17,13 @@ public class PhlogPost: NSManagedObject {
     @NSManaged public var id: UUID
     @NSManaged public var pictureThumbnail: Data?
     @NSManaged public var picture: PhlogPicture?
-    @NSManaged public var dateString: String
     
     
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         dateCreated = Date()
-        dateString = convertDateToMonth()
         id = UUID()
     }
-    
-    
     
 }
 
