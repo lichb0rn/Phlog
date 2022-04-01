@@ -9,12 +9,21 @@ import XCTest
 @testable import phlog
 
 class JournalManagerTests: XCTestCase {
+    
+    var sut: JournalManager!
+    var coreData: MockCoreDataStack!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        
+        coreData = MockCoreDataStack()
+        sut = JournalManager(db: coreData)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        coreData = nil
+        try super.tearDownWithError()
     }
+    
 }

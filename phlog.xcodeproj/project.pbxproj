@@ -20,6 +20,7 @@
 		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
 		8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753127F6CF6B00845657 /* MockCoreDataStack.swift */; };
 		8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753327F6D54500845657 /* JournalManagerTests.swift */; };
+		8960753627F6D62500845657 /* PhlogManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753527F6D62500845657 /* PhlogManagerTests.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
@@ -90,6 +91,7 @@
 		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		8960753127F6CF6B00845657 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		8960753327F6D54500845657 /* JournalManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalManagerTests.swift; sourceTree = "<group>"; };
+		8960753527F6D62500845657 /* PhlogManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogManagerTests.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				8960753327F6D54500845657 /* JournalManagerTests.swift */,
+				8960753527F6D62500845657 /* PhlogManagerTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 			files = (
 				8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */,
 				8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */,
+				8960753627F6D62500845657 /* PhlogManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
