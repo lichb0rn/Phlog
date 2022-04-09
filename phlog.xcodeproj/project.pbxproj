@@ -38,8 +38,6 @@
 		89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9DB275B3237009373E1 /* phlog.xcdatamodeld */; };
 		89ACD9DF275B3239009373E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89ACD9DE275B3239009373E1 /* Assets.xcassets */; };
 		89ACD9E2275B3239009373E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89ACD9E0275B3239009373E1 /* LaunchScreen.storyboard */; };
-		89ACD9F7275B3239009373E1 /* phlogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9F6275B3239009373E1 /* phlogUITests.swift */; };
-		89ACD9F9275B3239009373E1 /* phlogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */; };
 		89ACDA0A275B3384009373E1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACDA09275B3384009373E1 /* CoreDataStack.swift */; };
 		89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B700FA27C4AB3D00E66961 /* PhlogPost.swift */; };
 		89B765E7278967250091DD91 /* PhlogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B765E6278967250091DD91 /* PhlogManager.swift */; };
@@ -57,17 +55,12 @@
 		89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5FB40278C7D2600D40A47 /* DetailViewController.swift */; };
 		89E5FB43278C7F8100D40A47 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */; };
 		89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EA3AFA276B74C80084D041 /* FeedLayout.swift */; };
+		89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC09682801599F00095B11 /* FeedViewControllerTests.swift */; };
+		89FC096F28015F0D00095B11 /* TestImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC096E28015F0D00095B11 /* TestImages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		89ACD9E9275B3239009373E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 89ACD9C7275B3237009373E1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 89ACD9CE275B3237009373E1;
-			remoteInfo = phlog;
-		};
-		89ACD9F3275B3239009373E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 89ACD9C7275B3237009373E1 /* Project object */;
 			proxyType = 1;
@@ -112,9 +105,6 @@
 		89ACD9E1275B3239009373E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89ACD9E3275B3239009373E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89ACD9E8275B3239009373E1 /* phlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89ACD9F2275B3239009373E1 /* phlogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phlogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89ACD9F6275B3239009373E1 /* phlogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogUITests.swift; sourceTree = "<group>"; };
-		89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		89ACDA09275B3384009373E1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		89B700FA27C4AB3D00E66961 /* PhlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPost.swift; sourceTree = "<group>"; };
 		89B765E6278967250091DD91 /* PhlogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogManager.swift; sourceTree = "<group>"; };
@@ -132,6 +122,8 @@
 		89E5FB40278C7D2600D40A47 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		89EA3AFA276B74C80084D041 /* FeedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLayout.swift; sourceTree = "<group>"; };
+		89FC09682801599F00095B11 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
+		89FC096E28015F0D00095B11 /* TestImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,13 +135,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		89ACD9E5275B3239009373E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		89ACD9EF275B3239009373E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -200,12 +185,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8960752F27F6CF1A00845657 /* Mock */ = {
+		8960752F27F6CF1A00845657 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				8960753127F6CF6B00845657 /* MockCoreDataStack.swift */,
 			);
-			path = Mock;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8960753027F6CF1F00845657 /* Managers */ = {
@@ -266,7 +251,6 @@
 			children = (
 				89ACD9CF275B3237009373E1 /* phlog.app */,
 				89ACD9E8275B3239009373E1 /* phlogTests.xctest */,
-				89ACD9F2275B3239009373E1 /* phlogUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -290,8 +274,9 @@
 		89ACD9EB275B3239009373E1 /* phlogTests */ = {
 			isa = PBXGroup;
 			children = (
-				8960753027F6CF1F00845657 /* Managers */,
-				8960752F27F6CF1A00845657 /* Mock */,
+				89FC096D28015ED800095B11 /* Cases */,
+				89FC096C28015EBC00095B11 /* Helpers */,
+				8960752F27F6CF1A00845657 /* Mocks */,
 			);
 			path = phlogTests;
 			sourceTree = "<group>";
@@ -299,8 +284,6 @@
 		89ACD9F5275B3239009373E1 /* phlogUITests */ = {
 			isa = PBXGroup;
 			children = (
-				89ACD9F6275B3239009373E1 /* phlogUITests.swift */,
-				89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */,
 			);
 			path = phlogUITests;
 			sourceTree = "<group>";
@@ -396,6 +379,31 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		89FC09672801598C00095B11 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89FC09682801599F00095B11 /* FeedViewControllerTests.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		89FC096C28015EBC00095B11 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				89FC096E28015F0D00095B11 /* TestImages.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		89FC096D28015ED800095B11 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				89FC09672801598C00095B11 /* View Controllers */,
+				8960753027F6CF1F00845657 /* Managers */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -434,24 +442,6 @@
 			productReference = 89ACD9E8275B3239009373E1 /* phlogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		89ACD9F1275B3239009373E1 /* phlogUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 89ACDA02275B3239009373E1 /* Build configuration list for PBXNativeTarget "phlogUITests" */;
-			buildPhases = (
-				89ACD9EE275B3239009373E1 /* Sources */,
-				89ACD9EF275B3239009373E1 /* Frameworks */,
-				89ACD9F0275B3239009373E1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				89ACD9F4275B3239009373E1 /* PBXTargetDependency */,
-			);
-			name = phlogUITests;
-			productName = phlogUITests;
-			productReference = 89ACD9F2275B3239009373E1 /* phlogUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -468,10 +458,6 @@
 					89ACD9E7275B3239009373E1 = {
 						CreatedOnToolsVersion = 13.1;
 						LastSwiftMigration = 1330;
-						TestTargetID = 89ACD9CE275B3237009373E1;
-					};
-					89ACD9F1275B3239009373E1 = {
-						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 89ACD9CE275B3237009373E1;
 					};
 				};
@@ -491,7 +477,6 @@
 			targets = (
 				89ACD9CE275B3237009373E1 /* phlog */,
 				89ACD9E7275B3239009373E1 /* phlogTests */,
-				89ACD9F1275B3239009373E1 /* phlogUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -513,13 +498,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		89ACD9E6275B3239009373E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		89ACD9F0275B3239009373E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -579,16 +557,9 @@
 			files = (
 				8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */,
 				8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */,
+				89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */,
 				8960753627F6D62500845657 /* PhlogManagerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		89ACD9EE275B3239009373E1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				89ACD9F7275B3239009373E1 /* phlogUITests.swift in Sources */,
-				89ACD9F9275B3239009373E1 /* phlogUITestsLaunchTests.swift in Sources */,
+				89FC096F28015F0D00095B11 /* TestImages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,11 +570,6 @@
 			isa = PBXTargetDependency;
 			target = 89ACD9CE275B3237009373E1 /* phlog */;
 			targetProxy = 89ACD9E9275B3239009373E1 /* PBXContainerItemProxy */;
-		};
-		89ACD9F4275B3239009373E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 89ACD9CE275B3237009373E1 /* phlog */;
-			targetProxy = 89ACD9F3275B3239009373E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -864,52 +830,6 @@
 			};
 			name = Release;
 		};
-		89ACDA03275B3239009373E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54893W6U2X;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtaleiko.phlogUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = phlog;
-			};
-			name = Debug;
-		};
-		89ACDA04275B3239009373E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54893W6U2X;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtaleiko.phlogUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = phlog;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -936,15 +856,6 @@
 			buildConfigurations = (
 				89ACDA00275B3239009373E1 /* Debug */,
 				89ACDA01275B3239009373E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		89ACDA02275B3239009373E1 /* Build configuration list for PBXNativeTarget "phlogUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				89ACDA03275B3239009373E1 /* Debug */,
-				89ACDA04275B3239009373E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
