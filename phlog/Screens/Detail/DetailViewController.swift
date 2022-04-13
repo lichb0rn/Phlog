@@ -24,23 +24,9 @@ public class DetailViewController: UIViewController {
     // --------------------------------------
     // MARK: - Lifecycle
     // --------------------------------------
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        // We don't want the tab bar on this screen
-        hidesBottomBarWhenPushed = true
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        hidesBottomBarWhenPushed = true
-    }
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        hidesBottomBarWhenPushed = true
         
         // We don't want large title for this particular view controler since
         // it display the date in title
@@ -52,7 +38,7 @@ public class DetailViewController: UIViewController {
             configureView(with: viewModel)
         }
     }
-    
+
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         roundImageCorners()

@@ -8,6 +8,15 @@
 import Foundation
 import CoreData
 
+protocol PhlogService {
+    func newPhlog(context: NSManagedObjectContext) -> PhlogPost
+    func newPicture(withID id: String, context: NSManagedObjectContext) -> PhlogPicture
+    func remove(_ phlog: PhlogPost)
+    
+    func saveChanges(context: NSManagedObjectContext)
+    func makeChildContext() -> NSManagedObjectContext
+}
+
 public class PhlogManager {
     
     private let dbStack: CoreDataStack
@@ -24,26 +33,14 @@ public class PhlogManager {
         let newPhlog = PhlogPost(context: context)
         return newPhlog
     }
-
-    public func newPicture(with pictureIdentifier: String, context: NSManagedObjectContext) -> PhlogPicture {
+    
+    public func newPicture(withID id: String, context: NSManagedObjectContext) -> PhlogPicture {
         let picture = PhlogPicture(context: context)
-        picture.pictureIdentifier = pictureIdentifier
+        picture.pictureIdentifier = id
         return picture
     }
     
-    public func saveChanges(_ context: NSManagedObjectContext? = nil) {
-        if let context = context, context.hasChanges {
-            context.perform {
-                do {
-                    try context.save()
-                } catch let error as NSError {
-                    fatalError("Could not save context: \(error), \(error.userInfo)")
-                }
-                self.dbStack.saveMainContext()
-            }
-        }
-    }
-    
+
     
     public func remove(_ phlog: PhlogPost) {
         let entityToRemove = mainContext.object(with: phlog.objectID)
@@ -58,16 +55,30 @@ public class PhlogManager {
 
 
 extension PhlogManager {
+    public func saveChanges(context: NSManagedObjectContext) {
+        guard context.hasChanges else { return }
+        
+        context.perform {
+            do {
+                try context.save()
+            } catch let error as NSError {
+                fatalError("Could not save context: \(error), \(error.userInfo)")
+            }
+            self.dbStack.saveMainContext()
+        }
+    }
     
-    public func childContext() -> NSManagedObjectContext {
+    public func makeChildContext() -> NSManagedObjectContext {
         let childMOC = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         childMOC.parent = mainContext
         return childMOC
     }
     
-    public func childContext(for parent: NSManagedObjectContext) -> NSManagedObjectContext {
+    public func makeChildContext(for parent: NSManagedObjectContext) -> NSManagedObjectContext {
         let childMOC = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         childMOC.parent = parent
         return childMOC
     }
 }
+
+extension PhlogManager: PhlogService {}

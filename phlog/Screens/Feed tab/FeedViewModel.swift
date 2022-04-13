@@ -51,10 +51,12 @@ public class FeedViewModel: NSObject {
         
         guard let thumbnailData = phlog.pictureThumbnail,
               let thumbnail = UIImage(data: thumbnailData) else {
-                  return
-              }
+            return
+        }
         
         cell.imageView.image = thumbnail
+        print(cell.imageView.bounds.width)
+        print(cell.imageView.bounds.height)
     }
     
     public func phlog(for indexPath: IndexPath) -> PhlogPost {
@@ -69,7 +71,7 @@ extension FeedViewModel: NSFetchedResultsControllerDelegate {
                            didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         
         var snapshot = snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
-
+        
         let existingSnapshot = dataSource.snapshot() as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
         let reloadIDs: [NSManagedObjectID] = existingSnapshot.itemIdentifiers.compactMap { objectID in
             guard let currentIndex = existingSnapshot.indexOfItem(objectID),
@@ -78,13 +80,13 @@ extension FeedViewModel: NSFetchedResultsControllerDelegate {
             else {
                 return nil
             }
-
+            
             guard let existingObject = try? controller.managedObjectContext.existingObject(with: objectID),
                   existingObject.isUpdated else { return nil }
-
+            
             return objectID
         }
-
+        
         snapshot.reloadItems(reloadIDs)
         
         let shouldAnimate:Bool = !snapshot.itemIdentifiers.isEmpty

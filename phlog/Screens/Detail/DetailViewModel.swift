@@ -11,10 +11,10 @@ import Combine
 import CoreData
 
 public class DetailViewModel {
-
+    
     var imageView: UIImageView?
     
-    @Published public private(set) var image: UIImage? = nil
+    //    public private(set) var image: UIImage? = nil
     @Published public var body: String? = nil
     public var date: String {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
@@ -29,7 +29,7 @@ public class DetailViewModel {
     
     public init(phlogManager: PhlogManager, phlog: PhlogPost? = nil) {
         self.phlogManager = phlogManager
-        self.context = phlogManager.childContext()
+        self.context = phlogManager.makeChildContext()
         
         if let phlog = phlog {
             let objectId = phlog.objectID
@@ -48,7 +48,7 @@ extension DetailViewModel {
     
     public func fetchImage() {
         if let pictureData = phlog.picture?.pictureData {
-            image = UIImage(data: pictureData)
+            imageView?.image = UIImage(data: pictureData)
         } else {
             fetchImageFromGallery()
         }
@@ -65,18 +65,30 @@ extension DetailViewModel {
         }
     }
     
+    public func updatePhoto(with photoIdentifier: String) {
+        if let picture = phlog.picture {
+            picture.pictureIdentifier = photoIdentifier
+        } else {
+            let newPicture = phlogManager.newPicture(withID: photoIdentifier, context: context)
+            phlog.picture = newPicture
+        }
+        fetchImageFromGallery()
+    }
+    
     public func save() {
-        phlog.picture?.pictureData = self.image?.pngData()
+        phlog.picture?.pictureData = self.imageView?.image?.pngData()
         
         // This view model doesn't know a particular cell size
         // So, we consider it's about 1/3 of the screen width
         // And calculation thumbnail for the feed accordingly
         // Not the best idea
-        let thumbSize = thumbnailSize(from: image?.size ?? CGSize.zero)
-        phlog.pictureThumbnail = self.image?.resizeTo(size: thumbSize)?.jpegData(compressionQuality: 0.8)
+        let thumbSize = thumbnailSize(from: self.imageView?.image?.size ?? CGSize.zero)
+        print(thumbSize)
+//        phlog.pictureThumbnail = self.imageView?.image?.resizeTo(size: thumbSize)?.jpegData(compressionQuality: 0.8)
+        phlog.pictureThumbnail = imageView?.image?.preparingThumbnail(of: thumbSize)?.pngData()
         
         phlog.body = body
-        phlogManager.saveChanges(context)
+        phlogManager.saveChanges(context: context)
     }
     
     private func thumbnailSize(from imageSize: CGSize) -> CGSize {
@@ -94,18 +106,8 @@ extension DetailViewModel {
     }
     
     public func remove() {
-        image = nil
-        body = nil
         phlogManager.remove(phlog)
     }
     
-    public func updatePhoto(with photoIdentifier: String) {
-        if let picture = phlog.picture {
-            picture.pictureIdentifier = photoIdentifier
-        } else {
-            let newPicture = phlogManager.newPicture(with: photoIdentifier, context: context)
-            phlog.picture = newPicture
-        }
-        fetchImageFromGallery()
-    }
+    
 }

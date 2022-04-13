@@ -34,18 +34,28 @@ class FeedViewControllerTests: XCTestCase {
         sut.viewDidAppear(false)
     }
     
+    func whenBackendHasOnePhlog() {
+        let image = UIImage(systemName: testingSymbols[0])!
+        let context = phlogManager.mainContext
+        let phlog = phlogManager.newPhlog(context: context)
+        phlog.picture = PhlogPicture(context: context)
+        phlog.picture?.pictureData = image.pngData()
+        phlog.pictureThumbnail = image.resizeTo(size: CGSize(width: 40, height: 40))?.pngData()
+        phlogManager.saveChanges(context: context)
+    }
+    
     func whenBackendHasPhlogs() {
         let images = testingImages()
         let context = phlogManager.mainContext
         images.forEach { key, value in
             let phlog = phlogManager.newPhlog(context: context)
-            let picture = phlogManager.newPicture(with: key, context: context)
+            let picture = phlogManager.newPicture(withID: key, context: context)
             picture.pictureData = value.pngData()
             phlog.picture = picture
             phlog.pictureThumbnail = value.resizeTo(size: CGSize(width: 40, height: 40))?.pngData()
             
         }
-        phlogManager.saveChanges()
+        phlogManager.saveChanges(context: context)
     }
     
     
@@ -63,6 +73,6 @@ class FeedViewControllerTests: XCTestCase {
         whenDidAppear()
         
         let itemsInCollectionView = sut.collectionView.numberOfItems(inSection: 0)
-        XCTAssertNotEqual(itemsInCollectionView, 0)
+        XCTAssertEqual(itemsInCollectionView, testingSymbols.count)
     }
 }
