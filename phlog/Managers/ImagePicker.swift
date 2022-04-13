@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import Photos
 
-protocol ImageManagerProtocol: AnyObject {
-//    func fetch(
+protocol ImagePicker: AnyObject {
+    var permissionsDeclined: Bool { get }
+    
+    func requestImage(
 }

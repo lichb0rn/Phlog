@@ -55,8 +55,6 @@ public class FeedViewModel: NSObject {
         }
         
         cell.imageView.image = thumbnail
-        print(cell.imageView.bounds.width)
-        print(cell.imageView.bounds.height)
     }
     
     public func phlog(for indexPath: IndexPath) -> PhlogPost {

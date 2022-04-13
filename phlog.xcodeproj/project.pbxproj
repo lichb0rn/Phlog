@@ -17,12 +17,13 @@
 		894046D727744C7800C144CE /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D627744C7800C144CE /* Feed.storyboard */; };
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
-		8947A5732802B42300336DB7 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8947A5722802B42300336DB7 /* ImageManager.swift */; };
+		8947A5732802B42300336DB7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8947A5722802B42300336DB7 /* ImagePicker.swift */; };
 		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
 		8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753127F6CF6B00845657 /* MockCoreDataStack.swift */; };
 		8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753327F6D54500845657 /* JournalManagerTests.swift */; };
 		8960753627F6D62500845657 /* PhlogManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753527F6D62500845657 /* PhlogManagerTests.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
+		89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
 		8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */; };
@@ -84,12 +85,13 @@
 		894046D627744C7800C144CE /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
-		8947A5722802B42300336DB7 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		8947A5722802B42300336DB7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		8960753127F6CF6B00845657 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		8960753327F6D54500845657 /* JournalManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalManagerTests.swift; sourceTree = "<group>"; };
 		8960753527F6D62500845657 /* PhlogManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogManagerTests.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinatorTests.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardedProtocol.swift; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 				8960753527F6D62500845657 /* PhlogManagerTests.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		89674A0F2806994E00BB0CB6 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		8975720A275C881100E1E6AF /* TabBar */ = {
@@ -359,7 +369,7 @@
 			children = (
 				89B765E6278967250091DD91 /* PhlogManager.swift */,
 				89D0CE8B27F02E6200DA09EE /* JournalManager.swift */,
-				8947A5722802B42300336DB7 /* ImageManager.swift */,
+				8947A5722802B42300336DB7 /* ImagePicker.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -406,6 +416,7 @@
 		89FC096D28015ED800095B11 /* Cases */ = {
 			isa = PBXGroup;
 			children = (
+				89674A0F2806994E00BB0CB6 /* Coordinators */,
 				89FC09702801666100095B11 /* View Models */,
 				89FC09672801598C00095B11 /* View Controllers */,
 				8960753027F6CF1F00845657 /* Managers */,
@@ -549,7 +560,7 @@
 				89D0CE8C27F02E6200DA09EE /* JournalManager.swift in Sources */,
 				89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */,
 				89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */,
-				8947A5732802B42300336DB7 /* ImageManager.swift in Sources */,
+				8947A5732802B42300336DB7 /* ImagePicker.swift in Sources */,
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,
 				89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */,
 				890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */,
@@ -577,6 +588,7 @@
 				8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */,
 				89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */,
 				8960753627F6D62500845657 /* PhlogManagerTests.swift in Sources */,
+				89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */,
 				89FC097628016F4200095B11 /* DetailViewControllerTests.swift in Sources */,
 				89FC096F28015F0D00095B11 /* TestImages.swift in Sources */,
 				89FC097428016AB700095B11 /* DetailViewModelTests.swift in Sources */,
