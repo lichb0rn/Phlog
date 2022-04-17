@@ -43,6 +43,10 @@ class ImagePickerCoordinatorTests: XCTestCase {
         wait(for: [expectetation], timeout: 0.1)
     }
     
+    func test_whenPickerCalled_assetIsSet() {
+        
+    }
+    
     func test_authorizationStatus_Requested() {
         let exp = expectation(description: "authorization status not checked")
         
@@ -54,7 +58,7 @@ class ImagePickerCoordinatorTests: XCTestCase {
     }
     
     func test_whenNotAuthorized_pickerNotStarted() {
-        let authorized: Bool
+//        let authorized: Bool
         
         sut.checkAuthorizationStatus { authorized in
             

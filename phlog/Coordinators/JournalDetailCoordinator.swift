@@ -12,32 +12,18 @@ public class JournalDetailCoordinator: Coordinator {
     
     public var childCoordinators: [Coordinator] = []
     public var router: Router
-    private var phlogManager: PhlogManager
+    private var phlogProvider: PhlogService
     
     private lazy var journalDetailViewController = JournalDetailViewController.instantiate(from: .journal)
     
-    public init(router: Router, phlogManager: PhlogManager) {
+    public init(router: Router, phlogProvider: PhlogService) {
         self.router = router
-        self.phlogManager = phlogManager
+        self.phlogProvider = phlogProvider
     }
     
     
     public func start(animated: Bool, completion: (() -> Void)?) {
-        journalDetailViewController.delegate = self
         router.present(journalDetailViewController, animated: animated, completion: completion)
-    }
-    
-}
-
-
-extension JournalDetailCoordinator: JournalDetailDelegate {
-    
-    public func changedLayout(to layoutIndex: Int) {
-        print(layoutIndex)
-    }
-    
-    public func removeRequested() {
-        phlogManager.removeAll()
     }
     
 }

@@ -14,14 +14,15 @@
 		8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B000275CCCCD00B5242D /* FeedCoordinator.swift */; };
 		8932B003275CCCED00B5242D /* JournalDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B002275CCCED00B5242D /* JournalDetailCoordinator.swift */; };
 		893ABCD127646CD8003A2387 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893ABCD027646CD8003A2387 /* ModalViewController.swift */; };
+		893FF216280A93C500A08065 /* MockImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FF215280A93C500A08065 /* MockImageProvider.swift */; };
 		894046D727744C7800C144CE /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D627744C7800C144CE /* Feed.storyboard */; };
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
-		8947A5732802B42300336DB7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8947A5722802B42300336DB7 /* ImagePicker.swift */; };
+		8947A5732802B42300336DB7 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8947A5722802B42300336DB7 /* ImageProvider.swift */; };
 		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
 		8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753127F6CF6B00845657 /* MockCoreDataStack.swift */; };
 		8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753327F6D54500845657 /* JournalManagerTests.swift */; };
-		8960753627F6D62500845657 /* PhlogManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753527F6D62500845657 /* PhlogManagerTests.swift */; };
+		8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753527F6D62500845657 /* PhlogProviderTests.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
 		89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
@@ -42,7 +43,7 @@
 		89ACD9E2275B3239009373E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89ACD9E0275B3239009373E1 /* LaunchScreen.storyboard */; };
 		89ACDA0A275B3384009373E1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACDA09275B3384009373E1 /* CoreDataStack.swift */; };
 		89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B700FA27C4AB3D00E66961 /* PhlogPost.swift */; };
-		89B765E7278967250091DD91 /* PhlogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B765E6278967250091DD91 /* PhlogManager.swift */; };
+		89B765E7278967250091DD91 /* PhlogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B765E6278967250091DD91 /* PhlogProvider.swift */; };
 		89BA4D332794500E001A72F6 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA4D322794500E001A72F6 /* DetailViewModel.swift */; };
 		89BE6A392770818600C7ABC7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6A382770818600C7ABC7 /* Router.swift */; };
 		89BE6A3B2770859300C7ABC7 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6A3A2770859300C7ABC7 /* MainRouter.swift */; };
@@ -82,14 +83,15 @@
 		8932B000275CCCCD00B5242D /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		8932B002275CCCED00B5242D /* JournalDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailCoordinator.swift; sourceTree = "<group>"; };
 		893ABCD027646CD8003A2387 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		893FF215280A93C500A08065 /* MockImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageProvider.swift; sourceTree = "<group>"; };
 		894046D627744C7800C144CE /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
-		8947A5722802B42300336DB7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8947A5722802B42300336DB7 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		8960753127F6CF6B00845657 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		8960753327F6D54500845657 /* JournalManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalManagerTests.swift; sourceTree = "<group>"; };
-		8960753527F6D62500845657 /* PhlogManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogManagerTests.swift; sourceTree = "<group>"; };
+		8960753527F6D62500845657 /* PhlogProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogProviderTests.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinatorTests.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		89ACD9E8275B3239009373E1 /* phlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ACDA09275B3384009373E1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		89B700FA27C4AB3D00E66961 /* PhlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPost.swift; sourceTree = "<group>"; };
-		89B765E6278967250091DD91 /* PhlogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogManager.swift; sourceTree = "<group>"; };
+		89B765E6278967250091DD91 /* PhlogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogProvider.swift; sourceTree = "<group>"; };
 		89BA4D322794500E001A72F6 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		89BE6A382770818600C7ABC7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		89BE6A3A2770859300C7ABC7 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				8960753127F6CF6B00845657 /* MockCoreDataStack.swift */,
+				893FF215280A93C500A08065 /* MockImageProvider.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -205,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				8960753327F6D54500845657 /* JournalManagerTests.swift */,
-				8960753527F6D62500845657 /* PhlogManagerTests.swift */,
+				8960753527F6D62500845657 /* PhlogProviderTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -277,7 +280,7 @@
 				89ACDA05275B3263009373E1 /* App */,
 				898C386927A520A800286F49 /* Coordinators */,
 				893CC5B727A3B8C4007E9DBA /* Extensions */,
-				89D0CE8D27F045E200DA09EE /* Managers */,
+				89D0CE8D27F045E200DA09EE /* Providers */,
 				89ACDA07275B32EC009373E1 /* Model */,
 				89AD913F2765DFE40042C367 /* Protocols */,
 				89ACDA06275B3282009373E1 /* Resources */,
@@ -364,14 +367,14 @@
 			path = Routers;
 			sourceTree = "<group>";
 		};
-		89D0CE8D27F045E200DA09EE /* Managers */ = {
+		89D0CE8D27F045E200DA09EE /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				89B765E6278967250091DD91 /* PhlogManager.swift */,
+				89B765E6278967250091DD91 /* PhlogProvider.swift */,
 				89D0CE8B27F02E6200DA09EE /* JournalManager.swift */,
-				8947A5722802B42300336DB7 /* ImagePicker.swift */,
+				8947A5722802B42300336DB7 /* ImageProvider.swift */,
 			);
-			path = Managers;
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		89E192E527745873004CC365 /* Views */ = {
@@ -541,7 +544,7 @@
 			files = (
 				893ABCD127646CD8003A2387 /* ModalViewController.swift in Sources */,
 				89ACDA0A275B3384009373E1 /* CoreDataStack.swift in Sources */,
-				89B765E7278967250091DD91 /* PhlogManager.swift in Sources */,
+				89B765E7278967250091DD91 /* PhlogProvider.swift in Sources */,
 				89E5FB43278C7F8100D40A47 /* DetailCoordinator.swift in Sources */,
 				8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */,
 				8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */,
@@ -560,7 +563,7 @@
 				89D0CE8C27F02E6200DA09EE /* JournalManager.swift in Sources */,
 				89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */,
 				89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */,
-				8947A5732802B42300336DB7 /* ImagePicker.swift in Sources */,
+				8947A5732802B42300336DB7 /* ImageProvider.swift in Sources */,
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,
 				89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */,
 				890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */,
@@ -587,9 +590,10 @@
 				8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */,
 				8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */,
 				89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */,
-				8960753627F6D62500845657 /* PhlogManagerTests.swift in Sources */,
+				8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */,
 				89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */,
 				89FC097628016F4200095B11 /* DetailViewControllerTests.swift in Sources */,
+				893FF216280A93C500A08065 /* MockImageProvider.swift in Sources */,
 				89FC096F28015F0D00095B11 /* TestImages.swift in Sources */,
 				89FC097428016AB700095B11 /* DetailViewModelTests.swift in Sources */,
 			);

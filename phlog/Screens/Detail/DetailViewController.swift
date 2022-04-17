@@ -18,8 +18,10 @@ public class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
-    public var viewModel: DetailViewModel?
+    public var viewModel: DetailViewModel!
     public weak var delegate: DetailViewControllerDelegate?
+    
+    private var cancellable = Set<AnyCancellable>()
     
     // --------------------------------------
     // MARK: - Lifecycle
@@ -34,10 +36,9 @@ public class DetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
-        if let viewModel = viewModel {
-            configureView(with: viewModel)
-        }
+        configureView(with: viewModel)
     }
+    
 
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -54,8 +55,16 @@ public class DetailViewController: UIViewController {
         textView.textPublisher
             .assign(to: &viewModel.$body)
         
-        viewModel.imageView = imageView
-        viewModel.fetchImage()
+        viewModel.$image
+            .sink { [weak self] image in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                    self.imageView.contentMode = .scaleAspectFill
+                }
+            }
+            .store(in: &cancellable)
+        viewModel.fetchImage(targetSize: imageView.frame.size)
     }
     
     private func roundImageCorners() {

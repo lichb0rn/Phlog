@@ -8,18 +8,15 @@
 import UIKit
 import PhotosUI
 
-public protocol ImagePickerCoordinatorDelegate: AnyObject {
-    func didChoosePhoto(_ asset: String)
-}
 
 public class ImagePickerCoordinator: Coordinator {
     
     public var childCoordinators: [Coordinator] = []
     public let router: Router
-    public weak var delegate: ImagePickerCoordinatorDelegate?
-    
-    
     private var picker: PHPickerViewController!
+    
+    public var chosenAsset: String = ""
+
     
     public init(router: Router) {
         self.router = router
@@ -71,8 +68,8 @@ extension ImagePickerCoordinator: PHPickerViewControllerDelegate {
         dismiss(animated: true)
         
         let assetIdentifiers = results.compactMap(\.assetIdentifier)
-        if !assetIdentifiers.isEmpty {
-            delegate?.didChoosePhoto(assetIdentifiers.first!)
+        if let asset = assetIdentifiers.first {
+            chosenAsset = asset
         }
     }
     

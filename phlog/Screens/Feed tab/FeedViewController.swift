@@ -18,7 +18,7 @@ public final class FeedViewContoller: UIViewController {
     // MARK: - Properties
     // --------------------------------------
     public weak var delegate: FeedViewControllerDelegate?
-    public var phlogManager: PhlogManager!
+    public var phlogProvider: PhlogService!
     public var viewModel: FeedViewModel!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -41,7 +41,7 @@ public final class FeedViewContoller: UIViewController {
         FeedCell.registerCellXib(with: collectionView)
         collectionView.delegate = self
         
-        viewModel = FeedViewModel(collectionView: collectionView, phlogManager: phlogManager)
+        viewModel = FeedViewModel(collectionView: collectionView, phlogProvider: phlogProvider)
     }
     
 }

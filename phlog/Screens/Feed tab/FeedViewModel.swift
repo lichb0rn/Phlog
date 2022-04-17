@@ -10,7 +10,7 @@ import CoreData
 
 public class FeedViewModel: NSObject {
     
-    private let phlogManager: PhlogManager
+    private let phlogProvider: PhlogService
     private var dataSource: FeedDataSource!
     
     private lazy var fetchedResultController: NSFetchedResultsController<PhlogPost> = {
@@ -21,7 +21,7 @@ public class FeedViewModel: NSObject {
         
         let fetchedResultController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
-            managedObjectContext: phlogManager.mainContext,
+            managedObjectContext: phlogProvider.mainContext,
             sectionNameKeyPath: nil,
             cacheName: nil)
         
@@ -30,8 +30,8 @@ public class FeedViewModel: NSObject {
     }()
     
     
-    public init(collectionView: UICollectionView, phlogManager: PhlogManager) {
-        self.phlogManager = phlogManager
+    public init(collectionView: UICollectionView, phlogProvider: PhlogService) {
+        self.phlogProvider = phlogProvider
         super.init()
         dataSource = FeedCollectionViewDataSource(collectionView: collectionView,
                                                   controller: fetchedResultController,

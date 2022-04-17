@@ -11,21 +11,21 @@ import XCTest
 class FeedViewControllerTests: XCTestCase {
 
     var sut: FeedViewContoller!
-    var phlogManager: PhlogManager!
+    var phlogProvider: PhlogService!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         
         sut = FeedViewContoller.instantiate(from: .feed)
         let mockCoreData = MockCoreDataStack()
-        phlogManager = PhlogManager(db: mockCoreData)
-        sut.phlogManager = phlogManager
+        phlogProvider = PhlogProvider(db: mockCoreData)
+        sut.phlogProvider = phlogProvider
         sut.loadViewIfNeeded()
     }
 
     override func tearDownWithError() throws {
         sut = nil
-        phlogManager = nil
+        phlogProvider = nil
         try super.tearDownWithError()
     }
 
@@ -36,26 +36,26 @@ class FeedViewControllerTests: XCTestCase {
     
     func whenBackendHasOnePhlog() {
         let image = UIImage(systemName: testingSymbols[0])!
-        let context = phlogManager.mainContext
-        let phlog = phlogManager.newPhlog(context: context)
+        let context = phlogProvider.mainContext
+        let phlog = phlogProvider.newPhlog(context: context)
         phlog.picture = PhlogPicture(context: context)
         phlog.picture?.pictureData = image.pngData()
         phlog.pictureThumbnail = image.resizeTo(size: CGSize(width: 40, height: 40))?.pngData()
-        phlogManager.saveChanges(context: context)
+        phlogProvider.saveChanges(context: context)
     }
     
     func whenBackendHasPhlogs() {
         let images = testingImages()
-        let context = phlogManager.mainContext
+        let context = phlogProvider.mainContext
         images.forEach { key, value in
-            let phlog = phlogManager.newPhlog(context: context)
-            let picture = phlogManager.newPicture(withID: key, context: context)
+            let phlog = phlogProvider.newPhlog(context: context)
+            let picture = phlogProvider.newPicture(withID: key, context: context)
             picture.pictureData = value.pngData()
             phlog.picture = picture
             phlog.pictureThumbnail = value.resizeTo(size: CGSize(width: 40, height: 40))?.pngData()
             
         }
-        phlogManager.saveChanges(context: context)
+        phlogProvider.saveChanges(context: context)
     }
     
     

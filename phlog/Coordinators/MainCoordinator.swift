@@ -19,7 +19,7 @@ public class MainCoordinator: NSObject, Coordinator {
     private lazy var settingsCoordinator = makeJournalDetailCoordinator()
     private var tabs: [UIViewController: Coordinator] = [:]
     
-    private let phlogManager: PhlogManager
+    private let phlogProvider: PhlogService
     
     // --------------------------------------
     // MARK: - Lifecycle
@@ -28,7 +28,7 @@ public class MainCoordinator: NSObject, Coordinator {
         self.router = router
         
         let coreDataStack = CoreDataStack()
-        self.phlogManager = PhlogManager(db: coreDataStack)
+        self.phlogProvider = PhlogProvider(db: coreDataStack)
         
         super.init()
     }
@@ -72,7 +72,7 @@ extension MainCoordinator {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = .white
         let router = NavigationRouter(navigationController: navigationController)
-        let coordinator = FeedCoordinator(router: router, phlogManager: phlogManager)
+        let coordinator = FeedCoordinator(router: router, phlogProvider: phlogProvider)
         return coordinator
     }
     
@@ -82,7 +82,7 @@ extension MainCoordinator {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = .white
         let router = NavigationRouter(navigationController: navigationController)
-        let coordinator = JournalDetailCoordinator(router: router, phlogManager: phlogManager)
+        let coordinator = JournalDetailCoordinator(router: router, phlogProvider: phlogProvider)
         return coordinator
     }
 }
@@ -94,7 +94,7 @@ extension MainCoordinator: TabViewActionControll {
     
     public func tabViewActionButtonTapped(_ viewController: UIViewController) {
         let modalRouter = ModalNavigationRouter(parentViewController: viewController)
-        let coordinator = DetailCoordinator(router: modalRouter, phlogManager: phlogManager)
+        let coordinator = DetailCoordinator(router: modalRouter, phlogProvider: phlogProvider)
         self.startChild(coordinator, animated: true, completion: nil)
     }
 }

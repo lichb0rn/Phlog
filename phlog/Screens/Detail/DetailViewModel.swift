@@ -12,33 +12,36 @@ import CoreData
 
 public class DetailViewModel {
     
-    var imageView: UIImageView?
+    private var targetSize: CGSize = .zero
     
-    //    public private(set) var image: UIImage? = nil
+    @Published public var image: UIImage? = nil
     @Published public var body: String? = nil
     public var date: String {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
     }
     
-    private let phlogManager: PhlogManager
+    private let imageProvider: ImageService
+    private let phlogProvider: PhlogService
     private var phlog: PhlogPost
     
     // Something has to retain child context because NSManagedObject doesn't
     private var context: NSManagedObjectContext!
     
     
-    public init(phlogManager: PhlogManager, phlog: PhlogPost? = nil) {
-        self.phlogManager = phlogManager
-        self.context = phlogManager.makeChildContext()
+    public init(phlogProvider: PhlogService, phlog: PhlogPost? = nil, imageProvider: ImageService = ImageProvider()) {
+        self.phlogProvider = phlogProvider
+        self.imageProvider = imageProvider
+        self.context = phlogProvider.makeChildContext()
         
         if let phlog = phlog {
             let objectId = phlog.objectID
             self.phlog = context.object(with: objectId) as! PhlogPost
             self.body = phlog.body
         } else {
-            self.phlog = phlogManager.newPhlog(context: context)
+            self.phlog = phlogProvider.newPhlog(context: context)
         }
     }
+    
 }
 
 // --------------------------------------
@@ -46,68 +49,52 @@ public class DetailViewModel {
 // --------------------------------------
 extension DetailViewModel {
     
-    public func fetchImage() {
+    func fetchImage(targetSize: CGSize) {
+        self.targetSize = targetSize
         if let pictureData = phlog.picture?.pictureData {
-            imageView?.image = UIImage(data: pictureData)
+            image = UIImage(data: pictureData)
         } else {
-            fetchImageFromGallery()
+            fetchFromLibrary(targetSize: targetSize)
         }
     }
     
-    private func fetchImageFromGallery() {
-        if let localIdentifier = phlog.picture?.pictureIdentifier,
-           let asset = PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifier], options: nil).firstObject {
-            
-            self.imageView?.fetchImageAsset(asset, targetSize: self.imageView!.frame.size, completion: { [weak self] _ in
-                guard let self = self else { return }
-                self.imageView?.contentMode = .scaleAspectFill
-            })
+    private func fetchFromLibrary(targetSize: CGSize) {
+        guard let id = phlog.picture?.pictureIdentifier else { return }
+        let imageData = ImageData(identitifier: id)
+        imageProvider.requestImage(for: imageData, targetSize: targetSize) { [weak self] imgData in
+            self?.image = imgData?.image
         }
     }
+
     
     public func updatePhoto(with photoIdentifier: String) {
         if let picture = phlog.picture {
             picture.pictureIdentifier = photoIdentifier
         } else {
-            let newPicture = phlogManager.newPicture(withID: photoIdentifier, context: context)
+            let newPicture = phlogProvider.newPicture(withID: photoIdentifier, context: context)
             phlog.picture = newPicture
         }
-        fetchImageFromGallery()
+        fetchFromLibrary(targetSize: self.targetSize)
     }
     
     public func save() {
-        phlog.picture?.pictureData = self.imageView?.image?.pngData()
+        phlog.picture?.pictureData = image?.pngData()
         
         // This view model doesn't know a particular cell size
         // So, we consider it's about 1/3 of the screen width
         // And calculation thumbnail for the feed accordingly
         // Not the best idea
-        let thumbSize = thumbnailSize(from: self.imageView?.image?.size ?? CGSize.zero)
-        print(thumbSize)
-//        phlog.pictureThumbnail = self.imageView?.image?.resizeTo(size: thumbSize)?.jpegData(compressionQuality: 0.8)
-        phlog.pictureThumbnail = imageView?.image?.preparingThumbnail(of: thumbSize)?.pngData()
         
-        phlog.body = body
-        phlogManager.saveChanges(context: context)
-    }
-    
-    private func thumbnailSize(from imageSize: CGSize) -> CGSize {
         let approximateCellWidth = UIScreen.main.bounds.width / 3
         let desiredSize = CGSize(width: approximateCellWidth, height: approximateCellWidth)
+        let thumbnailData = image?.thumbnail(for: desiredSize)?.jpegData(compressionQuality: 0.8)
         
-        let widthScale = desiredSize.width / imageSize.width
-        let heightScale = desiredSize.height / imageSize.height
-        
-        let scaleFactor = min(widthScale, heightScale)
-        let scaledSize = CGSize(width: imageSize.width * scaleFactor,
-                                height: imageSize.height * scaleFactor)
-        
-        return scaledSize
+        phlog.pictureThumbnail = thumbnailData
+        phlog.body = body
+        phlogProvider.saveChanges(context: context)
     }
     
     public func remove() {
-        phlogManager.remove(phlog)
+        phlogProvider.remove(phlog)
     }
-    
-    
 }

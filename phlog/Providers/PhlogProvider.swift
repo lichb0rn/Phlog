@@ -8,7 +8,9 @@
 import Foundation
 import CoreData
 
-protocol PhlogService {
+public protocol PhlogService {
+    var mainContext: NSManagedObjectContext { get }
+    
     func newPhlog(context: NSManagedObjectContext) -> PhlogPost
     func newPicture(withID id: String, context: NSManagedObjectContext) -> PhlogPicture
     func remove(_ phlog: PhlogPost)
@@ -17,7 +19,7 @@ protocol PhlogService {
     func makeChildContext() -> NSManagedObjectContext
 }
 
-public class PhlogManager {
+public class PhlogProvider {
     
     private let dbStack: CoreDataStack
     
@@ -40,10 +42,11 @@ public class PhlogManager {
         return picture
     }
     
-
-    
     public func remove(_ phlog: PhlogPost) {
-        let entityToRemove = mainContext.object(with: phlog.objectID)
+        guard let entityToRemove = try? mainContext.existingObject(with: phlog.objectID) else {
+            return
+        }
+        
         mainContext.delete(entityToRemove)
         dbStack.saveMainContext()
     }
@@ -54,7 +57,7 @@ public class PhlogManager {
 }
 
 
-extension PhlogManager {
+extension PhlogProvider {
     public func saveChanges(context: NSManagedObjectContext) {
         guard context.hasChanges else { return }
         
@@ -81,4 +84,4 @@ extension PhlogManager {
     }
 }
 
-extension PhlogManager: PhlogService {}
+extension PhlogProvider: PhlogService {}

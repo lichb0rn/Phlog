@@ -9,9 +9,9 @@ import XCTest
 @testable import phlog
 import CoreData
 
-class PhlogManagerTests: XCTestCase {
+class PhlogProviderTests: XCTestCase {
     
-    var sut: PhlogManager!
+    var sut: PhlogProvider!
     var service: PhlogService {
         sut as PhlogService
     }
@@ -21,7 +21,7 @@ class PhlogManagerTests: XCTestCase {
         try super.setUpWithError()
         
         mockCoreData = MockCoreDataStack()
-        sut = PhlogManager(db: mockCoreData)
+        sut = PhlogProvider(db: mockCoreData)
     }
 
     override func tearDownWithError() throws {
@@ -116,7 +116,8 @@ class PhlogManagerTests: XCTestCase {
         }
     }
     
-    func test_removePhlog() {
+    
+    func test_whenHasObject_removeCalled() {
         let context = sut.mainContext
         let phlog = givenPhlog(context: context)
         let id = phlog.objectID
@@ -125,5 +126,14 @@ class PhlogManagerTests: XCTestCase {
         sut.remove(phlog)
         
         XCTAssertThrowsError(try context.existingObject(with: id))
+    }
+    
+    func test_whenNoChanges_removeCalled() {
+        let childConext = service.makeChildContext()
+        let newPhlog = givenPhlog(context: childConext)
+        
+        sut.remove(newPhlog)
+        
+        XCTAssertFalse(mockCoreData.fatalErrored)
     }
 }

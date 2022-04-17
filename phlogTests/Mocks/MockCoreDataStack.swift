@@ -10,6 +10,10 @@ import CoreData
 
 class MockCoreDataStack: CoreDataStack {
     
+    var fatalErrored: Bool = false
+    var error: Error? = nil
+    var saved: Bool = false
+    
     override init() {
         super.init()
         
@@ -25,5 +29,17 @@ class MockCoreDataStack: CoreDataStack {
         }
         
         persistentContainer = container
+    }
+    
+    override func saveMainContext() {
+        if mainContext.hasChanges {
+            do {
+                try mainContext.save()
+                saved = true
+            } catch {
+                self.error = error
+                fatalErrored = true
+            }
+        }
     }
 }

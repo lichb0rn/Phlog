@@ -11,7 +11,7 @@ import XCTest
 class DetailViewControllerTests: XCTestCase {
     
     var sut: DetailViewController!
-    var phlogManager: PhlogManager!
+    var phlogProvider: PhlogService!
     
     
     override func setUpWithError() throws {
@@ -19,45 +19,45 @@ class DetailViewControllerTests: XCTestCase {
         
         sut = DetailViewController.instantiate(from: .detail)
         let mockCoreData = MockCoreDataStack()
-        phlogManager = PhlogManager(db: mockCoreData)
+        phlogProvider = PhlogProvider(db: mockCoreData)
 
     }
 
     override func tearDownWithError() throws {
         sut = nil
-        phlogManager = nil
+        phlogProvider = nil
         try super.tearDownWithError()
     }
 
-    func whenEmptyViewModelGiven() {
-        let viewModel = DetailViewModel(phlogManager: phlogManager)
+    func givenEmptyViewModel() {
+        let viewModel = DetailViewModel(phlogProvider: phlogProvider)
         sut.viewModel = viewModel
     }
     
-    func whenNonEmptyViewModelGiven() {
-        let phlog = PhlogPost(context: phlogManager.mainContext)
+    func givenNonEmptyViewModel() {
+        let phlog = PhlogPost(context: phlogProvider.mainContext)
         phlog.dateCreated = Date(timeIntervalSince1970: 10000)
-        let picture = phlogManager.newPicture(withID: testingSymbols[0], context: phlogManager.mainContext)
+        let picture = phlogProvider.newPicture(withID: testingSymbols[0], context: phlogProvider.mainContext)
         picture.pictureData = UIImage(systemName: testingSymbols[0])!.pngData()
         phlog.picture = picture
         phlog.body = "Testing Non Empty ViewModel"
             
-        let viewModel = DetailViewModel(phlogManager: phlogManager, phlog: phlog)
+        let viewModel = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog)
         sut.viewModel = viewModel
         
-        phlogManager.saveChanges(context: phlogManager.mainContext)
+        phlogProvider.saveChanges(context: phlogProvider.mainContext)
     }
     
     func whenLoaded() {
         sut.loadViewIfNeeded()
-        sut.viewModel?.fetchImage()
+        sut.viewModel?.fetchImage(targetSize: sut.imageView.frame.size)
     }
     
     func testController_whenEmptyLoaded_hasCorrectOutlets() {
         let currentDate = Date().formatted(date: .long, time: .omitted)
         let placeholder = UIImage(named: "ImagePlaceholder")!.pngData()
         
-        whenEmptyViewModelGiven()
+        givenEmptyViewModel()
         whenLoaded()
         
         XCTAssertEqual(sut.title, currentDate)
@@ -69,18 +69,11 @@ class DetailViewControllerTests: XCTestCase {
     func testController_whenLoadedWithData_hasCorrectOutlets() {
         let dateString = Date(timeIntervalSince1970: 10000).formatted(date: .long, time: .omitted)
         
-        whenNonEmptyViewModelGiven()
+        givenNonEmptyViewModel()
         whenLoaded()
         
         XCTAssertEqual(sut.title, dateString)
         XCTAssertNotNil(sut.imageView.image)
         XCTAssertEqual(sut.textView.text, "Testing Non Empty ViewModel")
-    }
-    
-    
-    func testController_whenUpdated_hasCorrectOutlets() {
-        whenEmptyViewModelGiven()
-        
-    
     }
 }

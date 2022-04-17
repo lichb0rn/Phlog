@@ -14,14 +14,14 @@ public class DetailCoordinator: Coordinator {
     public var childCoordinators: [Coordinator] = []
     public var router: Router
     private var viewModel: DetailViewModel?
-    private let phlogManager: PhlogManager
+    private let phlogProvider: PhlogService
     private let viewController = DetailViewController.instantiate(from: .detail)
     
     
-    public init(router: Router, phlogManager: PhlogManager, phlog: PhlogPost? = nil) {
+    public init(router: Router, phlogProvider: PhlogService, phlog: PhlogPost? = nil) {
         self.router = router
-        self.phlogManager = phlogManager
-        self.viewModel = DetailViewModel(phlogManager: phlogManager, phlog: phlog)
+        self.phlogProvider = phlogProvider
+        self.viewModel = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog)
     }
     
     public func start(animated: Bool, completion: (() -> Void)?) {
@@ -66,15 +66,11 @@ extension DetailCoordinator: DetailViewControllerDelegate {
     
     public func didRequestImage(_ viewController: UIViewController) {
         let imagePickerCoordinator = ImagePickerCoordinator(router: router)
-        imagePickerCoordinator.delegate = self
-        startChild(imagePickerCoordinator, animated: true, completion: nil)
+        startChild(imagePickerCoordinator, animated: true) {
+            [weak self] in
+            guard let self = self else { return }
+            let asset = imagePickerCoordinator.chosenAsset
+            self.viewModel?.updatePhoto(with: asset)
+        }
     }
-}
-
-extension DetailCoordinator: ImagePickerCoordinatorDelegate {
-
-    public func didChoosePhoto(_ asset: String) {
-        viewModel?.updatePhoto(with: asset)
-    }
-
 }
