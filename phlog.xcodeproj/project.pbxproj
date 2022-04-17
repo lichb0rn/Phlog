@@ -24,6 +24,7 @@
 		8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753327F6D54500845657 /* JournalManagerTests.swift */; };
 		8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753527F6D62500845657 /* PhlogProviderTests.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
+		89649548280BF191008A92F1 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89649547280BF191008A92F1 /* XCTestCase+Extension.swift */; };
 		89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
@@ -93,6 +94,7 @@
 		8960753327F6D54500845657 /* JournalManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalManagerTests.swift; sourceTree = "<group>"; };
 		8960753527F6D62500845657 /* PhlogProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogProviderTests.swift; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		89649547280BF191008A92F1 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 		89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinatorTests.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				89FC096E28015F0D00095B11 /* TestImages.swift */,
+				89649547280BF191008A92F1 /* XCTestCase+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */,
 				89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */,
 				8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */,
+				89649548280BF191008A92F1 /* XCTestCase+Extension.swift in Sources */,
 				89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */,
 				89FC097628016F4200095B11 /* DetailViewControllerTests.swift in Sources */,
 				893FF216280A93C500A08065 /* MockImageProvider.swift in Sources */,

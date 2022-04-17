@@ -64,13 +64,13 @@ extension DetailCoordinator: DetailViewControllerDelegate {
         dismiss(animated: true)
     }
     
-    public func didRequestImage(_ viewController: UIViewController) {
+    public func didRequestImage(_ viewController: UIViewController, size: CGSize) {
         let imagePickerCoordinator = ImagePickerCoordinator(router: router)
         startChild(imagePickerCoordinator, animated: true) {
             [weak self] in
             guard let self = self else { return }
             let asset = imagePickerCoordinator.chosenAsset
-            self.viewModel?.updatePhoto(with: asset)
+            self.viewModel?.updatePhoto(with: asset, size: size)
         }
     }
 }

@@ -10,7 +10,7 @@ import Combine
 
 public protocol DetailViewControllerDelegate: AnyObject {
     func didFinish(_ viewController: UIViewController)
-    func didRequestImage(_ viewController: UIViewController)
+    func didRequestImage(_ viewController: UIViewController, size: CGSize)
 }
 
 public class DetailViewController: UIViewController {
@@ -36,16 +36,20 @@ public class DetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
-        configureView(with: viewModel)
+        subscribeTo(viewModel: viewModel)
     }
     
-
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.didAppear()
+    }
+    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         roundImageCorners()
     }
     
-    private func configureView(with viewModel: DetailViewModel) {
+    private func subscribeTo(viewModel: DetailViewModel) {
         title = viewModel.date
         textView.text = viewModel.body
         // Because setting text property programmatically doesn't trigger textViewDidChange
@@ -56,15 +60,14 @@ public class DetailViewController: UIViewController {
             .assign(to: &viewModel.$body)
         
         viewModel.$image
+            .compactMap{ $0 }
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] image in
                 guard let self = self else { return }
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                    self.imageView.contentMode = .scaleAspectFill
-                }
+                self.imageView.image = image
+                self.imageView.contentMode = .scaleAspectFill
             }
             .store(in: &cancellable)
-        viewModel.fetchImage(targetSize: imageView.frame.size)
     }
     
     private func roundImageCorners() {
@@ -76,7 +79,7 @@ public class DetailViewController: UIViewController {
         maskLayer.path = path.cgPath
         imageView.layer.mask = maskLayer
     }
-
+    
     
     @objc public func saveTapped() {
         viewModel?.save()
@@ -89,7 +92,7 @@ public class DetailViewController: UIViewController {
     }
     
     @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
-        delegate?.didRequestImage(self)
+        delegate?.didRequestImage(self, size: imageView.bounds.size)
     }
 }
 

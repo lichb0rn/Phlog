@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreData
+import Combine
 @testable import phlog
 
 class DetailViewModelTests: XCTestCase {
@@ -18,7 +19,9 @@ class DetailViewModelTests: XCTestCase {
     
     var phlog: PhlogPost!
     var targetSize: CGSize = CGSize(width: 100, height: 100)
+    var cancellable: Set<AnyCancellable> = []
     
+    var images = testingImages()
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -29,16 +32,16 @@ class DetailViewModelTests: XCTestCase {
         phlog = phlogProvider.newPhlog(context: phlogProvider.mainContext)
         sut = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog, imageProvider: mockImageProvider)
     }
-
+    
     override func tearDownWithError() throws {
         sut = nil
         phlog = nil
         mockImageProvider = nil
         phlogProvider = nil
         mockCoreData = nil
+        cancellable.removeAll()
         try super.tearDownWithError()
     }
-    
     
     func givenPhlog() {
         let testImage = UIImage(systemName: testingSymbols[0])!.resizeTo(size: targetSize)
@@ -48,31 +51,50 @@ class DetailViewModelTests: XCTestCase {
         phlog.body = "Testing"
     }
     
-    func test_givenPhlog_imageLoadedFromCoreData() {
+    func test_givenPhlog_imageLoadedFromLocalStore() {
         givenPhlog()
+        let expectation = expectation(description: "image not loaded")
+        var img: UIImage?
+        sut.$image
+            .dropFirst()
+            .sink { image in
+                img = image
+                expectation.fulfill()
+            }
+            .store(in: &cancellable)
         
-        sut.fetchImage(targetSize: CGSize(width: 100, height: 100))
+        sut.didAppear()
+        
+        waitForExpectations(timeout: 0.2)
+        XCTAssertNotNil(sut.image)
+        XCTAssertEqual(img?.pngData(), sut.image?.pngData())
+    }
+    
+    func test_givePhlog_textLoadedFromLocaStore() throws {
+        givenPhlog()
+        let expectation = expectation(description: "text not loaded")
+        var vmText: String?
+        sut.$body
+            .dropFirst()
+            .sink { text in
+                vmText = text
+                expectation.fulfill()
+            }
+            .store(in: &cancellable)
+        
+        sut.didAppear()
+        
+        waitForExpectations(timeout: 0.2)
+        XCTAssertNotNil(sut.body)
+        XCTAssertEqual(vmText, sut.body)
+    }
+    
+    func test_requestedImageUpdate() {
+        let img = mockImageProvider.images["trash.slash.circle"]?.resizeTo(size: targetSize)
 
-        XCTAssertNotNil(sut.image)
-    }
-    
-    func test_whenRequested_imageFetchedFormLibrary() {
-        phlog.picture = phlogProvider.newPicture(withID: UUID().uuidString, context: phlogProvider.mainContext)
-        
-        sut.fetchImage(targetSize: targetSize)
+        sut.updatePhoto(with: "trash.slash.circle", size: targetSize)
         
         XCTAssertNotNil(sut.image)
-    }
-    
-    
-    func test_whenUpdate_phlogPictureUpdatedWithNewID() {
-        givenPhlog()
-        let newId = "987654321"
-        
-        sut.updatePhoto(with: newId)
-        sut.save()
-        
-        let picutre = try! phlogProvider.mainContext.existingObject(with: phlog.picture!.objectID) as! PhlogPicture
-        XCTAssertEqual(newId, picutre.pictureIdentifier)
+        XCTAssertEqual(img?.pngData(), sut.image?.pngData())
     }
 }

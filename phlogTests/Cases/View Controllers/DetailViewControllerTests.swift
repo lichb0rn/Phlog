@@ -50,7 +50,7 @@ class DetailViewControllerTests: XCTestCase {
     
     func whenLoaded() {
         sut.loadViewIfNeeded()
-        sut.viewModel?.fetchImage(targetSize: sut.imageView.frame.size)
+        sut.viewModel?.didAppear()
     }
     
     func testController_whenEmptyLoaded_hasCorrectOutlets() {

@@ -14,8 +14,8 @@ public class DetailViewModel {
     
     private var targetSize: CGSize = .zero
     
-    @Published public var image: UIImage? = nil
-    @Published public var body: String? = nil
+    @Published public var image: UIImage?
+    @Published public var body: String?
     public var date: String {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
     }
@@ -41,40 +41,22 @@ public class DetailViewModel {
             self.phlog = phlogProvider.newPhlog(context: context)
         }
     }
-    
 }
 
-// --------------------------------------
-// MARK: - Data operations
-// --------------------------------------
 extension DetailViewModel {
     
-    func fetchImage(targetSize: CGSize) {
-        self.targetSize = targetSize
-        if let pictureData = phlog.picture?.pictureData {
-            image = UIImage(data: pictureData)
-        } else {
-            fetchFromLibrary(targetSize: targetSize)
+    func didAppear() {
+        
+        if let pictureData = phlog.picture?.pictureData, let picture = UIImage(data: pictureData) {
+            image = picture
         }
     }
     
-    private func fetchFromLibrary(targetSize: CGSize) {
-        guard let id = phlog.picture?.pictureIdentifier else { return }
-        let imageData = ImageData(identitifier: id)
-        imageProvider.requestImage(for: imageData, targetSize: targetSize) { [weak self] imgData in
+    public func updatePhoto(with photoIdentifier: String, size: CGSize) {
+        let imageData = ImageData(identitifier: photoIdentifier)
+        imageProvider.requestImage(for: imageData, targetSize: size) { [weak self] imgData in
             self?.image = imgData?.image
         }
-    }
-
-    
-    public func updatePhoto(with photoIdentifier: String) {
-        if let picture = phlog.picture {
-            picture.pictureIdentifier = photoIdentifier
-        } else {
-            let newPicture = phlogProvider.newPicture(withID: photoIdentifier, context: context)
-            phlog.picture = newPicture
-        }
-        fetchFromLibrary(targetSize: self.targetSize)
     }
     
     public func save() {
