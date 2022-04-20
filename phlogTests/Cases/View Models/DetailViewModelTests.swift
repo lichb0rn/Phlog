@@ -72,21 +72,12 @@ class DetailViewModelTests: XCTestCase {
     
     func test_givePhlog_textLoadedFromLocaStore() throws {
         givenPhlog()
-        let expectation = expectation(description: "text not loaded")
-        var vmText: String?
-        sut.$body
-            .dropFirst()
-            .sink { text in
-                vmText = text
-                expectation.fulfill()
-            }
-            .store(in: &cancellable)
+        sut = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog)
         
-        sut.didAppear()
+        let text = sut.body
         
-        waitForExpectations(timeout: 0.2)
         XCTAssertNotNil(sut.body)
-        XCTAssertEqual(vmText, sut.body)
+        XCTAssertEqual(text, "Testing")
     }
     
     func test_requestedImageUpdate() {

@@ -28,7 +28,7 @@ public class DetailViewModel {
     private var context: NSManagedObjectContext!
     
     
-    public init(phlogProvider: PhlogService, phlog: PhlogPost? = nil, imageProvider: ImageService = ImageProvider()) {
+    public init(phlogProvider: PhlogService, phlog: PhlogPost? = nil, imageProvider: ImageService = PHImageManager.default()) {
         self.phlogProvider = phlogProvider
         self.imageProvider = imageProvider
         self.context = phlogProvider.makeChildContext()
@@ -46,10 +46,11 @@ public class DetailViewModel {
 extension DetailViewModel {
     
     func didAppear() {
-        
-        if let pictureData = phlog.picture?.pictureData, let picture = UIImage(data: pictureData) {
-            image = picture
+        guard let pictureData = phlog.picture?.pictureData,
+              let picture = UIImage(data: pictureData)  else {
+            return
         }
+        image = picture
     }
     
     public func updatePhoto(with photoIdentifier: String, size: CGSize) {

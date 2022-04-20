@@ -32,6 +32,7 @@
 		89765A9C275BA0700076E2A1 /* JournalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89765A9B275BA0700076E2A1 /* JournalDetailViewController.swift */; };
 		898C386827A5199B00286F49 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898C386727A5199B00286F49 /* DetailView.storyboard */; };
 		898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */; };
+		8990AE39280FD3B30013EA91 /* PHImageImager+ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */; };
 		899986DA276906D50023229A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899986D9276906D50023229A /* ActionButton.swift */; };
 		899B4D8627C9FDC800CE3CFA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899B4D8527C9FDC800CE3CFA /* UIImage+Extension.swift */; };
 		89A17FB127788715001F5718 /* ModalNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A17FB027788715001F5718 /* ModalNavigationRouter.swift */; };
@@ -102,6 +103,7 @@
 		89765A9B275BA0700076E2A1 /* JournalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailViewController.swift; sourceTree = "<group>"; };
 		898C386727A5199B00286F49 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHImageImager+ImageService.swift"; sourceTree = "<group>"; };
 		899986D9276906D50023229A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		899B4D8527C9FDC800CE3CFA /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		89A17FB027788715001F5718 /* ModalNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationRouter.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				89B765E6278967250091DD91 /* PhlogProvider.swift */,
 				89D0CE8B27F02E6200DA09EE /* JournalManager.swift */,
 				8947A5722802B42300336DB7 /* ImageProvider.swift */,
+				8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */,
 				898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */,
 				89E192E327745397004CC365 /* NavigationRouter.swift in Sources */,
+				8990AE39280FD3B30013EA91 /* PHImageImager+ImageService.swift in Sources */,
 				8932B003275CCCED00B5242D /* JournalDetailCoordinator.swift in Sources */,
 				894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */,
 				89E4F73D276E0F21004D5FBE /* MainCoordinator.swift in Sources */,
