@@ -8,10 +8,23 @@
 import UIKit
 import Photos
 
+
+public struct ImageData {
+    let identitifier: String
+    var image: UIImage?
+}
+
+public protocol ImageService: AnyObject {
+    
+    func requestImage(for asset: ImageData,
+                      targetSize: CGSize,
+                      completion: @escaping (ImageData?) -> Void)
+}
+
+// --------------------------------------
+// MARK: - PHImageManager + ImageService
+// --------------------------------------
 extension PHImageManager: ImageService {
-    public var permissionsDeclined: Bool {
-        return PHPhotoLibrary.authorizationStatus(for: .readWrite) == .denied
-    }
     
     public func requestImage(for asset: ImageData, targetSize: CGSize, completion: @escaping (ImageData?) -> Void) {
         guard let phAsset = PHAsset.fetchAssets(withLocalIdentifiers: [asset.identitifier],

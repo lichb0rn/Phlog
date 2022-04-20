@@ -51,6 +51,9 @@ class DetailViewModelTests: XCTestCase {
         phlog.body = "Testing"
     }
     
+    // --------------------------------------
+    // MARK: - Tests
+    // --------------------------------------
     func test_givenPhlog_imageLoadedFromLocalStore() {
         givenPhlog()
         let expectation = expectation(description: "image not loaded")
@@ -88,4 +91,5 @@ class DetailViewModelTests: XCTestCase {
         XCTAssertNotNil(sut.image)
         XCTAssertEqual(img?.pngData(), sut.image?.pngData())
     }
+    
 }

@@ -48,12 +48,11 @@ public class FeedViewModel: NSObject {
     
     
     private func configureCell(_ cell: FeedCell, with phlog: PhlogPost) {
-        
         guard let thumbnailData = phlog.pictureThumbnail,
               let thumbnail = UIImage(data: thumbnailData) else {
             return
         }
-        
+
         cell.imageView.image = thumbnail
     }
     

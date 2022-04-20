@@ -8,25 +8,25 @@
 import UIKit
 import Combine
 
-public protocol DetailViewControllerDelegate: AnyObject {
+protocol DetailViewControllerDelegate: AnyObject {
     func didFinish(_ viewController: UIViewController)
     func didRequestImage(_ viewController: UIViewController, size: CGSize)
 }
 
-public class DetailViewController: UIViewController {
+class DetailViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
-    public var viewModel: DetailViewModel!
-    public weak var delegate: DetailViewControllerDelegate?
+    var viewModel: DetailViewModel!
+    weak var delegate: DetailViewControllerDelegate?
     
     private var cancellable = Set<AnyCancellable>()
     
     // --------------------------------------
     // MARK: - Lifecycle
     // --------------------------------------
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         hidesBottomBarWhenPushed = true
         
@@ -39,16 +39,17 @@ public class DetailViewController: UIViewController {
         subscribeTo(viewModel: viewModel)
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.didAppear()
     }
     
-    public override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         roundImageCorners()
     }
     
+    // MARK: - View Model
     private func subscribeTo(viewModel: DetailViewModel) {
         title = viewModel.date
         textView.text = viewModel.body
@@ -70,18 +71,9 @@ public class DetailViewController: UIViewController {
             .store(in: &cancellable)
     }
     
-    private func roundImageCorners() {
-        let corners: UIRectCorner = [.bottomLeft, .bottomRight]
-        let path = UIBezierPath(roundedRect: imageView.bounds,
-                                byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: 25, height: 25))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        imageView.layer.mask = maskLayer
-    }
     
-    
-    @objc public func saveTapped() {
+    // MARK: - Actions
+    @objc func saveTapped() {
         viewModel?.save()
         delegate?.didFinish(self)
     }
@@ -92,10 +84,40 @@ public class DetailViewController: UIViewController {
     }
     
     @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
+        guard viewModel.verifyLibraryPermissions() else {
+            showAlert()
+            return
+        }
         delegate?.didRequestImage(self, size: imageView.bounds.size)
+    }
+    
+    // MARK: - UI
+    private func roundImageCorners() {
+        let corners: UIRectCorner = [.bottomLeft, .bottomRight]
+        let path = UIBezierPath(roundedRect: imageView.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: 25, height: 25))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        imageView.layer.mask = maskLayer
     }
 }
 
+
+extension DetailViewController {
+    private func showAlert() {
+        let alertViewController = UIAlertController(
+            title: "Access denied",
+            message: "The app need PhotoLibrary permissions to show your Library",
+            preferredStyle: .alert)
+        
+        alertViewController.addAction(
+            UIAlertAction(title: "Cancel", style: .cancel)
+        )
+        
+        self.present(alertViewController, animated: true)
+    }
+}
 
 
 extension DetailViewController: Storyboarded {

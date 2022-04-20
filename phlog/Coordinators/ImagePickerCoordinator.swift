@@ -16,7 +16,7 @@ public class ImagePickerCoordinator: Coordinator {
     private var picker: PHPickerViewController!
     
     public var chosenAsset: String = ""
-
+    
     
     public init(router: Router) {
         self.router = router
@@ -24,19 +24,17 @@ public class ImagePickerCoordinator: Coordinator {
     
     
     public func start(animated: Bool, completion: (() -> Void)?) {
-        
-        checkAuthorizationStatus { hasPermission in
-            guard !hasPermission else { return }
-            self.dismiss(animated: true)
-            self.showAcessDenied()
-        }
-        
         picker = makePickerViewController()
         picker.delegate = self
         router.present(picker, animated: animated, completion: completion)
         picker.navigationController?.isNavigationBarHidden = true
     }
     
+
+    public func toPresentable() -> UIViewController {
+        return picker
+    }
+   
     private func makePickerViewController() -> PHPickerViewController {
         var configuration = PHPickerConfiguration(photoLibrary: .shared())
         configuration.filter = PHPickerFilter.images
@@ -46,15 +44,6 @@ public class ImagePickerCoordinator: Coordinator {
         
         let picker = PHPickerViewController(configuration: configuration)
         return picker
-    }
-    
-    public func toPresentable() -> UIViewController {
-        return picker
-    }
-    
-    private func showAcessDenied() {
-        // TODO: Make an alert
-        print("Denied")
     }
 }
 
@@ -70,18 +59,6 @@ extension ImagePickerCoordinator: PHPickerViewControllerDelegate {
         let assetIdentifiers = results.compactMap(\.assetIdentifier)
         if let asset = assetIdentifiers.first {
             chosenAsset = asset
-        }
-    }
-    
-    public func checkAuthorizationStatus(completion: @escaping(Bool) -> Void) {
-        
-        guard PHPhotoLibrary.authorizationStatus() != .authorized else {
-            completion(true)
-            return
-        }
-        
-        PHPhotoLibrary.requestAuthorization { status in
-            completion(status == .authorized ? true : false)
         }
     }
 }

@@ -56,7 +56,7 @@ public class PhlogProvider {
     }
 }
 
-
+// MARK: - Context Operations
 extension PhlogProvider {
     public func saveChanges(context: NSManagedObjectContext) {
         guard context.hasChanges else { return }

@@ -53,31 +53,36 @@ extension DetailViewModel {
         image = picture
     }
     
-    public func updatePhoto(with photoIdentifier: String, size: CGSize) {
+    func updatePhoto(with photoIdentifier: String, size: CGSize) {
         let imageData = ImageData(identitifier: photoIdentifier)
         imageProvider.requestImage(for: imageData, targetSize: size) { [weak self] imgData in
             self?.image = imgData?.image
         }
     }
     
-    public func save() {
+    func verifyLibraryPermissions() -> Bool {
+        return PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
+    }
+    
+    func save() {
         phlog.picture?.pictureData = image?.pngData()
         
-        // This view model doesn't know a particular cell size
+        // This view model doesn't know the cell size from the FeedView
         // So, we consider it's about 1/3 of the screen width
-        // And calculation thumbnail for the feed accordingly
+        // Since most of time there are 3 cells in a row
+        // And calculating a thumbnail for the feed accordingly
         // Not the best idea
-        
         let approximateCellWidth = UIScreen.main.bounds.width / 3
         let desiredSize = CGSize(width: approximateCellWidth, height: approximateCellWidth)
         let thumbnailData = image?.thumbnail(for: desiredSize)?.jpegData(compressionQuality: 0.8)
         
         phlog.pictureThumbnail = thumbnailData
         phlog.body = body
+        #warning("Prevent saving the empty view")
         phlogProvider.saveChanges(context: context)
     }
     
-    public func remove() {
+    func remove() {
         phlogProvider.remove(phlog)
     }
 }

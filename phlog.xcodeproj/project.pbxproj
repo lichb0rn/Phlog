@@ -18,7 +18,6 @@
 		894046D727744C7800C144CE /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D627744C7800C144CE /* Feed.storyboard */; };
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
-		8947A5732802B42300336DB7 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8947A5722802B42300336DB7 /* ImageProvider.swift */; };
 		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
 		8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753127F6CF6B00845657 /* MockCoreDataStack.swift */; };
 		8960753427F6D54500845657 /* JournalManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753327F6D54500845657 /* JournalManagerTests.swift */; };
@@ -89,7 +88,6 @@
 		894046D627744C7800C144CE /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
-		8947A5722802B42300336DB7 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		8960753127F6CF6B00845657 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		8960753327F6D54500845657 /* JournalManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalManagerTests.swift; sourceTree = "<group>"; };
@@ -376,7 +374,6 @@
 			children = (
 				89B765E6278967250091DD91 /* PhlogProvider.swift */,
 				89D0CE8B27F02E6200DA09EE /* JournalManager.swift */,
-				8947A5722802B42300336DB7 /* ImageProvider.swift */,
 				8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */,
 			);
 			path = Providers;
@@ -570,7 +567,6 @@
 				89D0CE8C27F02E6200DA09EE /* JournalManager.swift in Sources */,
 				89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */,
 				89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */,
-				8947A5732802B42300336DB7 /* ImageProvider.swift in Sources */,
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,
 				89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */,
 				890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */,
