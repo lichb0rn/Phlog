@@ -10,7 +10,7 @@ import Photos
 import Combine
 import CoreData
 
-public class DetailViewModel {
+class DetailViewModel {
     
     private var targetSize: CGSize = .zero
     
@@ -35,7 +35,7 @@ public class DetailViewModel {
     private var context: NSManagedObjectContext!
     
     
-    public init(phlogProvider: PhlogService, phlog: PhlogPost? = nil, imageProvider: ImageService = PHImageManager.default()) {
+    init(phlogProvider: PhlogService, phlog: PhlogPost? = nil, imageProvider: ImageService = PHImageManager.default()) {
         self.phlogProvider = phlogProvider
         self.imageProvider = imageProvider
         self.context = phlogProvider.makeChildContext()

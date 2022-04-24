@@ -9,12 +9,12 @@ import UIKit
 import Photos
 
 
-public struct ImageData {
+struct ImageData {
     let identitifier: String
     var image: UIImage?
 }
 
-public protocol ImageService: AnyObject {
+protocol ImageService: AnyObject {
     
     func requestImage(for asset: ImageData,
                       targetSize: CGSize,
@@ -26,7 +26,7 @@ public protocol ImageService: AnyObject {
 // --------------------------------------
 extension PHImageManager: ImageService {
     
-    public func requestImage(for asset: ImageData, targetSize: CGSize, completion: @escaping (ImageData?) -> Void) {
+    func requestImage(for asset: ImageData, targetSize: CGSize, completion: @escaping (ImageData?) -> Void) {
         guard let phAsset = PHAsset.fetchAssets(withLocalIdentifiers: [asset.identitifier],
                                                 options: nil).lastObject else {
             return
