@@ -14,9 +14,16 @@ public class DetailViewModel {
     
     private var targetSize: CGSize = .zero
     
-    @Published public var image: UIImage?
-    @Published public var body: String?
-    public var date: String {
+    @Published private(set) var isMenuActive: Bool = false
+    @Published private(set) var image: UIImage? {
+        didSet {
+            if image != nil {
+                isMenuActive = true
+            }
+        }
+    }
+    @Published var body: String?
+    var date: String {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
     }
     
@@ -78,7 +85,6 @@ extension DetailViewModel {
         
         phlog.pictureThumbnail = thumbnailData
         phlog.body = body
-        #warning("Prevent saving the empty view")
         phlogProvider.saveChanges(context: context)
     }
     

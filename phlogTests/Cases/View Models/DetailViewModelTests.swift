@@ -92,4 +92,13 @@ class DetailViewModelTests: XCTestCase {
         XCTAssertEqual(img?.pngData(), sut.image?.pngData())
     }
     
+    func test_whenEmpty_isMenuActiveFalse() {
+        XCTAssertFalse(sut.isMenuActive)
+    }
+    
+    func test_givenImage_isMenuActiveTrue() {
+        sut.updatePhoto(with: "trash.slash.circle", size: targetSize)
+        
+        XCTAssertTrue(sut.isMenuActive)
+    }
 }

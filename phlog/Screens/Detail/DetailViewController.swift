@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-        
+        addMenu()
         subscribeTo(viewModel: viewModel)
     }
     
@@ -69,6 +69,10 @@ class DetailViewController: UIViewController {
                 self.imageView.contentMode = .scaleAspectFill
             }
             .store(in: &cancellable)
+        
+        viewModel.$isMenuActive
+            .sink { [weak self] in self?.navigationItem.rightBarButtonItem?.isEnabled = $0 }
+            .store(in: &cancellable)
     }
     
     
@@ -85,7 +89,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
         guard viewModel.verifyLibraryPermissions() else {
-            showAlert()
+            showAuthorizationAlert()
             return
         }
         delegate?.didRequestImage(self, size: imageView.bounds.size)
@@ -101,11 +105,30 @@ class DetailViewController: UIViewController {
         maskLayer.path = path.cgPath
         imageView.layer.mask = maskLayer
     }
+    
+    private func addMenu() {
+        let menuImage = UIImage(systemName: "circle.grid.2x1.fill")
+        
+        let barButtonMenu = UIMenu(title: "", children: [
+            UIAction(title: "Save",
+                     image: UIImage(systemName: "tray.and.arrow.down.fill"),
+                     handler: { [weak self] _ in self?.saveTapped() } ),
+            
+            UIAction(title: "Delete",
+                     image: UIImage(systemName: "trash.fill"),
+                     attributes: .destructive,
+                     handler: { [weak self] _ in self?.removeTapped() } ),
+        ])
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
+                                                                 image: menuImage,
+                                                                 primaryAction: nil,
+                                                                 menu: barButtonMenu)
+    }
 }
 
 
 extension DetailViewController {
-    private func showAlert() {
+    private func showAuthorizationAlert() {
         let alertViewController = UIAlertController(
             title: "Access denied",
             message: "The app need PhotoLibrary permissions to show your Library",

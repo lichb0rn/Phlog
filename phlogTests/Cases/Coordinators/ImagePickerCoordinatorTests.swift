@@ -47,24 +47,6 @@ class ImagePickerCoordinatorTests: XCTestCase {
         
     }
     
-    func test_authorizationStatus_Requested() {
-        let exp = expectation(description: "authorization status not checked")
-        
-        sut.checkAuthorizationStatus { _ in
-            exp.fulfill()
-        }
-        
-        waitForExpectations(timeout: 0.1)
-    }
-    
-    func test_whenNotAuthorized_pickerNotStarted() {
-//        let authorized: Bool
-        
-        sut.checkAuthorizationStatus { authorized in
-            
-        }
-    }
-    
     func test_whenNotAuthorized_generatesAlert() {
         
     }

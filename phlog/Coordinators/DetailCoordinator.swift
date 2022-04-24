@@ -27,7 +27,7 @@ public class DetailCoordinator: Coordinator {
     public func start(animated: Bool, completion: (() -> Void)?) {
         viewController.viewModel = viewModel
         viewController.delegate = self
-        addMenu()
+//        addMenu()
         router.present(viewController, animated: animated, completion: completion)
         viewController.navigationController?.isNavigationBarHidden = false
     }
