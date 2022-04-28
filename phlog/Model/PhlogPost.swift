@@ -17,6 +17,7 @@ public class PhlogPost: NSManagedObject {
     @NSManaged public var id: UUID
     @NSManaged public var pictureThumbnail: Data?
     @NSManaged public var picture: PhlogPicture?
+    @NSManaged public var location: Location?
     
     
     public override func awakeFromInsert() {

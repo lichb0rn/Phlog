@@ -27,29 +27,9 @@ public class DetailCoordinator: Coordinator {
     public func start(animated: Bool, completion: (() -> Void)?) {
         viewController.viewModel = viewModel
         viewController.delegate = self
-//        addMenu()
+
         router.present(viewController, animated: animated, completion: completion)
         viewController.navigationController?.isNavigationBarHidden = false
-    }
-    
-    private func addMenu() {
-        let menuImage = UIImage(systemName: "circle.grid.2x1.fill")
-        
-        let barButtonMenu = UIMenu(title: "", children: [
-            UIAction(title: "Save",
-                     image: UIImage(systemName: "tray.and.arrow.down.fill"),
-                     handler: { [weak self] _ in self?.viewController.saveTapped() } ),
-            
-            UIAction(title: "Delete",
-                     image: UIImage(systemName: "trash.fill"),
-                     attributes: .destructive,
-                     handler: { [weak self] _ in self?.viewController.removeTapped() } ),
-        ])
-        self.viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
-                                                                                image: menuImage,
-                                                                                primaryAction: nil,
-                                                                                menu: barButtonMenu)
-        
     }
     
     public func toPresentable() -> UIViewController {

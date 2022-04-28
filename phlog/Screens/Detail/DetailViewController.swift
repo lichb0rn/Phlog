@@ -88,10 +88,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
-        guard viewModel.verifyLibraryPermissions() else {
-            showAuthorizationAlert()
-            return
-        }
+
         delegate?.didRequestImage(self, size: imageView.bounds.size)
     }
     
@@ -123,22 +120,6 @@ class DetailViewController: UIViewController {
                                                                  image: menuImage,
                                                                  primaryAction: nil,
                                                                  menu: barButtonMenu)
-    }
-}
-
-
-extension DetailViewController {
-    private func showAuthorizationAlert() {
-        let alertViewController = UIAlertController(
-            title: "Access denied",
-            message: "The app need PhotoLibrary permissions to show your Library",
-            preferredStyle: .alert)
-        
-        alertViewController.addAction(
-            UIAlertAction(title: "Cancel", style: .cancel)
-        )
-        
-        self.present(alertViewController, animated: true)
     }
 }
 

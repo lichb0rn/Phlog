@@ -7,16 +7,16 @@
 
 import Foundation
 import UIKit
+import Photos
 
 public class MainCoordinator: NSObject, Coordinator {
     
-//    private let phlogManager = PhlogManager(db: CoreDataStack.shared)
     public var childCoordinators: [Coordinator] = []
     public var router: Router
     
     private var tabBarController = TabController.instantiate(from: .main)
     private lazy var feedCoordinator = makeFeedCoordinator()
-    private lazy var settingsCoordinator = makeJournalDetailCoordinator()
+    private lazy var mapCoordinator = makeJournalDetailCoordinator()
     private var tabs: [UIViewController: Coordinator] = [:]
     
     private let phlogProvider: PhlogService
@@ -35,7 +35,7 @@ public class MainCoordinator: NSObject, Coordinator {
     
     public func start(animated: Bool, completion: (() -> Void)?) {
         router.present(tabBarController, animated: animated, completion: completion)
-        setupTabs([feedCoordinator, settingsCoordinator])
+        setupTabs([feedCoordinator, mapCoordinator])
         
         tabBarController.coordinator = self
         
@@ -68,7 +68,7 @@ extension MainCoordinator {
     
     private func makeFeedCoordinator() -> FeedCoordinator {
         let navigationController = UINavigationController()
-        navigationController.tabBarItem = UITabBarItem(title: "Your Feed", image: UIImage(systemName: "photo.on.rectangle.fill"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "photo.on.rectangle.fill"), tag: 0)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = .white
         let router = NavigationRouter(navigationController: navigationController)
@@ -76,13 +76,13 @@ extension MainCoordinator {
         return coordinator
     }
     
-    private func makeJournalDetailCoordinator() -> JournalDetailCoordinator {
+    private func makeJournalDetailCoordinator() -> MapViewCoordinator {
         let navigationController = UINavigationController()
-        navigationController.tabBarItem = UITabBarItem(title: "Your Journal", image: UIImage(systemName: "text.book.closed.fill"), tag: 1)
+        navigationController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(systemName: "map.fill"), tag: 1)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.tintColor = .white
         let router = NavigationRouter(navigationController: navigationController)
-        let coordinator = JournalDetailCoordinator(router: router, phlogProvider: phlogProvider)
+        let coordinator = MapViewCoordinator(router: router, phlogProvider: phlogProvider)
         return coordinator
     }
 }
@@ -93,8 +93,20 @@ extension MainCoordinator {
 extension MainCoordinator: TabViewActionControll {
     
     public func tabViewActionButtonTapped(_ viewController: UIViewController) {
+        guard verifyLibraryPermissions() else {
+            tabBarController.showAlert(title: "Access denied",
+                                       message: "The app need access to your Photo Library to add photos to phlogs.")
+            return
+        }
+        
         let modalRouter = ModalNavigationRouter(parentViewController: viewController)
         let coordinator = DetailCoordinator(router: modalRouter, phlogProvider: phlogProvider)
         self.startChild(coordinator, animated: true, completion: nil)
     }
+    
+    private func verifyLibraryPermissions() -> Bool {
+        return PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
+    }
+    
+
 }

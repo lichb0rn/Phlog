@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 
 
-public class JournalViewModel: NSObject {
+public class MapViewModel: NSObject {
     
     private let journalManager: JournalManager
     private let journal: Journal?
@@ -37,7 +37,7 @@ public class JournalViewModel: NSObject {
 // --------------------------------------
 // MARK: - MapView Delegate
 // --------------------------------------
-extension JournalViewModel: MKMapViewDelegate {
+extension MapViewModel: MKMapViewDelegate {
     
 //    private func annotation() -> MKAnnotation {
 //        

@@ -67,10 +67,6 @@ extension DetailViewModel {
         }
     }
     
-    func verifyLibraryPermissions() -> Bool {
-        return PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
-    }
-    
     func save() {
         phlog.picture?.pictureData = image?.pngData()
         
