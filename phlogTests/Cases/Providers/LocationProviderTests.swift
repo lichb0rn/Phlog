@@ -160,6 +160,15 @@ class LocationProviderTests: XCTestCase {
         XCTAssertEqual(receivedLocation, expectedLocation)
     }
 
+    func test_whenLocationTracked_trackingStopped() {
+        givenLocation()
+
+        mockLocationManager.sendLocation()
+
+        XCTAssertFalse(mockLocationManager.isUpdating)
+        XCTAssertNil(mockLocationManager.delegate)
+    }
+
     // MARK: - Geocoding
     func test_geocodingRequest() {
         givenLocation()

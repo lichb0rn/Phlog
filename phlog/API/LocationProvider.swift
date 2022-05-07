@@ -82,7 +82,7 @@ extension LocationProvider: CLLocationManagerDelegate {
                 self.placemark.send(completion: .failure(error))
                 return
             }
-            
+
             if let places = placemarks,
                !places.isEmpty,
                let placemark = places.last {
@@ -93,8 +93,7 @@ extension LocationProvider: CLLocationManagerDelegate {
         }
         location.send(receivedLocation)
         location.send(completion: .finished)
-        ////        stopLocationTracking()
-        ////        addLocation(location: receivedLocation, placemark: placemark)
 
+        stopLocationTracking()
     }
 }
