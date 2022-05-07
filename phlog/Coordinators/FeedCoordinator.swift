@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class FeedCoordinator: Coordinator {
+class FeedCoordinator: Coordinator {
     
     public var childCoordinators: [Coordinator] = []
     public var router: Router
@@ -17,12 +17,12 @@ public class FeedCoordinator: Coordinator {
     private lazy var feedViewController = FeedViewContoller.instantiate(from: .feed)
 
     
-    public init(router: Router, phlogProvider: PhlogService) {
+    init(router: Router, phlogProvider: PhlogService) {
         self.router = router
         self.phlogProvider = phlogProvider
     }
     
-    public func start(animated: Bool, completion: (() -> Void)?) {
+    func start(animated: Bool, completion: (() -> Void)?) {
         feedViewController.delegate = self
         feedViewController.phlogProvider = phlogProvider
         router.present(feedViewController, animated: animated, completion: completion)
@@ -30,7 +30,7 @@ public class FeedCoordinator: Coordinator {
 }
 
 extension FeedCoordinator: FeedViewControllerDelegate {
-    public func didSelectPhlog(_ viewController: FeedViewContoller, phlog: PhlogPost) {
+    func didSelectPhlog(_ viewController: FeedViewContoller, phlog: PhlogPost) {
         let modalNavigationRouter = ModalNavigationRouter(parentViewController: toPresentable())
         let coordinator = DetailCoordinator(router: modalNavigationRouter, phlogProvider: phlogProvider, phlog: phlog)
         self.startChild(coordinator, animated: true, completion: nil)

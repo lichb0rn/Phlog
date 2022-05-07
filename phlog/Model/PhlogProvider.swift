@@ -7,42 +7,52 @@
 
 import Foundation
 import CoreData
+import CoreLocation
 
-public protocol PhlogService {
+protocol PhlogService {
     var mainContext: NSManagedObjectContext { get }
     
     func newPhlog(context: NSManagedObjectContext) -> PhlogPost
     func newPicture(withID id: String, context: NSManagedObjectContext) -> PhlogPicture
+    func newLocation(latitude: Double, longitude: Double, placemark: CLPlacemark?, context: NSManagedObjectContext) -> PhlogLocation
     func remove(_ phlog: PhlogPost)
     
     func saveChanges(context: NSManagedObjectContext)
     func makeChildContext() -> NSManagedObjectContext
 }
 
-public class PhlogProvider {
+class PhlogProvider {
     
     private let dbStack: CoreDataStack
     
-    public var mainContext: NSManagedObjectContext {
+    var mainContext: NSManagedObjectContext {
         return dbStack.mainContext
     }
     
-    public init(db: CoreDataStack) {
+    init(db: CoreDataStack) {
         self.dbStack = db
     }
     
-    public func newPhlog(context: NSManagedObjectContext) -> PhlogPost {
+    func newPhlog(context: NSManagedObjectContext) -> PhlogPost {
         let newPhlog = PhlogPost(context: context)
         return newPhlog
     }
     
-    public func newPicture(withID id: String, context: NSManagedObjectContext) -> PhlogPicture {
+    func newPicture(withID id: String, context: NSManagedObjectContext) -> PhlogPicture {
         let picture = PhlogPicture(context: context)
         picture.pictureIdentifier = id
         return picture
     }
+
+    func newLocation(latitude: Double, longitude: Double, placemark: CLPlacemark? = nil, context: NSManagedObjectContext) -> PhlogLocation {
+        let newLocation = PhlogLocation(context: context)
+        newLocation.latitude = latitude
+        newLocation.longitude = longitude
+        newLocation.placemark = placemark
+        return newLocation
+    }
     
-    public func remove(_ phlog: PhlogPost) {
+    func remove(_ phlog: PhlogPost) {
         guard let entityToRemove = try? mainContext.existingObject(with: phlog.objectID) else {
             return
         }
@@ -51,14 +61,14 @@ public class PhlogProvider {
         dbStack.saveMainContext()
     }
     
-    public func removeAll() {
+    func removeAll() {
         dbStack.reset()
     }
 }
 
 // MARK: - Context Operations
 extension PhlogProvider {
-    public func saveChanges(context: NSManagedObjectContext) {
+    func saveChanges(context: NSManagedObjectContext) {
         guard context.hasChanges else { return }
         
         context.perform {
@@ -71,13 +81,13 @@ extension PhlogProvider {
         }
     }
     
-    public func makeChildContext() -> NSManagedObjectContext {
+    func makeChildContext() -> NSManagedObjectContext {
         let childMOC = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         childMOC.parent = mainContext
         return childMOC
     }
     
-    public func makeChildContext(for parent: NSManagedObjectContext) -> NSManagedObjectContext {
+    func makeChildContext(for parent: NSManagedObjectContext) -> NSManagedObjectContext {
         let childMOC = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         childMOC.parent = parent
         return childMOC

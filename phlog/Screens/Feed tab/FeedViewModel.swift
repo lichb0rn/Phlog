@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-public class FeedViewModel: NSObject {
+class FeedViewModel: NSObject {
     
     private let phlogProvider: PhlogService
     private var dataSource: FeedDataSource!
@@ -30,7 +30,7 @@ public class FeedViewModel: NSObject {
     }()
     
     
-    public init(collectionView: UICollectionView, phlogProvider: PhlogService) {
+    init(collectionView: UICollectionView, phlogProvider: PhlogService) {
         self.phlogProvider = phlogProvider
         super.init()
         dataSource = FeedCollectionViewDataSource(collectionView: collectionView,
@@ -38,7 +38,7 @@ public class FeedViewModel: NSObject {
                                                   configure: configureCell(_:with:))
     }
     
-    public func fetch() {
+    func fetch() {
         do {
             try fetchedResultController.performFetch()
         } catch let error as NSError {
@@ -56,7 +56,7 @@ public class FeedViewModel: NSObject {
         cell.imageView.image = thumbnail
     }
     
-    public func phlog(for indexPath: IndexPath) -> PhlogPost {
+    func phlog(for indexPath: IndexPath) -> PhlogPost {
         let phlog = fetchedResultController.object(at: indexPath)
         return phlog
     }
@@ -64,7 +64,7 @@ public class FeedViewModel: NSObject {
 
 extension FeedViewModel: NSFetchedResultsControllerDelegate {
     
-    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                            didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         
         var snapshot = snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>

@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import CoreLocation
 
-public class Location: NSManagedObject {
+public class PhlogLocation: NSManagedObject {
     
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
@@ -24,9 +24,9 @@ public class Location: NSManagedObject {
     
 }
 
-extension Location {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Location> {
-        return NSFetchRequest<Location>(entityName: "Location")
+extension PhlogLocation {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<PhlogLocation> {
+        return NSFetchRequest<PhlogLocation>(entityName: "PhlogLocation")
     }
 }
-extension Location: Identifiable { }
+extension PhlogLocation: Identifiable { }

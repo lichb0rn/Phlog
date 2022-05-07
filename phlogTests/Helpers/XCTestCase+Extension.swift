@@ -1,41 +1,15 @@
 import XCTest
-import Combine
 
 extension XCTestCase {
-    func awaitPublisher<T: Publisher>(
-        _ publisher: T,
-        timeout: TimeInterval = 0.2,
-        file: StaticString = #file,
-        line: UInt = #line
-    ) throws -> T.Output {
-
-        var result: Result<T.Output, Error>?
-        let expectation = self.expectation(description: "Awaiting publisher")
+    
+    func wait(for duration: TimeInterval) {
+        let exp = expectation(description: "wait")
         
-        let cancellable = publisher.sink(
-            receiveCompletion: { completion in
-                switch completion {
-                case .failure(let error):
-                    result = .failure(error)
-                case .finished:
-                    break
-                }
-                expectation.fulfill()
-            },
-            receiveValue: { value in
-                result = .success(value)
-            }
-        )
-        waitForExpectations(timeout: timeout)
-        cancellable.cancel()
-
-        let unwrappedResult = try XCTUnwrap(
-            result,
-            "Awaited publisher did not produce any output",
-            file: file,
-            line: line
-        )
+        let timeout = DispatchTime.now() + duration
+        DispatchQueue.main.asyncAfter(deadline: timeout) {
+            exp.fulfill()
+        }
         
-        return try unwrappedResult.get()
+        waitForExpectations(timeout: duration + 0.5)
     }
 }

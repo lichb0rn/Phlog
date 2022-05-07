@@ -15,10 +15,8 @@ class MockImageProvider: ImageService {
     
     
     func requestImage(for asset: ImageData, targetSize: CGSize, completion: @escaping (ImageData?) -> Void) {
-        var imgData = ImageData(identitifier: asset.identitifier)
-        imgData.image = images[imgData.identitifier]?.resizeTo(size: targetSize)
+        var imgData = ImageData(identifier: asset.identifier)
+        imgData.image = images[imgData.identifier]?.resizeTo(size: targetSize)
         completion(imgData)
     }
-    
-    
 }

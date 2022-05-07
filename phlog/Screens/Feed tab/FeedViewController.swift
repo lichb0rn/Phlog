@@ -8,31 +8,31 @@
 import UIKit
 
 
-public protocol FeedViewControllerDelegate: AnyObject {
+protocol FeedViewControllerDelegate: AnyObject {
     func didSelectPhlog(_ viewController: FeedViewContoller, phlog: PhlogPost)
 }
 
-public final class FeedViewContoller: UIViewController {
+final class FeedViewContoller: UIViewController {
     
     // --------------------------------------
     // MARK: - Properties
     // --------------------------------------
-    public weak var delegate: FeedViewControllerDelegate?
-    public var phlogProvider: PhlogService!
-    public var viewModel: FeedViewModel!
+    weak var delegate: FeedViewControllerDelegate?
+    var phlogProvider: PhlogService!
+    var viewModel: FeedViewModel!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     // --------------------------------------
     // MARK: - Lifecycle
     // --------------------------------------
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         configureViewController()
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.fetch()
     }
@@ -50,7 +50,7 @@ public final class FeedViewContoller: UIViewController {
 // MARK: - CollectionView Delegate
 // --------------------------------------
 extension FeedViewContoller: UICollectionViewDelegate {
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let phlog = viewModel.phlog(for: indexPath)
         delegate?.didSelectPhlog(self, phlog: phlog)
     }

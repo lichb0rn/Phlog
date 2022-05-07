@@ -6,8 +6,9 @@
 //
 
 import XCTest
-@testable import phlog
 import CoreData
+import CoreLocation
+@testable import phlog
 
 class PhlogProviderTests: XCTestCase {
     
@@ -17,6 +18,9 @@ class PhlogProviderTests: XCTestCase {
     }
     var mockCoreData: MockCoreDataStack!
 
+    let mockLocation = CLLocation(latitude: 100.0, longitude: 100.0)
+
+    // MARK: - Lifecycle
     override func setUpWithError() throws {
         try super.setUpWithError()
         
@@ -57,7 +61,13 @@ class PhlogProviderTests: XCTestCase {
         
         _ = service.newPicture(withID: pictureIdentifier, context: context)
     }
-    
+
+    func test_declares_newLocation() {
+        let context = sut.makeChildContext()
+
+        _ = service.newLocation(latitude: 22.2, longitude: 22.2, placemark: nil, context: context)
+    }
+
     func test_declaresSave() {
         let context = sut.mainContext
         
@@ -80,7 +90,7 @@ class PhlogProviderTests: XCTestCase {
         XCTAssertEqual(mainContext, childContext.parent)
     }
     
-    func test_createNewPhog() {
+    func test_createNewPhlog() {
         let context = sut.makeChildContext()
         
         let testPhlog = sut.newPhlog(context: context)
@@ -99,6 +109,19 @@ class PhlogProviderTests: XCTestCase {
         XCTAssertEqual(newPicture.pictureIdentifier, pictureId, "New picture ID is not equal to given ID")
     }
     
+
+    func test_createNewLocation() {
+        let context = sut.makeChildContext()
+
+        let location = sut.newLocation(latitude: mockLocation.coordinate.latitude,
+                                       longitude: mockLocation.coordinate.longitude,
+                                       placemark: nil,
+                                       context: context)
+
+        XCTAssertEqual(location.latitude, mockLocation.coordinate.latitude)
+        XCTAssertEqual(location.longitude, mockLocation.coordinate.longitude)
+        XCTAssertNil(location.placemark)
+    }
 
     func testChildContext_whenHasChanges_isSaved() {
         let context = sut.makeChildContext()
@@ -129,11 +152,12 @@ class PhlogProviderTests: XCTestCase {
     }
     
     func test_whenNoChanges_removeCalled() {
-        let childConext = service.makeChildContext()
-        let newPhlog = givenPhlog(context: childConext)
+        let childContext = service.makeChildContext()
+        let newPhlog = givenPhlog(context: childContext)
         
         sut.remove(newPhlog)
         
         XCTAssertFalse(mockCoreData.fatalErrored)
     }
+
 }

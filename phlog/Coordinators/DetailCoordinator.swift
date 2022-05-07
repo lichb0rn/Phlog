@@ -9,22 +9,22 @@ import Foundation
 import UIKit
 import PhotosUI
 
-public class DetailCoordinator: Coordinator {
+class DetailCoordinator: Coordinator {
     
-    public var childCoordinators: [Coordinator] = []
-    public var router: Router
+    var childCoordinators: [Coordinator] = []
+    var router: Router
     private var viewModel: DetailViewModel?
     private let phlogProvider: PhlogService
     private let viewController = DetailViewController.instantiate(from: .detail)
     
     
-    public init(router: Router, phlogProvider: PhlogService, phlog: PhlogPost? = nil) {
+    init(router: Router, phlogProvider: PhlogService, phlog: PhlogPost? = nil) {
         self.router = router
         self.phlogProvider = phlogProvider
         self.viewModel = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog)
     }
     
-    public func start(animated: Bool, completion: (() -> Void)?) {
+    func start(animated: Bool, completion: (() -> Void)?) {
         viewController.viewModel = viewModel
         viewController.delegate = self
 
@@ -32,7 +32,7 @@ public class DetailCoordinator: Coordinator {
         viewController.navigationController?.isNavigationBarHidden = false
     }
     
-    public func toPresentable() -> UIViewController {
+    func toPresentable() -> UIViewController {
         return viewController
     }
 }
@@ -40,11 +40,11 @@ public class DetailCoordinator: Coordinator {
 
 extension DetailCoordinator: DetailViewControllerDelegate {
     
-    public func didFinish(_ viewController: UIViewController) {
+    func didFinish(_ viewController: UIViewController) {
         dismiss(animated: true)
     }
     
-    public func didRequestImage(_ viewController: UIViewController, size: CGSize) {
+    func didRequestImage(_ viewController: UIViewController, size: CGSize) {
         let imagePickerCoordinator = ImagePickerCoordinator(router: router)
         startChild(imagePickerCoordinator, animated: true) {
             [weak self] in
