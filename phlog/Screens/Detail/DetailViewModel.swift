@@ -31,9 +31,7 @@ class DetailViewModel: NSObject {
     private let imageProvider: ImageService
     private let phlogProvider: PhlogService
     
-    private var locationProvider: CLLocationManager
-    private let geocoder = CLGeocoder()
-    
+    private var locationProvider: LocationService   
     
     // Something has to retain child context because NSManagedObject doesn't
     private var context: NSManagedObjectContext!
@@ -42,7 +40,7 @@ class DetailViewModel: NSObject {
     init(phlogProvider: PhlogService,
          phlog: PhlogPost? = nil,
          imageProvider: ImageService = PHImageManager.default(),
-         locationProvider: CLLocationManager = CLLocationManager()) {
+         locationProvider: LocationService) {
         
         self.phlogProvider = phlogProvider
         self.imageProvider = imageProvider

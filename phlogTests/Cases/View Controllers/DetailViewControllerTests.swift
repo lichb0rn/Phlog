@@ -12,25 +12,29 @@ class DetailViewControllerTests: XCTestCase {
     
     var sut: DetailViewController!
     var phlogProvider: PhlogService!
-    
+    var locationProvider: LocationProvider!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        
-        sut = DetailViewController.instantiate(from: .detail)
+
         let mockCoreData = MockCoreDataStack()
         phlogProvider = PhlogProvider(db: mockCoreData)
+        let mockLocationManager = MockLocationManager()
+        let mockGeocoder = MockGeocoder()
+        locationProvider = LocationProvider(locationManager: mockLocationManager, geocoder: mockGeocoder)
 
+        sut = DetailViewController.instantiate(from: .detail)
     }
 
     override func tearDownWithError() throws {
         sut = nil
         phlogProvider = nil
+        locationProvider = nil
         try super.tearDownWithError()
     }
 
     func givenEmptyViewModel() {
-        let viewModel = DetailViewModel(phlogProvider: phlogProvider)
+        let viewModel = DetailViewModel(phlogProvider: phlogProvider, locationProvider: locationProvider)
         sut.viewModel = viewModel
     }
     
@@ -42,7 +46,7 @@ class DetailViewControllerTests: XCTestCase {
         phlog.picture = picture
         phlog.body = "Testing Non Empty ViewModel"
             
-        let viewModel = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog)
+        let viewModel = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog, locationProvider: locationProvider)
         sut.viewModel = viewModel
         
         phlogProvider.saveChanges(context: phlogProvider.mainContext)

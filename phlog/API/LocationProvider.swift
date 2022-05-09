@@ -13,10 +13,11 @@ protocol LocationService {
     var location: PassthroughSubject<CLLocation, Error> { get }
     var isAuthorized: Bool { get }
 
-    func startLocationTracking()
+    func startLocationTracking(waitFor timeInterval: TimeInterval)
     func stopLocationTracking()
 
     var placemark: PassthroughSubject<CLPlacemark, Error> { get }
+    func startGeocoding(_ location: CLLocation)
 }
 
 
@@ -46,10 +47,19 @@ class LocationProvider: NSObject, LocationService {
         }
     }
 
-    func startLocationTracking() {
+    func startLocationTracking(waitFor timeInterval: TimeInterval = 60) {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
+
+        // Starting the timer
+        // If we couldn't track location for some time
+        // Then stop
+        timer = Timer.scheduledTimer(timeInterval: timeInterval,
+                                     target: self,
+                                     selector: #selector(timeOut),
+                                     userInfo: nil,
+                                     repeats: false)
     }
 
     func stopLocationTracking() {
@@ -57,11 +67,20 @@ class LocationProvider: NSObject, LocationService {
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
         }
+
+        if let timer = timer {
+            timer.invalidate()
+        }
     }
 
-
+    private var timer: Timer?
+    @objc private func timeOut() {
+        stopLocationTracking()
+        location.send(completion: .finished)
+    }
 }
 
+// MARK: - CLLocationManager Delegate
 extension LocationProvider: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         stopLocationTracking()
@@ -77,7 +96,17 @@ extension LocationProvider: CLLocationManagerDelegate {
             return
         }
 
-        geocoder.reverseGeocodeLocation(receivedLocation) { placemarks, error in
+        location.send(receivedLocation)
+        location.send(completion: .finished)
+
+        stopLocationTracking()
+    }
+}
+
+// MARK: - Geocoding
+extension LocationProvider {
+    func startGeocoding(_ location: CLLocation) {
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {
                 self.placemark.send(completion: .failure(error))
                 return
@@ -91,9 +120,5 @@ extension LocationProvider: CLLocationManagerDelegate {
             }
             self.placemark.send(completion: .finished)
         }
-        location.send(receivedLocation)
-        location.send(completion: .finished)
-
-        stopLocationTracking()
     }
 }

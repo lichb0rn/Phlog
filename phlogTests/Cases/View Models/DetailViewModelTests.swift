@@ -18,6 +18,8 @@ class DetailViewModelTests: XCTestCase {
     var mockImageProvider: MockImageProvider!
     var mockCoreData: MockCoreDataStack!
     var mockLocationManager: MockLocationManager!
+    var mockGeocoder: MockGeocoder!
+    var locationProvider: LocationProvider!
     
     var phlog: PhlogPost!
     var targetSize: CGSize = CGSize(width: 100, height: 100)
@@ -34,11 +36,13 @@ class DetailViewModelTests: XCTestCase {
         phlogProvider = PhlogProvider(db: mockCoreData)
         mockImageProvider = MockImageProvider()
         mockLocationManager = MockLocationManager()
+        mockGeocoder = MockGeocoder()
+        locationProvider = LocationProvider(locationManager: mockLocationManager, geocoder: mockGeocoder)
         phlog = phlogProvider.newPhlog(context: phlogProvider.mainContext)
         sut = DetailViewModel(phlogProvider: phlogProvider,
                               phlog: phlog,
                               imageProvider: mockImageProvider,
-                              locationProvider: mockLocationManager)
+                              locationProvider: locationProvider)
     }
     
     override func tearDownWithError() throws {
@@ -47,7 +51,9 @@ class DetailViewModelTests: XCTestCase {
         mockImageProvider = nil
         phlogProvider = nil
         mockCoreData = nil
+        locationProvider = nil
         mockLocationManager = nil
+        mockGeocoder = nil
         cancellable.removeAll()
         try super.tearDownWithError()
     }
@@ -94,7 +100,7 @@ class DetailViewModelTests: XCTestCase {
     
     func test_givePhlog_textLoadedFromLocalStore() throws {
         givenPhlog()
-        sut = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog)
+        sut = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog, locationProvider: locationProvider)
         
         let text = sut.body
         
@@ -104,7 +110,7 @@ class DetailViewModelTests: XCTestCase {
 
     func test_givenPhlog_dataSaved() {
         let expectedPhlog = givenPhlog()
-        sut = DetailViewModel(phlogProvider: phlogProvider, phlog: expectedPhlog)
+        sut = DetailViewModel(phlogProvider: phlogProvider, phlog: expectedPhlog, locationProvider: locationProvider)
 
         sut.save()
 
@@ -132,16 +138,26 @@ class DetailViewModelTests: XCTestCase {
         
         XCTAssertTrue(sut.isMenuActive)
     }
-    
-    func test_givenPhlog_locationSaved() {
-        let expectedLatitude = mockLocationManager.mockLocation.coordinate.latitude
-        let expectedLongitude = mockLocationManager.mockLocation.coordinate.longitude
-        let phlog = givenPhlog()
-        mockLocationManager.sendLocation()
 
-        sut.save()
 
-        let fetchRequest = PhlogLocation.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(
+    // MARK: - Location tests
+    func test_givenLocation_coordinatesSaved() {
+
+    }
+
+    func test_givenPlacemark_placemarkSaved() {
+
+    }
+
+    func test_givenLocationError() {
+
+    }
+
+    func test_givenPlacemarkError() {
+
+    }
+
+    func test_givenPlacemark_placemarkStringPublished() {
+        
     }
 }

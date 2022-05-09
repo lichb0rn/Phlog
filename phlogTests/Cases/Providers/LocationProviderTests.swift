@@ -33,10 +33,10 @@ class LocationProviderTests: XCTestCase {
 
     override func tearDownWithError() throws {
         sut = nil
+        cancellable.removeAll()
         mockLocationManager = nil
         mockGeocoder = nil
         mockPlacemark = nil
-        cancellable.removeAll()
         try super.tearDownWithError()
     }
 
@@ -84,16 +84,16 @@ class LocationProviderTests: XCTestCase {
 
     // MARK: Test - Location Tracking
     func test_whenCalled_locationTrackingStarted() throws {
-        service.startLocationTracking()
+        service.startLocationTracking(waitFor: 0)
 
         let delegate = try XCTUnwrap(mockLocationManager.delegate) as? LocationProvider
-        XCTAssertEqual(delegate, sut)
+        XCTAssertIdentical(delegate, sut)
         XCTAssertEqual(mockLocationManager.desiredAccuracy, kCLLocationAccuracyNearestTenMeters)
         XCTAssertTrue(mockLocationManager.isUpdating)
     }
 
     func test_whenCalled_locationTrackingStopped() throws {
-        service.startLocationTracking()
+        service.startLocationTracking(waitFor: 0)
 
         service.stopLocationTracking()
 
@@ -101,8 +101,8 @@ class LocationProviderTests: XCTestCase {
         XCTAssertNil(mockLocationManager.delegate)
     }
 
-    func test_whenLocationManager_DiDFail_locationTrackingStopped() {
-        service.startLocationTracking()
+    func test_whenLocationManager_didFail_locationTrackingStopped() {
+        service.startLocationTracking(waitFor: 0)
 
         mockLocationManager.failWithError()
 
@@ -110,52 +110,65 @@ class LocationProviderTests: XCTestCase {
         XCTAssertNil(mockLocationManager.delegate)
     }
 
-    func test_test_whenLocationManager_DiDFail_errorPublished() {
-        service.startLocationTracking()
-        let expectation = expectation(description: "error published")
-        var expectedError: Error?
 
-        sut.location
-            .sink { result in
-                switch result {
-                case .failure(let error):
-                    expectedError = error
-                case .finished:
-                    break
-                }
-                expectation.fulfill()
-            } receiveValue: { _ in }
-            .store(in: &cancellable)
+    func test_test_whenLocationManager_didFail_errorPublished() {
+        service.startLocationTracking(waitFor: 0)
 
-        mockLocationManager.failWithError()
+        let (receivedLocation, receivedError) = waitAndObserve(
+            for: sut.location,
+            afterChange: mockLocationManager.failWithError
+        )
 
-        wait(for: [expectation], timeout: 1)
-        XCTAssertNotNil(expectedError)
+        XCTAssertNotNil(receivedError)
+        XCTAssertNil(receivedLocation)
+    }
+
+    func test_givenCachedLocation_locationDidNotPublished() {
+        sut.startLocationTracking(waitFor: 1)
+        let cachedLocation = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 100, longitude: 100),
+                                        altitude: 100,
+                                        horizontalAccuracy: 5,
+                                        verticalAccuracy: 5,
+                                        timestamp: .now - 10)
+        mockLocationManager.mockLocation = cachedLocation
+
+        let (receivedLocation, receivedError) = waitAndObserve(
+            for: sut.location,
+            afterChange: mockLocationManager.sendLocation,
+            waitFor: 2
+        )
+
+        XCTAssertNil(receivedError)
+        XCTAssertNil(receivedLocation)
+    }
+
+    func test_givenUncertainAccuracyLocation_locationDidNotPublished() {
+        sut.startLocationTracking(waitFor: 1)
+        let cachedLocation = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 100, longitude: 100),
+                                        altitude: 100,
+                                        horizontalAccuracy: -5,
+                                        verticalAccuracy: 5,
+                                        timestamp: .now )
+        mockLocationManager.mockLocation = cachedLocation
+
+        let (receivedLocation, receivedError) = waitAndObserve(
+            for: sut.location,
+            afterChange: mockLocationManager.sendLocation,
+            waitFor: 2
+        )
+
+        XCTAssertNil(receivedError)
+        XCTAssertNil(receivedLocation)
     }
 
     func test_givenLocation_locationPublished() {
-        let expectation = expectation(description: "location published")
         let expectedLocation = givenLocation()
 
-        var receivedLocation: CLLocation?
-        var receivedError: Error?
-        sut.location
-            .sink(receiveCompletion: { result in
-                switch result {
-                case .finished:
-                    break
-                case .failure(let error):
-                    receivedError = error
-                }
-                expectation.fulfill()
-            }, receiveValue: { location in
-                receivedLocation = location
-            })
-            .store(in: &cancellable)
+        let (receivedLocation, receivedError) = waitAndObserve(
+            for: sut.location,
+            afterChange: mockLocationManager.sendLocation
+        )
 
-        mockLocationManager.sendLocation()
-
-        wait(for: [expectation], timeout: 1)
         XCTAssertNil(receivedError)
         XCTAssertEqual(receivedLocation, expectedLocation)
     }
@@ -171,62 +184,63 @@ class LocationProviderTests: XCTestCase {
 
     // MARK: - Geocoding
     func test_geocodingRequest() {
-        givenLocation()
-
-        mockLocationManager.sendLocation()
+        sut.startGeocoding(mockLocation)
 
         XCTAssertTrue(mockGeocoder.geocodingRequested)
     }
 
     func test_whenGeocodingFail_ErrorPublished() {
-        givenLocation()
-        let expectation = expectation(description: "error published")
         mockGeocoder.shouldFail = true
-
+        
+        let exp = expectation(description: "should return error")
+        var receivedPlacemark: CLPlacemark?
         var receivedError: Error?
-        sut.placemark
-            .sink(receiveCompletion: { result in
+        let token = sut.placemark
+            .sink { result in
                 switch result {
                 case .finished:
                     break
                 case .failure(let error):
                     receivedError = error
                 }
-                expectation.fulfill()
-            }, receiveValue: { _ in })
-            .store(in: &cancellable)
+                exp.fulfill()
+            } receiveValue: { placemark in
+                receivedPlacemark = placemark
+            }
 
-        mockLocationManager.sendLocation()
+        sut.startGeocoding(mockLocation)
 
-        wait(for: [expectation], timeout: 1)
+        wait(for: [exp], timeout: 1)
+        token.cancel()
+
         XCTAssertNotNil(receivedError)
+        XCTAssertNil(receivedPlacemark)
     }
 
     func test_givenPlacemark_placemarkPublished() throws {
-        givenLocation()
-        let expectation = expectation(description: "placemark published")
-
+        let exp = expectation(description: "should return placemark")
         var receivedPlacemark: CLPlacemark?
         var receivedError: Error?
-        sut.placemark
-            .sink(receiveCompletion: { result in
+        let token = sut.placemark
+            .sink { result in
                 switch result {
                 case .finished:
                     break
                 case .failure(let error):
                     receivedError = error
                 }
-                expectation.fulfill()
-            }, receiveValue: { placemark in
+                exp.fulfill()
+            } receiveValue: { placemark in
                 receivedPlacemark = placemark
-            })
-            .store(in: &cancellable)
+            }
 
-        mockLocationManager.sendLocation()
+        sut.startGeocoding(mockLocation)
 
-        wait(for: [expectation], timeout: 1)
-        XCTAssertNil(receivedError)
+        wait(for: [exp], timeout: 1)
+        token.cancel()
+
         receivedPlacemark = try XCTUnwrap(receivedPlacemark)
+        XCTAssertNil(receivedError)
         XCTAssertEqual(mockPlacemark.name, receivedPlacemark?.name)
         XCTAssertEqual(mockPlacemark.location?.coordinate.latitude,
                        receivedPlacemark?.location?.coordinate.latitude)

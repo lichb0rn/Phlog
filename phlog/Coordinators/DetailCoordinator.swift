@@ -15,13 +15,15 @@ class DetailCoordinator: Coordinator {
     var router: Router
     private var viewModel: DetailViewModel?
     private let phlogProvider: PhlogService
+    private let locationProvider: LocationService
     private let viewController = DetailViewController.instantiate(from: .detail)
     
     
     init(router: Router, phlogProvider: PhlogService, phlog: PhlogPost? = nil) {
         self.router = router
         self.phlogProvider = phlogProvider
-        self.viewModel = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog)
+        self.locationProvider = LocationProvider(locationManager: CLLocationManager(), geocoder: CLGeocoder())
+        self.viewModel = DetailViewModel(phlogProvider: phlogProvider, phlog: phlog, locationProvider: locationProvider)
     }
     
     func start(animated: Bool, completion: (() -> Void)?) {
