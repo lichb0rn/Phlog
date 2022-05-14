@@ -10,13 +10,13 @@ import XCTest
 
 class FeedViewControllerTests: XCTestCase {
 
-    var sut: FeedViewContoller!
+    var sut: FeedViewController!
     var phlogProvider: PhlogService!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        sut = FeedViewContoller.instantiate(from: .feed)
+        sut = FeedViewController.instantiate(from: .feed)
         let mockCoreData = MockCoreDataStack()
         phlogProvider = PhlogProvider(db: mockCoreData)
         sut.phlogProvider = phlogProvider

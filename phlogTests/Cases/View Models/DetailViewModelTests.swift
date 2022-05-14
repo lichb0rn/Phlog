@@ -19,14 +19,14 @@ class DetailViewModelTests: XCTestCase {
     var mockCoreData: MockCoreDataStack!
     var mockLocationManager: MockLocationManager!
     var mockGeocoder: MockGeocoder!
-    var locationProvider: LocationProvider!
+    var locationProvider: LocationService!
     
     var phlog: PhlogPost!
     var targetSize: CGSize = CGSize(width: 100, height: 100)
     var cancellable: Set<AnyCancellable> = []
     
     var images = testingImages()
-   
+
 
     
     override func setUpWithError() throws {
@@ -121,9 +121,10 @@ class DetailViewModelTests: XCTestCase {
 
 
     func test_requestedImageUpdate() {
-        let img = mockImageProvider.images["trash.slash.circle"]?.resizeTo(size: targetSize)
+        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.5)
+        let img = mockImageProvider.images["trash.slash.circle"]?.resizeTo(size: size)
 
-        sut.updatePhoto(with: "trash.slash.circle", size: targetSize)
+        sut.updatePhoto(with: "trash.slash.circle", size: size)
         
         XCTAssertNotNil(sut.image)
         XCTAssertEqual(img?.pngData(), sut.image?.pngData())
@@ -141,23 +142,62 @@ class DetailViewModelTests: XCTestCase {
 
 
     // MARK: - Location tests
-    func test_givenLocation_coordinatesSaved() {
+    func test_givenLocation_coordinatesReceived() throws {
+        let phlog = sut.phlog
+        sut.addLocation()
+        expectation(forNotification: .NSManagedObjectContextObjectsDidChange,
+                    object: phlog.managedObjectContext) { _ in
+            return true
+        }
+
+        mockLocationManager.sendLocation()
+
+        waitForExpectations(timeout: 1)
+        let expectedLocation = try XCTUnwrap(phlog.location)
+        XCTAssertEqual(expectedLocation.coordinate.latitude,
+                       mockLocationManager.mockLocation.coordinate.latitude,
+                       accuracy: 0.000_001)
+        XCTAssertEqual(expectedLocation.coordinate.longitude,
+                       mockLocationManager.mockLocation.coordinate.longitude,
+                       accuracy: 0.000_001)
 
     }
 
-    func test_givenPlacemark_placemarkSaved() {
+    func test_givenPlacemark_placemarkSaved() throws {
+        let phlog = sut.phlog
+        let phlogLocation = PhlogLocation(context: phlog.managedObjectContext!)
+        phlog.location = phlogLocation
+        sut.addLocation()
+        expectation(forNotification: .NSManagedObjectContextObjectsDidChange,
+                    object: phlog.managedObjectContext) { _ in
+            return true
+        }
 
-    }
+        locationProvider.startGeocoding(mockLocationManager.mockLocation)
 
-    func test_givenLocationError() {
+        waitForExpectations(timeout: 1)
 
-    }
-
-    func test_givenPlacemarkError() {
-
+        XCTAssertNotNil(phlogLocation.placemark)
+        XCTAssertEqual(phlogLocation.placemark?.name, mockGeocoder.placemark.name)
     }
 
     func test_givenPlacemark_placemarkStringPublished() {
-        
+        let phlog = sut.phlog
+        let phlogLocation = PhlogLocation(context: phlog.managedObjectContext!)
+        phlog.location = phlogLocation
+        let expectation = expectation(description: "placemark received")
+        var receivedAddress = ""
+        sut.$address
+            .compactMap { $0 }
+            .sink(receiveValue: { address in
+                receivedAddress = address
+                expectation.fulfill()
+            })
+            .store(in: &cancellable)
+        sut.addLocation()
+        locationProvider.startGeocoding(mockLocationManager.mockLocation)
+
+        waitForExpectations(timeout: 1)
+        XCTAssertEqual(receivedAddress, mockGeocoder.mockPlacemarkString)
     }
 }

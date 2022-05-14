@@ -12,7 +12,7 @@
         <!--Your Feed-->
         <scene sceneID="FiU-fb-DQW">
             <objects>
-                <viewController storyboardIdentifier="FeedViewContoller" title="Your Feed" id="U0O-xT-vdc" customClass="FeedViewContoller" customModule="phlog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" title="Your Feed" id="U0O-xT-vdc" customClass="FeedViewController" customModule="phlog" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ql7-Nq-Qst">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

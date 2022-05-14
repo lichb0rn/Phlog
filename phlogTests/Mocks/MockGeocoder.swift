@@ -29,10 +29,26 @@ class MockPlacemark: CLPlacemark {
     override var name: String? {
         return "Hogwarts"
     }
+
+    override var subThoroughfare: String? {
+        return "Hogwarts School of Witchcraft and Wizardry"
+    }
+
+    override var thoroughfare: String? {
+        return "Hogwarts Castle"
+    }
+
+    override var locality: String? {
+        return "Scottish Highlands"
+    }
 }
 
 class MockGeocoder: CLGeocoder {
 
+    let placemark = MockPlacemark()
+    var mockPlacemarkString: String {
+        return "Hogwarts School of Witchcraft and Wizardry Hogwarts Castle, Scottish Highlands"
+    }
     var shouldFail: Bool = false
     var geocodingRequested: Bool = false
     var errorCode = CLError.Code.network
@@ -44,9 +60,7 @@ class MockGeocoder: CLGeocoder {
             return
         }
 
-        let placemark = MockPlacemark()
         completionHandler([placemark], nil)
-
     }
 }
 

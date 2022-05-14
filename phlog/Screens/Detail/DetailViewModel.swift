@@ -12,7 +12,8 @@ import CoreData
 
 
 class DetailViewModel: NSObject {
-    
+    private var cancellable = Set<AnyCancellable>()
+
     @Published private(set) var isMenuActive: Bool = false
     @Published private(set) var image: UIImage? {
         didSet {
@@ -26,13 +27,18 @@ class DetailViewModel: NSObject {
     var date: String {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
     }
+    var headerViewHeight: CGFloat {
+        return UIScreen.main.bounds.height / 2.5
+    }
     
-    private var phlog: PhlogPost
+    private(set) var phlog: PhlogPost
     private let imageProvider: ImageService
     private let phlogProvider: PhlogService
     
-    private var locationProvider: LocationService   
-    
+    private var locationProvider: LocationService
+    private var location: CLLocation?
+    private var placemark: CLPlacemark?
+
     // Something has to retain child context because NSManagedObject doesn't
     private var context: NSManagedObjectContext!
     
@@ -71,14 +77,16 @@ extension DetailViewModel {
     
     func updatePhoto(with photoIdentifier: String, size: CGSize) {
         let imageData = ImageData(identifier: photoIdentifier)
-        imageProvider.requestImage(for: imageData, targetSize: size) { [weak self] imgData in
-            self?.image = imgData?.image
+        let targetSize = CGSize(width: UIScreen.main.bounds.width, height: headerViewHeight)
+        imageProvider.requestImage(for: imageData, targetSize: targetSize) { [weak self] imgData in
+            guard let self = self else { return }
+            self.image = imgData?.image
+            self.phlog.picture = self.phlogProvider.newPicture(withID: imageData.identifier, context: self.context)
         }
     }
     
     func save() {
         phlog.picture?.pictureData = image?.pngData()
-        
         // This view model doesn't know the cell size from the FeedView
         // So, we consider it's about 1/3 of the screen width
         // Since most of time there are 3 cells in a row
@@ -98,14 +106,58 @@ extension DetailViewModel {
     }
 }
 
-extension DetailViewModel: CLLocationManagerDelegate {
+extension DetailViewModel {
+    func addLocation() {
+        subscribeForPlacemark()
+        subscribeForLocation()
+    }
 
+    private func subscribeForLocation() {
+        locationProvider.location
+            .sink { result in
+                switch result {
+                case .finished:
+                    break
+                case .failure(_):
+                    break
+                }
+            } receiveValue: { location in
+                self.location = location
+                self.newPhlogLocation()
+            }
+            .store(in: &cancellable)
+        locationProvider.startLocationTracking(waitFor: 60)
+    }
 
-    private func addLocation(location: CLLocation, placemark: CLPlacemark? = nil) {
-        let newLocation = phlogProvider.newLocation(latitude: location.coordinate.latitude,
-                                                    longitude: location.coordinate.longitude,
-                                                    placemark: placemark,
-                                                    context: self.context)
-        phlog.location = newLocation
+    private func subscribeForPlacemark() {
+        locationProvider.placemark
+            .sink { result in
+                switch result {
+                case .finished:
+                    break
+                case .failure(_):
+                    break
+                }
+            } receiveValue: { placemark in
+                self.placemark = placemark
+                self.newPhlogPlacemark()
+            }
+            .store(in: &cancellable)
+    }
+
+    private func newPhlogLocation() {
+        guard let location = location else { return }
+        locationProvider.startGeocoding(location)
+        let newPhlogLocation = phlogProvider.newLocation(latitude: location.coordinate.latitude,
+                                                        longitude: location.coordinate.longitude,
+                                                        placemark: nil,
+                                                        context: context)
+        phlog.location = newPhlogLocation
+    }
+
+    private func newPhlogPlacemark() {
+        guard let location = phlog.location, let placemark = placemark else { return }
+        location.placemark = placemark
+        address = placemark.string()
     }
 }

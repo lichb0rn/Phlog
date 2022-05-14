@@ -88,7 +88,7 @@ extension MainCoordinator {
 }
 
 // --------------------------------------
-// MARK: - Action button controll
+// MARK: - Action button control
 // --------------------------------------
 extension MainCoordinator: TabViewActionControll {
     
@@ -105,7 +105,21 @@ extension MainCoordinator: TabViewActionControll {
     }
     
     private func verifyLibraryPermissions() -> Bool {
-        return PHPhotoLibrary.authorizationStatus(for: .readWrite) == .authorized
+        let authStatus = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+        var status: Bool = false
+        switch authStatus {
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization(for: .readWrite, handler: { newStatus in
+                status = newStatus == .authorized || newStatus == .limited
+            } )
+        case .restricted, .denied:
+            status = false
+        case .authorized, .limited:
+            status = true
+        @unknown default:
+            status = false
+        }
+        return status
     }
     
 

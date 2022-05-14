@@ -11,7 +11,12 @@ import CoreLocation
 
 class MockLocationManager: CLLocationManager {
     //+37.33233141,-122.03121860
-    var mockLocation = CLLocation(latitude: +37.33233141, longitude: -122.03121860)
+    var mockLocation = CLLocation(
+        coordinate: CLLocationCoordinate2D(latitude: 100, longitude: 100),
+        altitude: 1,
+        horizontalAccuracy: 1,
+        verticalAccuracy: 1,
+        timestamp: .now)
     override var location: CLLocation? {
         return mockLocation
     }

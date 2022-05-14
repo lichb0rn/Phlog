@@ -29,4 +29,11 @@ extension PhlogLocation {
         return NSFetchRequest<PhlogLocation>(entityName: "PhlogLocation")
     }
 }
+
+extension PhlogLocation {
+    public var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(latitude, longitude)
+    }
+}
+
 extension PhlogLocation: Identifiable { }

@@ -52,32 +52,41 @@ class DetailViewControllerTests: XCTestCase {
         phlogProvider.saveChanges(context: phlogProvider.mainContext)
     }
     
-    func whenLoaded() {
+    func whenDidAppear() {
         sut.loadViewIfNeeded()
         sut.viewModel?.didAppear()
     }
     
-    func testController_whenEmptyLoaded_hasCorrectOutlets() {
+    func testController_whenDidAppear_noData_hasCorrectOutlets() {
         let currentDate = Date().formatted(date: .long, time: .omitted)
         let placeholder = UIImage(named: "ImagePlaceholder")!.pngData()
         
         givenEmptyViewModel()
-        whenLoaded()
+        whenDidAppear()
         
         XCTAssertEqual(sut.title, currentDate)
         XCTAssertEqual(sut.imageView.image?.pngData(), placeholder)
         XCTAssertEqual(sut.textView.text, "")
+//        XCTAssertEqual(sut.locationLabel.text, "")
+    }
+
+    func testController_whenDidAppear_noData_locationOutlet_isHidden() {
+        givenEmptyViewModel()
+        whenDidAppear()
+
+//        XCTAssertTrue(sut.locationLabel.isHidden)
     }
     
-    
-    func testController_whenLoadedWithData_hasCorrectOutlets() {
+    func testController_whenDidAppear_withData_hasCorrectOutlets() {
         let dateString = Date(timeIntervalSince1970: 10000).formatted(date: .long, time: .omitted)
         
         givenNonEmptyViewModel()
-        whenLoaded()
+        whenDidAppear()
         
         XCTAssertEqual(sut.title, dateString)
         XCTAssertNotNil(sut.imageView.image)
         XCTAssertEqual(sut.textView.text, "Testing Non Empty ViewModel")
     }
+
+
 }

@@ -16,7 +16,8 @@ class DetailCoordinator: Coordinator {
     private var viewModel: DetailViewModel?
     private let phlogProvider: PhlogService
     private let locationProvider: LocationService
-    private let viewController = DetailViewController.instantiate(from: .detail)
+//    private let viewController = DetailViewController.instantiate(from: .detail)
+    private let viewController = PhlogDetailViewController.instantiate(from: .detail)
     
     
     init(router: Router, phlogProvider: PhlogService, phlog: PhlogPost? = nil) {

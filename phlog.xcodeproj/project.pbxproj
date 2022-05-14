@@ -10,6 +10,8 @@
 		890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */; };
 		8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */; };
 		892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892A941E27EEF4910019A09E /* MapViewController.storyboard */; };
+		89319BC6282F7696004E7DF6 /* PhlogDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */; };
+		89319BC9282F76D9004E7DF6 /* PhlogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */; };
 		8931D128275CF3A8009284D8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931D127275CF3A8009284D8 /* Coordinator.swift */; };
 		8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B000275CCCCD00B5242D /* FeedCoordinator.swift */; };
 		8932B003275CCCED00B5242D /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B002275CCCED00B5242D /* MapViewCoordinator.swift */; };
@@ -84,6 +86,8 @@
 		890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		892A941E27EEF4910019A09E /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhlogDetailViewController.storyboard; sourceTree = "<group>"; };
+		89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogDetailViewController.swift; sourceTree = "<group>"; };
 		8931D127275CF3A8009284D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8932B000275CCCCD00B5242D /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		8932B002275CCCED00B5242D /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
@@ -164,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89319BC7282F76AB004E7DF6 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				898C386727A5199B00286F49 /* DetailView.storyboard */,
+				89E5FB40278C7D2600D40A47 /* DetailViewController.swift */,
+			);
+			path = Old;
+			sourceTree = "<group>";
+		};
 		8932AFFD275CCCA800B5242D /* Feed tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,8 +428,9 @@
 			isa = PBXGroup;
 			children = (
 				89BA4D322794500E001A72F6 /* DetailViewModel.swift */,
-				898C386727A5199B00286F49 /* DetailView.storyboard */,
-				89E5FB40278C7D2600D40A47 /* DetailViewController.swift */,
+				89319BC7282F76AB004E7DF6 /* Old */,
+				89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */,
+				89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -547,6 +561,7 @@
 				898C386827A5199B00286F49 /* DetailView.storyboard in Resources */,
 				89C49657276A516D00BF8D30 /* FeedCell.xib in Resources */,
 				892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */,
+				89319BC6282F7696004E7DF6 /* PhlogDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +591,7 @@
 				89C49656276A516D00BF8D30 /* FeedCell.swift in Sources */,
 				89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */,
 				898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */,
+				89319BC9282F76D9004E7DF6 /* PhlogDetailViewController.swift in Sources */,
 				89E192E327745397004CC365 /* NavigationRouter.swift in Sources */,
 				8990AE39280FD3B30013EA91 /* PHImageImager+ImageService.swift in Sources */,
 				8932B003275CCCED00B5242D /* MapViewCoordinator.swift in Sources */,

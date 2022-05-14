@@ -9,10 +9,10 @@ import UIKit
 
 
 protocol FeedViewControllerDelegate: AnyObject {
-    func didSelectPhlog(_ viewController: FeedViewContoller, phlog: PhlogPost)
+    func didSelectPhlog(_ viewController: FeedViewController, phlog: PhlogPost)
 }
 
-final class FeedViewContoller: UIViewController {
+final class FeedViewController: UIViewController {
     
     // --------------------------------------
     // MARK: - Properties
@@ -49,7 +49,7 @@ final class FeedViewContoller: UIViewController {
 // --------------------------------------
 // MARK: - CollectionView Delegate
 // --------------------------------------
-extension FeedViewContoller: UICollectionViewDelegate {
+extension FeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let phlog = viewModel.phlog(for: indexPath)
         delegate?.didSelectPhlog(self, phlog: phlog)
@@ -60,9 +60,9 @@ extension FeedViewContoller: UICollectionViewDelegate {
 // --------------------------------------
 // MARK: - Storyboarded protocol conformance
 // --------------------------------------
-extension FeedViewContoller: Storyboarded {
+extension FeedViewController: Storyboarded {
     static var name: String {
-        return "FeedViewContoller"
+        return "FeedViewController"
     }
 }
 

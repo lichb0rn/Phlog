@@ -89,7 +89,6 @@ extension LocationProvider: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let receivedLocation = locations.last!
-
         // Checking for cached values
         guard receivedLocation.timestamp.timeIntervalSinceNow > -5,
               receivedLocation.horizontalAccuracy > 0 else {
