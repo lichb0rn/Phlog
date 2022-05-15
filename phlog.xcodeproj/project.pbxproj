@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */; };
+		8911B0A62830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */; };
 		8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */; };
 		892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892A941E27EEF4910019A09E /* MapViewController.storyboard */; };
 		89319BC6282F7696004E7DF6 /* PhlogDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */; };
@@ -30,7 +31,6 @@
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
 		8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */; };
 		89765A9C275BA0700076E2A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89765A9B275BA0700076E2A1 /* MapViewController.swift */; };
-		898C386827A5199B00286F49 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898C386727A5199B00286F49 /* DetailView.storyboard */; };
 		898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */; };
 		8990AE39280FD3B30013EA91 /* PHImageImager+ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */; };
 		899986DA276906D50023229A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899986D9276906D50023229A /* ActionButton.swift */; };
@@ -62,7 +62,6 @@
 		89D8E326281ADA4A00E557C1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8E325281ADA4A00E557C1 /* UIViewController+Extension.swift */; };
 		89E192E327745397004CC365 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E192E227745397004CC365 /* NavigationRouter.swift */; };
 		89E4F73D276E0F21004D5FBE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */; };
-		89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5FB40278C7D2600D40A47 /* DetailViewController.swift */; };
 		89E5FB43278C7F8100D40A47 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */; };
 		89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EA3AFA276B74C80084D041 /* FeedLayout.swift */; };
 		89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC09682801599F00095B11 /* FeedViewControllerTests.swift */; };
@@ -84,6 +83,7 @@
 /* Begin PBXFileReference section */
 		8907D28927CE1B5F00DFA463 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		892A941E27EEF4910019A09E /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhlogDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -106,7 +106,6 @@
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardedProtocol.swift; sourceTree = "<group>"; };
 		89765A9B275BA0700076E2A1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		898C386727A5199B00286F49 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
 		8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHImageImager+ImageService.swift"; sourceTree = "<group>"; };
 		899986D9276906D50023229A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -141,7 +140,6 @@
 		89D8E325281ADA4A00E557C1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		89E192E227745397004CC365 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		89E5FB40278C7D2600D40A47 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		89EA3AFA276B74C80084D041 /* FeedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLayout.swift; sourceTree = "<group>"; };
 		89FC09682801599F00095B11 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
@@ -168,15 +166,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		89319BC7282F76AB004E7DF6 /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				898C386727A5199B00286F49 /* DetailView.storyboard */,
-				89E5FB40278C7D2600D40A47 /* DetailViewController.swift */,
-			);
-			path = Old;
-			sourceTree = "<group>";
-		};
 		8932AFFD275CCCA800B5242D /* Feed tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,7 +417,6 @@
 			isa = PBXGroup;
 			children = (
 				89BA4D322794500E001A72F6 /* DetailViewModel.swift */,
-				89319BC7282F76AB004E7DF6 /* Old */,
 				89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */,
 				89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */,
 			);
@@ -440,6 +428,7 @@
 			children = (
 				89FC09682801599F00095B11 /* FeedViewControllerTests.swift */,
 				89FC097528016F4200095B11 /* DetailViewControllerTests.swift */,
+				8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -558,7 +547,6 @@
 				894046D727744C7800C144CE /* Feed.storyboard in Resources */,
 				89ACD9DF275B3239009373E1 /* Assets.xcassets in Resources */,
 				89ACD9DA275B3237009373E1 /* Main.storyboard in Resources */,
-				898C386827A5199B00286F49 /* DetailView.storyboard in Resources */,
 				89C49657276A516D00BF8D30 /* FeedCell.xib in Resources */,
 				892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */,
 				89319BC6282F7696004E7DF6 /* PhlogDetailViewController.storyboard in Resources */,
@@ -602,7 +590,6 @@
 				89A17FB127788715001F5718 /* ModalNavigationRouter.swift in Sources */,
 				89D8E324281AD41400E557C1 /* PhlogLocation.swift in Sources */,
 				8960C2F3281E5CAE002C04EA /* CLPlacemark+Extension.swift in Sources */,
-				89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */,
 				89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */,
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,
 				89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */,
@@ -629,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CF290F2826AC7F00BA418B /* XCTestCase+Extension.swift in Sources */,
+				8911B0A62830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift in Sources */,
 				8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */,
 				89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */,
 				8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */,

@@ -46,7 +46,7 @@ class MockPlacemark: CLPlacemark {
 class MockGeocoder: CLGeocoder {
 
     let placemark = MockPlacemark()
-    var mockPlacemarkString: String {
+    static var mockPlacemarkString: String {
         return "Hogwarts School of Witchcraft and Wizardry Hogwarts Castle, Scottish Highlands"
     }
     var shouldFail: Bool = false

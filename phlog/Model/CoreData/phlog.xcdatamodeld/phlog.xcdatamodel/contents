@@ -3,7 +3,7 @@
     <entity name="PhlogLocation" representedClassName=".PhlogLocation" syncable="YES">
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="placemark" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer"/>
+        <attribute name="placemark" optional="YES" attributeType="Transformable" valueTransformerName=""/>
         <relationship name="phlog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PhlogPost" inverseName="location" inverseEntity="PhlogPost"/>
     </entity>
     <entity name="PhlogPicture" representedClassName=".PhlogPicture" syncable="YES">

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="B9h-Tw-y8f">
+                            <tableViewSection id="B9h-Tw-y8f" userLabel="Image and Controls">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ControlCell" rowHeight="44" id="sn2-q2-AdS">
                                         <rect key="frame" x="0.0" y="18" width="414" height="44"/>
@@ -60,7 +60,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="cXX-Ff-uaA">
+                            <tableViewSection id="cXX-Ff-uaA" userLabel="Story section">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" id="Wvg-Fr-WVc">
                                         <rect key="frame" x="0.0" y="98" width="414" height="150"/>
@@ -76,7 +76,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="cgW-3v-qsb"/>
                                                     </constraints>
                                                     <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Add your story here..."/>

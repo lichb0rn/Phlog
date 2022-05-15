@@ -124,7 +124,7 @@ class DetailViewModelTests: XCTestCase {
         let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.5)
         let img = mockImageProvider.images["trash.slash.circle"]?.resizeTo(size: size)
 
-        sut.updatePhoto(with: "trash.slash.circle", size: size)
+        sut.updatePhoto(with: "trash.slash.circle")
         
         XCTAssertNotNil(sut.image)
         XCTAssertEqual(img?.pngData(), sut.image?.pngData())
@@ -135,7 +135,7 @@ class DetailViewModelTests: XCTestCase {
     }
     
     func test_givenImage_isMenuActiveTrue() {
-        sut.updatePhoto(with: "trash.slash.circle", size: targetSize)
+        sut.updatePhoto(with: "trash.slash.circle")
         
         XCTAssertTrue(sut.isMenuActive)
     }
@@ -198,6 +198,6 @@ class DetailViewModelTests: XCTestCase {
         locationProvider.startGeocoding(mockLocationManager.mockLocation)
 
         waitForExpectations(timeout: 1)
-        XCTAssertEqual(receivedAddress, mockGeocoder.mockPlacemarkString)
+        XCTAssertEqual(receivedAddress, MockGeocoder.mockPlacemarkString)
     }
 }

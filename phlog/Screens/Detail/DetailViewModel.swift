@@ -73,9 +73,10 @@ extension DetailViewModel {
             return
         }
         image = picture
+        address = phlog.location?.placemark?.string()
     }
     
-    func updatePhoto(with photoIdentifier: String, size: CGSize) {
+    func updatePhoto(with photoIdentifier: String) {
         let imageData = ImageData(identifier: photoIdentifier)
         let targetSize = CGSize(width: UIScreen.main.bounds.width, height: headerViewHeight)
         imageProvider.requestImage(for: imageData, targetSize: targetSize) { [weak self] imgData in

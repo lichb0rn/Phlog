@@ -53,7 +53,7 @@ extension DetailCoordinator: DetailViewControllerDelegate {
             [weak self] in
             guard let self = self else { return }
             let asset = imagePickerCoordinator.chosenAsset
-            self.viewModel?.updatePhoto(with: asset, size: size)
+            self.viewModel?.updatePhoto(with: asset)
         }
     }
 }

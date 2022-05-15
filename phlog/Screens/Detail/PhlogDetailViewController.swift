@@ -1,6 +1,11 @@
 import UIKit
 import Combine
 
+protocol DetailViewControllerDelegate: AnyObject {
+    func didFinish(_ viewController: UIViewController)
+    func didRequestImage(_ viewController: UIViewController, size: CGSize)
+}
+
 class PhlogDetailViewController: UITableViewController {
     private enum Section: Int, CaseIterable {
         case image
@@ -11,14 +16,12 @@ class PhlogDetailViewController: UITableViewController {
         }
 
         static func byIndex(_ index: Int) -> Section {
-            guard index < self.allCases.count else { fatalError("Sections count do not match") }
+            guard index < self.allCases.count else { fatalError("Sections counts do not match") }
             return self.allCases[index]
         }
     }
 
     @IBOutlet weak var textView: UITextView!
-
-    private let cellIdentifier = "TextCell"
 
     var viewModel: DetailViewModel!
     weak var delegate: DetailViewControllerDelegate?
@@ -105,6 +108,7 @@ class PhlogDetailViewController: UITableViewController {
 
         let imageView = UIImageView(image: viewModel.image)
         imageView.contentMode = .scaleAspectFill
+        roundViewCorners(imageView)
         return imageView
     }
 
@@ -157,6 +161,16 @@ class PhlogDetailViewController: UITableViewController {
                                                                  primaryAction: nil,
                                                                  menu: barButtonMenu)
     }
+
+    private func roundViewCorners(_ view: UIView) {
+        let corners: UIRectCorner = [.bottomLeft, .bottomRight]
+        let path = UIBezierPath(roundedRect: view.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: 25, height: 25))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        view.layer.mask = maskLayer
+    }
 }
 
 
@@ -164,6 +178,7 @@ extension PhlogDetailViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
         tableView.endUpdates()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .bottom, animated: false)
     }
 }
 
