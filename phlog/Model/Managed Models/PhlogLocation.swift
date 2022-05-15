@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import CoreLocation
+import MapKit
 
 public class PhlogLocation: NSManagedObject {
     
@@ -30,10 +31,20 @@ extension PhlogLocation {
     }
 }
 
-extension PhlogLocation {
+extension PhlogLocation: MKAnnotation {
     public var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2DMake(latitude, longitude)
     }
+
+    public var title: String? {
+        return placemark?.string()
+    }
+
+    public var subtitle: String? {
+        return self.phlog?.dateCreated.formatted(date: .abbreviated, time: .omitted)
+    }
 }
+
+
 
 extension PhlogLocation: Identifiable { }

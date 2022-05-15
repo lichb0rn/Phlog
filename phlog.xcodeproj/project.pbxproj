@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */; };
 		8911B0A62830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */; };
+		8911B0A82831205B00A0B089 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A72831205B00A0B089 /* MapViewControllerTests.swift */; };
+		8911B0AA2831220A00A0B089 /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A92831220A00A0B089 /* MapViewModelTests.swift */; };
 		8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */; };
 		892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892A941E27EEF4910019A09E /* MapViewController.storyboard */; };
 		89319BC6282F7696004E7DF6 /* PhlogDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */; };
@@ -67,7 +69,6 @@
 		89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC09682801599F00095B11 /* FeedViewControllerTests.swift */; };
 		89FC096F28015F0D00095B11 /* TestImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC096E28015F0D00095B11 /* TestImages.swift */; };
 		89FC097428016AB700095B11 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC097328016AB700095B11 /* DetailViewModelTests.swift */; };
-		89FC097628016F4200095B11 /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC097528016F4200095B11 /* DetailViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		8907D28927CE1B5F00DFA463 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		8911B0A72831205B00A0B089 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
+		8911B0A92831220A00A0B089 /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		892A941E27EEF4910019A09E /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhlogDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -145,7 +148,6 @@
 		89FC09682801599F00095B11 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		89FC096E28015F0D00095B11 /* TestImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImages.swift; sourceTree = "<group>"; };
 		89FC097328016AB700095B11 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
-		89FC097528016F4200095B11 /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +168,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8911B0AB2831268700A0B089 /* Managed Models */ = {
+			isa = PBXGroup;
+			children = (
+				89472E3627C7CE03005543F7 /* PhlogPicture.swift */,
+				89B700FA27C4AB3D00E66961 /* PhlogPost.swift */,
+				89D8E323281AD41400E557C1 /* PhlogLocation.swift */,
+			);
+			path = "Managed Models";
+			sourceTree = "<group>";
+		};
 		8932AFFD275CCCA800B5242D /* Feed tab */ = {
 			isa = PBXGroup;
 			children = (
+				8932B000275CCCCD00B5242D /* FeedCoordinator.swift */,
 				895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */,
 				89ACD9D6275B3237009373E1 /* FeedViewController.swift */,
 				8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */,
@@ -180,6 +193,7 @@
 		8932AFFE275CCCAE00B5242D /* Map tab */ = {
 			isa = PBXGroup;
 			children = (
+				8932B002275CCCED00B5242D /* MapViewCoordinator.swift */,
 				89765A9B275BA0700076E2A1 /* MapViewController.swift */,
 				892A941E27EEF4910019A09E /* MapViewController.storyboard */,
 				89D0CE8927F02D2500DA09EE /* MapViewModel.swift */,
@@ -240,6 +254,7 @@
 		8975720A275C881100E1E6AF /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */,
 				89ACD9D8275B3237009373E1 /* Main.storyboard */,
 				89757208275C875A00E1E6AF /* TabController.swift */,
 			);
@@ -256,18 +271,6 @@
 				8975720A275C881100E1E6AF /* TabBar */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		898C386927A520A800286F49 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */,
-				8932B000275CCCCD00B5242D /* FeedCoordinator.swift */,
-				89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */,
-				8932B002275CCCED00B5242D /* MapViewCoordinator.swift */,
-				898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */,
-			);
-			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		89ACD9C6275B3237009373E1 = {
@@ -295,7 +298,6 @@
 			children = (
 				89CF29072826367F00BA418B /* API */,
 				89ACDA05275B3263009373E1 /* App */,
-				898C386927A520A800286F49 /* Coordinators */,
 				893CC5B727A3B8C4007E9DBA /* Extensions */,
 				89D0CE8D27F045E200DA09EE /* Providers */,
 				89ACDA07275B32EC009373E1 /* Model */,
@@ -347,21 +349,19 @@
 			isa = PBXGroup;
 			children = (
 				89B765E6278967250091DD91 /* PhlogProvider.swift */,
-				89ACDA08275B336E009373E1 /* CoreData */,
-				89472E3627C7CE03005543F7 /* PhlogPicture.swift */,
-				89B700FA27C4AB3D00E66961 /* PhlogPost.swift */,
-				89D8E323281AD41400E557C1 /* PhlogLocation.swift */,
+				89ACDA08275B336E009373E1 /* CoreDataStack */,
+				8911B0AB2831268700A0B089 /* Managed Models */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		89ACDA08275B336E009373E1 /* CoreData */ = {
+		89ACDA08275B336E009373E1 /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
 				89ACDA09275B3384009373E1 /* CoreDataStack.swift */,
 				89ACD9DB275B3237009373E1 /* phlog.xcdatamodeld */,
 			);
-			path = CoreData;
+			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
 		89AD913F2765DFE40042C367 /* Protocols */ = {
@@ -416,6 +416,8 @@
 		89E5FB3F278C7D0D00D40A47 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */,
+				898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */,
 				89BA4D322794500E001A72F6 /* DetailViewModel.swift */,
 				89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */,
 				89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */,
@@ -427,8 +429,8 @@
 			isa = PBXGroup;
 			children = (
 				89FC09682801599F00095B11 /* FeedViewControllerTests.swift */,
-				89FC097528016F4200095B11 /* DetailViewControllerTests.swift */,
 				8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */,
+				8911B0A72831205B00A0B089 /* MapViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -457,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				89FC097328016AB700095B11 /* DetailViewModelTests.swift */,
+				8911B0A92831220A00A0B089 /* MapViewModelTests.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -622,8 +625,9 @@
 				8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */,
 				89CF290B282637F600BA418B /* LocationProviderTests.swift in Sources */,
 				89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */,
-				89FC097628016F4200095B11 /* DetailViewControllerTests.swift in Sources */,
 				899B8F9C281D25C00054D803 /* MockLocationManager.swift in Sources */,
+				8911B0A82831205B00A0B089 /* MapViewControllerTests.swift in Sources */,
+				8911B0AA2831220A00A0B089 /* MapViewModelTests.swift in Sources */,
 				893FF216280A93C500A08065 /* MockImageProvider.swift in Sources */,
 				89FC096F28015F0D00095B11 /* TestImages.swift in Sources */,
 				89FC097428016AB700095B11 /* DetailViewModelTests.swift in Sources */,

@@ -7,19 +7,6 @@ protocol DetailViewControllerDelegate: AnyObject {
 }
 
 class PhlogDetailViewController: UITableViewController {
-    private enum Section: Int, CaseIterable {
-        case image
-        case text
-
-        static var numberOfSections: Int {
-            return self.allCases.count
-        }
-
-        static func byIndex(_ index: Int) -> Section {
-            guard index < self.allCases.count else { fatalError("Sections counts do not match") }
-            return self.allCases[index]
-        }
-    }
 
     @IBOutlet weak var textView: UITextView!
 
@@ -85,7 +72,7 @@ class PhlogDetailViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return Section.numberOfRows(section)
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -173,7 +160,37 @@ class PhlogDetailViewController: UITableViewController {
     }
 }
 
+// --------------------------------------
+// MARK: - Extensions
+// --------------------------------------
+extension PhlogDetailViewController {
+    private enum Section: Int, CaseIterable {
+        case image
+        case text
 
+        static var numberOfSections: Int {
+            return self.allCases.count
+        }
+
+        static func numberOfRows(_ section: Int) -> Int {
+            switch Section(rawValue: section) {
+            case .image:
+                return 1
+            case .text:
+                return 1
+            default:
+                return 0
+            }
+        }
+
+        static func byIndex(_ index: Int) -> Section {
+            guard index < self.allCases.count else { fatalError("Sections counts do not match") }
+            return self.allCases[index]
+        }
+    }
+}
+
+// MARK: - UITextView Delegate
 extension PhlogDetailViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
@@ -182,7 +199,7 @@ extension PhlogDetailViewController: UITextViewDelegate {
     }
 }
 
-
+// MARK: - Storyboarded Protocol
 extension PhlogDetailViewController: Storyboarded {
     static var name: String {
         return "PhlogDetailViewController"

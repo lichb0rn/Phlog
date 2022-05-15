@@ -1,23 +1,18 @@
-//
-//  SettingsViewController.swift
-//  phlog
-//
-//  Created by Miroslav Taleiko on 04.12.2021.
-//
-
 import UIKit
 import MapKit
 
 
-public class MapViewController: UIViewController {
+class MapViewController: UIViewController {
 
+
+    var viewModel: MapViewModel!
 
     @IBOutlet weak var mapView: MKMapView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        viewModel.configure(mapView: mapView)
     }
 
 

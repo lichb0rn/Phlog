@@ -33,22 +33,13 @@ class ImagePickerCoordinatorTests: XCTestCase {
     }
     
     func test_whenDismissed_completionCalled() {
-        let expectetation = expectation(description: "didn't call completion")
+        let exp = expectation(description: "didn't call completion")
         
         sut.start(animated: false) {
-            expectetation.fulfill()
+            exp.fulfill()
         }
         sut.dismiss(animated: false)
         
-        wait(for: [expectetation], timeout: 0.1)
-    }
-    
-    func test_whenPickerCalled_assetIsSet() {
-        
-    }
-    
-    func test_whenNotAuthorized_generatesAlert() {
-        
-    }
-    
+        wait(for: [exp], timeout: 0.1)
+    }    
 }

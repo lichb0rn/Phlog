@@ -84,4 +84,31 @@ class PhlogDetailViewControllerTests: XCTestCase {
         XCTAssertEqual(imageSectionHeaderView.image?.pngData(), pictureData)
         XCTAssertEqual(locationSectionTitle, placemarkString)
     }
+
+    func testController_tableView_hasTwoSections() {
+        given_viewModel_withOutPhlog()
+        whenDidAppear()
+
+        let numberOfSections = sut.numberOfSections(in: sut.tableView)
+
+        XCTAssertEqual(numberOfSections, 2)
+    }
+
+    func testTableView_firstSection_hasOneRow() {
+        given_viewModel_withOutPhlog()
+        whenDidAppear()
+
+        let numberOfRows = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
+
+        XCTAssertEqual(numberOfRows, 1)
+    }
+
+    func testTableView_secondSection_hasOneRow() {
+        given_viewModel_withOutPhlog()
+        whenDidAppear()
+
+        let numberOfRows = sut.tableView(sut.tableView, numberOfRowsInSection: 1)
+
+        XCTAssertEqual(numberOfRows, 1)
+    }
 }
