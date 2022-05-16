@@ -8,25 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */; };
+		8911B0A62830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */; };
+		8911B0AA2831220A00A0B089 /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A92831220A00A0B089 /* MapViewModelTests.swift */; };
 		8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */; };
+		892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892A941E27EEF4910019A09E /* MapViewController.storyboard */; };
+		89319BC6282F7696004E7DF6 /* PhlogDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */; };
+		89319BC9282F76D9004E7DF6 /* PhlogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */; };
 		8931D128275CF3A8009284D8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931D127275CF3A8009284D8 /* Coordinator.swift */; };
 		8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B000275CCCCD00B5242D /* FeedCoordinator.swift */; };
-		8932B003275CCCED00B5242D /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B002275CCCED00B5242D /* SettingsCoordinator.swift */; };
+		8932B003275CCCED00B5242D /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8932B002275CCCED00B5242D /* MapViewCoordinator.swift */; };
 		893ABCD127646CD8003A2387 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893ABCD027646CD8003A2387 /* ModalViewController.swift */; };
+		893FF216280A93C500A08065 /* MockImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FF215280A93C500A08065 /* MockImageProvider.swift */; };
 		894046D727744C7800C144CE /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D627744C7800C144CE /* Feed.storyboard */; };
-		894046D927744CDB00C144CE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894046D827744CDB00C144CE /* Settings.storyboard */; };
 		894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894175E0279C474E0071A6B4 /* UITextView+Extension.swift */; };
 		89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89472E3627C7CE03005543F7 /* PhlogPicture.swift */; };
 		895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */; };
+		8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753127F6CF6B00845657 /* MockCoreDataStack.swift */; };
+		8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960753527F6D62500845657 /* PhlogProviderTests.swift */; };
+		8960C2F3281E5CAE002C04EA /* CLPlacemark+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8960C2F2281E5CAE002C04EA /* CLPlacemark+Extension.swift */; };
 		896289182792BAEC002C26E3 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896289172792BAEC002C26E3 /* Presentable.swift */; };
+		89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */; };
 		8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */; };
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
 		8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */; };
-		89765A9C275BA0700076E2A1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89765A9B275BA0700076E2A1 /* SettingsViewController.swift */; };
-		898C386827A5199B00286F49 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 898C386727A5199B00286F49 /* DetailView.storyboard */; };
+		89765A9C275BA0700076E2A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89765A9B275BA0700076E2A1 /* MapViewController.swift */; };
 		898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */; };
+		8990AE39280FD3B30013EA91 /* PHImageImager+ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */; };
 		899986DA276906D50023229A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899986D9276906D50023229A /* ActionButton.swift */; };
 		899B4D8627C9FDC800CE3CFA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899B4D8527C9FDC800CE3CFA /* UIImage+Extension.swift */; };
+		899B8F9C281D25C00054D803 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899B8F9B281D25C00054D803 /* MockLocationManager.swift */; };
 		89A17FB127788715001F5718 /* ModalNavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A17FB027788715001F5718 /* ModalNavigationRouter.swift */; };
 		89ACD9D3275B3237009373E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9D2275B3237009373E1 /* AppDelegate.swift */; };
 		89ACD9D5275B3237009373E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9D4275B3237009373E1 /* SceneDelegate.swift */; };
@@ -35,34 +45,33 @@
 		89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9DB275B3237009373E1 /* phlog.xcdatamodeld */; };
 		89ACD9DF275B3239009373E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89ACD9DE275B3239009373E1 /* Assets.xcassets */; };
 		89ACD9E2275B3239009373E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89ACD9E0275B3239009373E1 /* LaunchScreen.storyboard */; };
-		89ACD9ED275B3239009373E1 /* phlogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9EC275B3239009373E1 /* phlogTests.swift */; };
-		89ACD9F7275B3239009373E1 /* phlogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9F6275B3239009373E1 /* phlogUITests.swift */; };
-		89ACD9F9275B3239009373E1 /* phlogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */; };
 		89ACDA0A275B3384009373E1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACDA09275B3384009373E1 /* CoreDataStack.swift */; };
 		89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B700FA27C4AB3D00E66961 /* PhlogPost.swift */; };
-		89B765E7278967250091DD91 /* PhlogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B765E6278967250091DD91 /* PhlogManager.swift */; };
+		89B765E7278967250091DD91 /* PhlogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B765E6278967250091DD91 /* PhlogProvider.swift */; };
 		89BA4D332794500E001A72F6 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA4D322794500E001A72F6 /* DetailViewModel.swift */; };
 		89BE6A392770818600C7ABC7 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6A382770818600C7ABC7 /* Router.swift */; };
 		89BE6A3B2770859300C7ABC7 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE6A3A2770859300C7ABC7 /* MainRouter.swift */; };
 		89C49656276A516D00BF8D30 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C49654276A516D00BF8D30 /* FeedCell.swift */; };
 		89C49657276A516D00BF8D30 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C49655276A516D00BF8D30 /* FeedCell.xib */; };
+		89CF29092826376F00BA418B /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF29082826376F00BA418B /* LocationProvider.swift */; };
+		89CF290B282637F600BA418B /* LocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF290A282637F600BA418B /* LocationProviderTests.swift */; };
+		89CF290D28264E0B00BA418B /* MockGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF290C28264E0B00BA418B /* MockGeocoder.swift */; };
+		89CF290F2826AC7F00BA418B /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF290E2826AC7F00BA418B /* XCTestCase+Extension.swift */; };
+		89D0CE8A27F02D2500DA09EE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0CE8927F02D2500DA09EE /* MapViewModel.swift */; };
+		89D0CE9127F058A000DA09EE /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0CE9027F058A000DA09EE /* UIImageView+Extension.swift */; };
+		89D8E324281AD41400E557C1 /* PhlogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8E323281AD41400E557C1 /* PhlogLocation.swift */; };
+		89D8E326281ADA4A00E557C1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8E325281ADA4A00E557C1 /* UIViewController+Extension.swift */; };
 		89E192E327745397004CC365 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E192E227745397004CC365 /* NavigationRouter.swift */; };
 		89E4F73D276E0F21004D5FBE /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */; };
-		89E5FB3E278C6D9100D40A47 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E5FB3D278C6D9100D40A47 /* Detail.storyboard */; };
-		89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5FB40278C7D2600D40A47 /* DetailViewController.swift */; };
 		89E5FB43278C7F8100D40A47 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */; };
 		89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EA3AFA276B74C80084D041 /* FeedLayout.swift */; };
+		89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC09682801599F00095B11 /* FeedViewControllerTests.swift */; };
+		89FC096F28015F0D00095B11 /* TestImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC096E28015F0D00095B11 /* TestImages.swift */; };
+		89FC097428016AB700095B11 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FC097328016AB700095B11 /* DetailViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		89ACD9E9275B3239009373E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 89ACD9C7275B3237009373E1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 89ACD9CE275B3237009373E1;
-			remoteInfo = phlog;
-		};
-		89ACD9F3275B3239009373E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 89ACD9C7275B3237009373E1 /* Project object */;
 			proxyType = 1;
@@ -74,25 +83,35 @@
 /* Begin PBXFileReference section */
 		8907D28927CE1B5F00DFA463 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		8911B0A92831220A00A0B089 /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		892A941E27EEF4910019A09E /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhlogDetailViewController.storyboard; sourceTree = "<group>"; };
+		89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogDetailViewController.swift; sourceTree = "<group>"; };
 		8931D127275CF3A8009284D8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8932B000275CCCCD00B5242D /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
-		8932B002275CCCED00B5242D /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		8932B002275CCCED00B5242D /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 		893ABCD027646CD8003A2387 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		893FF215280A93C500A08065 /* MockImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageProvider.swift; sourceTree = "<group>"; };
 		894046D627744C7800C144CE /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
-		894046D827744CDB00C144CE /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		894175E0279C474E0071A6B4 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		89472E3627C7CE03005543F7 /* PhlogPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPicture.swift; sourceTree = "<group>"; };
 		895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		8960753127F6CF6B00845657 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
+		8960753527F6D62500845657 /* PhlogProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogProviderTests.swift; sourceTree = "<group>"; };
+		8960C2F2281E5CAE002C04EA /* CLPlacemark+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLPlacemark+Extension.swift"; sourceTree = "<group>"; };
 		896289172792BAEC002C26E3 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinatorTests.swift; sourceTree = "<group>"; };
 		89744229277F7EEB00E467C8 /* ModalPresentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentRouter.swift; sourceTree = "<group>"; };
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardedProtocol.swift; sourceTree = "<group>"; };
-		89765A9B275BA0700076E2A1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		898C386727A5199B00286F49 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		89765A9B275BA0700076E2A1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHImageImager+ImageService.swift"; sourceTree = "<group>"; };
 		899986D9276906D50023229A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		899B4D8527C9FDC800CE3CFA /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		899B8F9B281D25C00054D803 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
 		89A17FB027788715001F5718 /* ModalNavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationRouter.swift; sourceTree = "<group>"; };
 		89ACD9CF275B3237009373E1 /* phlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89ACD9D2275B3237009373E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,24 +123,29 @@
 		89ACD9E1275B3239009373E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89ACD9E3275B3239009373E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89ACD9E8275B3239009373E1 /* phlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89ACD9EC275B3239009373E1 /* phlogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogTests.swift; sourceTree = "<group>"; };
-		89ACD9F2275B3239009373E1 /* phlogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = phlogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		89ACD9F6275B3239009373E1 /* phlogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogUITests.swift; sourceTree = "<group>"; };
-		89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = phlogUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		89ACDA09275B3384009373E1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		89B700FA27C4AB3D00E66961 /* PhlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogPost.swift; sourceTree = "<group>"; };
-		89B765E6278967250091DD91 /* PhlogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogManager.swift; sourceTree = "<group>"; };
+		89B765E6278967250091DD91 /* PhlogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogProvider.swift; sourceTree = "<group>"; };
 		89BA4D322794500E001A72F6 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		89BE6A382770818600C7ABC7 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		89BE6A3A2770859300C7ABC7 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		89C49654276A516D00BF8D30 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		89C49655276A516D00BF8D30 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		89CF29082826376F00BA418B /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		89CF290A282637F600BA418B /* LocationProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProviderTests.swift; sourceTree = "<group>"; };
+		89CF290C28264E0B00BA418B /* MockGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeocoder.swift; sourceTree = "<group>"; };
+		89CF290E2826AC7F00BA418B /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		89D0CE8927F02D2500DA09EE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		89D0CE9027F058A000DA09EE /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		89D8E323281AD41400E557C1 /* PhlogLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogLocation.swift; sourceTree = "<group>"; };
+		89D8E325281ADA4A00E557C1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		89E192E227745397004CC365 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		89E5FB3D278C6D9100D40A47 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		89E5FB40278C7D2600D40A47 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		89EA3AFA276B74C80084D041 /* FeedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLayout.swift; sourceTree = "<group>"; };
+		89FC09682801599F00095B11 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
+		89FC096E28015F0D00095B11 /* TestImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImages.swift; sourceTree = "<group>"; };
+		89FC097328016AB700095B11 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,34 +163,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		89ACD9EF275B3239009373E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8932AFFD275CCCA800B5242D /* Feed */ = {
+		8911B0AB2831268700A0B089 /* Managed Models */ = {
 			isa = PBXGroup;
 			children = (
+				89472E3627C7CE03005543F7 /* PhlogPicture.swift */,
+				89B700FA27C4AB3D00E66961 /* PhlogPost.swift */,
+				89D8E323281AD41400E557C1 /* PhlogLocation.swift */,
+			);
+			path = "Managed Models";
+			sourceTree = "<group>";
+		};
+		8932AFFD275CCCA800B5242D /* Feed tab */ = {
+			isa = PBXGroup;
+			children = (
+				8932B000275CCCCD00B5242D /* FeedCoordinator.swift */,
 				895C302D27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift */,
 				89ACD9D6275B3237009373E1 /* FeedViewController.swift */,
 				8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */,
 				89E192E527745873004CC365 /* Views */,
 			);
-			path = Feed;
+			path = "Feed tab";
 			sourceTree = "<group>";
 		};
-		8932AFFE275CCCAE00B5242D /* Settings */ = {
+		8932AFFE275CCCAE00B5242D /* Map tab */ = {
 			isa = PBXGroup;
 			children = (
-				894046D827744CDB00C144CE /* Settings.storyboard */,
-				89765A9B275BA0700076E2A1 /* SettingsViewController.swift */,
+				8932B002275CCCED00B5242D /* MapViewCoordinator.swift */,
+				89765A9B275BA0700076E2A1 /* MapViewController.swift */,
+				892A941E27EEF4910019A09E /* MapViewController.storyboard */,
+				89D0CE8927F02D2500DA09EE /* MapViewModel.swift */,
 			);
-			path = Settings;
+			path = "Map tab";
 			sourceTree = "<group>";
 		};
 		893ABCCF27646BD9003A2387 /* Components */ = {
@@ -184,13 +214,45 @@
 				890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */,
 				894175E0279C474E0071A6B4 /* UITextView+Extension.swift */,
 				899B4D8527C9FDC800CE3CFA /* UIImage+Extension.swift */,
+				89D0CE9027F058A000DA09EE /* UIImageView+Extension.swift */,
+				89D8E325281ADA4A00E557C1 /* UIViewController+Extension.swift */,
+				8960C2F2281E5CAE002C04EA /* CLPlacemark+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8960752F27F6CF1A00845657 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8960753127F6CF6B00845657 /* MockCoreDataStack.swift */,
+				893FF215280A93C500A08065 /* MockImageProvider.swift */,
+				899B8F9B281D25C00054D803 /* MockLocationManager.swift */,
+				89CF290C28264E0B00BA418B /* MockGeocoder.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8960753027F6CF1F00845657 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				8960753527F6D62500845657 /* PhlogProviderTests.swift */,
+				89CF290A282637F600BA418B /* LocationProviderTests.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		89674A0F2806994E00BB0CB6 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				89674A102806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		8975720A275C881100E1E6AF /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */,
 				89ACD9D8275B3237009373E1 /* Main.storyboard */,
 				89757208275C875A00E1E6AF /* TabController.swift */,
 			);
@@ -202,23 +264,11 @@
 			children = (
 				893ABCCF27646BD9003A2387 /* Components */,
 				89E5FB3F278C7D0D00D40A47 /* Detail */,
-				8932AFFD275CCCA800B5242D /* Feed */,
-				8932AFFE275CCCAE00B5242D /* Settings */,
+				8932AFFD275CCCA800B5242D /* Feed tab */,
+				8932AFFE275CCCAE00B5242D /* Map tab */,
 				8975720A275C881100E1E6AF /* TabBar */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		898C386927A520A800286F49 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */,
-				8932B000275CCCCD00B5242D /* FeedCoordinator.swift */,
-				89E4F73C276E0F21004D5FBE /* MainCoordinator.swift */,
-				8932B002275CCCED00B5242D /* SettingsCoordinator.swift */,
-				898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */,
-			);
-			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		89ACD9C6275B3237009373E1 = {
@@ -237,7 +287,6 @@
 			children = (
 				89ACD9CF275B3237009373E1 /* phlog.app */,
 				89ACD9E8275B3239009373E1 /* phlogTests.xctest */,
-				89ACD9F2275B3239009373E1 /* phlogUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,8 +294,8 @@
 		89ACD9D1275B3237009373E1 /* phlog */ = {
 			isa = PBXGroup;
 			children = (
+				89CF29072826367F00BA418B /* API */,
 				89ACDA05275B3263009373E1 /* App */,
-				898C386927A520A800286F49 /* Coordinators */,
 				893CC5B727A3B8C4007E9DBA /* Extensions */,
 				89ACDA07275B32EC009373E1 /* Model */,
 				89AD913F2765DFE40042C367 /* Protocols */,
@@ -260,7 +309,9 @@
 		89ACD9EB275B3239009373E1 /* phlogTests */ = {
 			isa = PBXGroup;
 			children = (
-				89ACD9EC275B3239009373E1 /* phlogTests.swift */,
+				89FC096D28015ED800095B11 /* Cases */,
+				89FC096C28015EBC00095B11 /* Helpers */,
+				8960752F27F6CF1A00845657 /* Mocks */,
 			);
 			path = phlogTests;
 			sourceTree = "<group>";
@@ -268,8 +319,6 @@
 		89ACD9F5275B3239009373E1 /* phlogUITests */ = {
 			isa = PBXGroup;
 			children = (
-				89ACD9F6275B3239009373E1 /* phlogUITests.swift */,
-				89ACD9F8275B3239009373E1 /* phlogUITestsLaunchTests.swift */,
 			);
 			path = phlogUITests;
 			sourceTree = "<group>";
@@ -296,21 +345,20 @@
 		89ACDA07275B32EC009373E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				89ACDA08275B336E009373E1 /* CoreData */,
-				89B765E6278967250091DD91 /* PhlogManager.swift */,
-				89472E3627C7CE03005543F7 /* PhlogPicture.swift */,
-				89B700FA27C4AB3D00E66961 /* PhlogPost.swift */,
+				89B765E6278967250091DD91 /* PhlogProvider.swift */,
+				89ACDA08275B336E009373E1 /* CoreDataStack */,
+				8911B0AB2831268700A0B089 /* Managed Models */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		89ACDA08275B336E009373E1 /* CoreData */ = {
+		89ACDA08275B336E009373E1 /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
 				89ACDA09275B3384009373E1 /* CoreDataStack.swift */,
 				89ACD9DB275B3237009373E1 /* phlog.xcdatamodeld */,
 			);
-			path = CoreData;
+			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
 		89AD913F2765DFE40042C367 /* Protocols */ = {
@@ -335,6 +383,15 @@
 			path = Routers;
 			sourceTree = "<group>";
 		};
+		89CF29072826367F00BA418B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */,
+				89CF29082826376F00BA418B /* LocationProvider.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		89E192E527745873004CC365 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,12 +406,51 @@
 		89E5FB3F278C7D0D00D40A47 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				89E5FB3D278C6D9100D40A47 /* Detail.storyboard */,
+				89E5FB42278C7F8100D40A47 /* DetailCoordinator.swift */,
+				898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */,
 				89BA4D322794500E001A72F6 /* DetailViewModel.swift */,
-				898C386727A5199B00286F49 /* DetailView.storyboard */,
-				89E5FB40278C7D2600D40A47 /* DetailViewController.swift */,
+				89319BC5282F7696004E7DF6 /* PhlogDetailViewController.storyboard */,
+				89319BC8282F76D9004E7DF6 /* PhlogDetailViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		89FC09672801598C00095B11 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				89FC09682801599F00095B11 /* FeedViewControllerTests.swift */,
+				8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		89FC096C28015EBC00095B11 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				89FC096E28015F0D00095B11 /* TestImages.swift */,
+				89CF290E2826AC7F00BA418B /* XCTestCase+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		89FC096D28015ED800095B11 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				89674A0F2806994E00BB0CB6 /* Coordinators */,
+				89FC09702801666100095B11 /* View Models */,
+				89FC09672801598C00095B11 /* View Controllers */,
+				8960753027F6CF1F00845657 /* Providers */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		89FC09702801666100095B11 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				89FC097328016AB700095B11 /* DetailViewModelTests.swift */,
+				8911B0A92831220A00A0B089 /* MapViewModelTests.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,24 +491,6 @@
 			productReference = 89ACD9E8275B3239009373E1 /* phlogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		89ACD9F1275B3239009373E1 /* phlogUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 89ACDA02275B3239009373E1 /* Build configuration list for PBXNativeTarget "phlogUITests" */;
-			buildPhases = (
-				89ACD9EE275B3239009373E1 /* Sources */,
-				89ACD9EF275B3239009373E1 /* Frameworks */,
-				89ACD9F0275B3239009373E1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				89ACD9F4275B3239009373E1 /* PBXTargetDependency */,
-			);
-			name = phlogUITests;
-			productName = phlogUITests;
-			productReference = 89ACD9F2275B3239009373E1 /* phlogUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -428,10 +506,7 @@
 					};
 					89ACD9E7275B3239009373E1 = {
 						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 89ACD9CE275B3237009373E1;
-					};
-					89ACD9F1275B3239009373E1 = {
-						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1330;
 						TestTargetID = 89ACD9CE275B3237009373E1;
 					};
 				};
@@ -451,7 +526,6 @@
 			targets = (
 				89ACD9CE275B3237009373E1 /* phlog */,
 				89ACD9E7275B3239009373E1 /* phlogTests */,
-				89ACD9F1275B3239009373E1 /* phlogUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -461,25 +535,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89E5FB3E278C6D9100D40A47 /* Detail.storyboard in Resources */,
 				89ACD9E2275B3239009373E1 /* LaunchScreen.storyboard in Resources */,
 				894046D727744C7800C144CE /* Feed.storyboard in Resources */,
 				89ACD9DF275B3239009373E1 /* Assets.xcassets in Resources */,
 				89ACD9DA275B3237009373E1 /* Main.storyboard in Resources */,
-				898C386827A5199B00286F49 /* DetailView.storyboard in Resources */,
 				89C49657276A516D00BF8D30 /* FeedCell.xib in Resources */,
-				894046D927744CDB00C144CE /* Settings.storyboard in Resources */,
+				892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */,
+				89319BC6282F7696004E7DF6 /* PhlogDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		89ACD9E6275B3239009373E1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		89ACD9F0275B3239009373E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -495,26 +561,32 @@
 			files = (
 				893ABCD127646CD8003A2387 /* ModalViewController.swift in Sources */,
 				89ACDA0A275B3384009373E1 /* CoreDataStack.swift in Sources */,
-				89B765E7278967250091DD91 /* PhlogManager.swift in Sources */,
+				89B765E7278967250091DD91 /* PhlogProvider.swift in Sources */,
 				89E5FB43278C7F8100D40A47 /* DetailCoordinator.swift in Sources */,
 				8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */,
 				8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */,
 				8931D128275CF3A8009284D8 /* Coordinator.swift in Sources */,
+				89D0CE8A27F02D2500DA09EE /* MapViewModel.swift in Sources */,
+				89D8E326281ADA4A00E557C1 /* UIViewController+Extension.swift in Sources */,
 				89C49656276A516D00BF8D30 /* FeedCell.swift in Sources */,
 				89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */,
 				898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */,
+				89319BC9282F76D9004E7DF6 /* PhlogDetailViewController.swift in Sources */,
 				89E192E327745397004CC365 /* NavigationRouter.swift in Sources */,
-				8932B003275CCCED00B5242D /* SettingsCoordinator.swift in Sources */,
+				8990AE39280FD3B30013EA91 /* PHImageImager+ImageService.swift in Sources */,
+				8932B003275CCCED00B5242D /* MapViewCoordinator.swift in Sources */,
 				894175E1279C474E0071A6B4 /* UITextView+Extension.swift in Sources */,
 				89E4F73D276E0F21004D5FBE /* MainCoordinator.swift in Sources */,
 				89757209275C875A00E1E6AF /* TabController.swift in Sources */,
+				89D0CE9127F058A000DA09EE /* UIImageView+Extension.swift in Sources */,
 				89A17FB127788715001F5718 /* ModalNavigationRouter.swift in Sources */,
-				89E5FB41278C7D2600D40A47 /* DetailViewController.swift in Sources */,
+				89D8E324281AD41400E557C1 /* PhlogLocation.swift in Sources */,
+				8960C2F3281E5CAE002C04EA /* CLPlacemark+Extension.swift in Sources */,
 				89ACD9DD275B3237009373E1 /* phlog.xcdatamodeld in Sources */,
 				8932B001275CCCCD00B5242D /* FeedCoordinator.swift in Sources */,
 				89B700FC27C4AB3D00E66961 /* PhlogPost.swift in Sources */,
 				890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */,
-				89765A9C275BA0700076E2A1 /* SettingsViewController.swift in Sources */,
+				89765A9C275BA0700076E2A1 /* MapViewController.swift in Sources */,
 				89472E3727C7CE03005543F7 /* PhlogPicture.swift in Sources */,
 				89ACD9D7275B3237009373E1 /* FeedViewController.swift in Sources */,
 				89ACD9D3275B3237009373E1 /* AppDelegate.swift in Sources */,
@@ -527,6 +599,7 @@
 				8974422A277F7EEB00E467C8 /* ModalPresentRouter.swift in Sources */,
 				895C302E27DE1CB000EA6674 /* FeedCollectionViewDataSource.swift in Sources */,
 				899986DA276906D50023229A /* ActionButton.swift in Sources */,
+				89CF29092826376F00BA418B /* LocationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,16 +607,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89ACD9ED275B3239009373E1 /* phlogTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		89ACD9EE275B3239009373E1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				89ACD9F7275B3239009373E1 /* phlogUITests.swift in Sources */,
-				89ACD9F9275B3239009373E1 /* phlogUITestsLaunchTests.swift in Sources */,
+				89CF290F2826AC7F00BA418B /* XCTestCase+Extension.swift in Sources */,
+				8911B0A62830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift in Sources */,
+				8960753227F6CF6B00845657 /* MockCoreDataStack.swift in Sources */,
+				89FC09692801599F00095B11 /* FeedViewControllerTests.swift in Sources */,
+				8960753627F6D62500845657 /* PhlogProviderTests.swift in Sources */,
+				89CF290B282637F600BA418B /* LocationProviderTests.swift in Sources */,
+				89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */,
+				899B8F9C281D25C00054D803 /* MockLocationManager.swift in Sources */,
+				8911B0AA2831220A00A0B089 /* MapViewModelTests.swift in Sources */,
+				893FF216280A93C500A08065 /* MockImageProvider.swift in Sources */,
+				89FC096F28015F0D00095B11 /* TestImages.swift in Sources */,
+				89FC097428016AB700095B11 /* DetailViewModelTests.swift in Sources */,
+				89CF290D28264E0B00BA418B /* MockGeocoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,11 +630,6 @@
 			isa = PBXTargetDependency;
 			target = 89ACD9CE275B3237009373E1 /* phlog */;
 			targetProxy = 89ACD9E9275B3239009373E1 /* PBXContainerItemProxy */;
-		};
-		89ACD9F4275B3239009373E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 89ACD9CE275B3237009373E1 /* phlog */;
-			targetProxy = 89ACD9F3275B3239009373E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -709,9 +780,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = phlog/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera permissions to take photo for your phlog post.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Add location to your photo.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need saving to your Photo library permissions to save the photos you take.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need Photo library permissions to add photo for phlog post.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need Photo library access to add photo to a post.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -743,9 +814,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = phlog/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera permissions to take photo for your phlog post.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Add location to your photo.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need saving to your Photo library permissions to save the photos you take.";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need Photo library permissions to add photo for phlog post.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need Photo library access to add photo to a post.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -771,6 +842,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54893W6U2X;
@@ -785,6 +857,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mtaleiko.phlogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/phlog.app/phlog";
@@ -796,6 +869,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54893W6U2X;
@@ -813,52 +887,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/phlog.app/phlog";
-			};
-			name = Release;
-		};
-		89ACDA03275B3239009373E1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54893W6U2X;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtaleiko.phlogUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = phlog;
-			};
-			name = Debug;
-		};
-		89ACDA04275B3239009373E1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54893W6U2X;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtaleiko.phlogUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = phlog;
 			};
 			name = Release;
 		};
@@ -888,15 +916,6 @@
 			buildConfigurations = (
 				89ACDA00275B3239009373E1 /* Debug */,
 				89ACDA01275B3239009373E1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		89ACDA02275B3239009373E1 /* Build configuration list for PBXNativeTarget "phlogUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				89ACDA03275B3239009373E1 /* Debug */,
-				89ACDA04275B3239009373E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

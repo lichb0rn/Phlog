@@ -15,9 +15,9 @@ protocol Storyboarded {
 
 public enum StoryboardType: String {
     case feed = "Feed"
-    case settings = "Settings"
+    case map = "MapViewController"
     case main = "Main"
-    case detail = "DetailView"
+    case detail = "PhlogDetailViewController"
 }
 
 extension Storyboarded where Self: UIViewController {

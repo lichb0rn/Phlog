@@ -8,28 +8,28 @@
 import UIKit
 import PhotosUI
 
-public protocol TabViewActionControll: AnyObject {
+protocol TabViewActionControll: AnyObject {
     func tabViewActionButtonTapped(_ viewController: UIViewController)
 }
 
 
-public class TabController: UITabBarController {
+class TabController: UITabBarController {
     
-    public weak var coordinator: TabViewActionControll?
+    weak var coordinator: TabViewActionControll?
 
     private var actionButtonWidth: CGFloat = 50
     private var actionButtonHeight: CGFloat = 50
     private var actionButton: ActionButton!
         
     
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = .white
         tabBar.backgroundColor = UIColor(named: "shadedBlack")
         configureButton()
     }
     
-    public override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         self.tabBar.itemPositioning = .centered
