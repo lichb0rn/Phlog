@@ -46,6 +46,10 @@ class PhlogDetailViewController: UITableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] image in
                 guard let self = self else { return }
+                // By default .contentInsetAdjustmentBehavior is .automatic
+                // I keep it that way because if there is no image, then the top cell will overlap navigation bar
+                // Disable it otherwise
+                self.tableView.contentInsetAdjustmentBehavior = .never
                 self.tableView.reloadData()
             }
             .store(in: &cancellable)
@@ -76,7 +80,7 @@ class PhlogDetailViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard Section.byIndex(section) == .image else {  return UITableView.automaticDimension  }
+        guard Section(rawValue: section) == .image else {  return UITableView.automaticDimension  }
         guard viewModel.image != nil else { return UITableView.automaticDimension }
         return viewModel.headerViewHeight
     }
@@ -86,16 +90,16 @@ class PhlogDetailViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard Section.byIndex(section) == .text else { return nil }
+        guard Section(rawValue: section) == .text else { return nil }
         return viewModel.address
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard Section.byIndex(section) == .image else { return nil }
+        guard Section(rawValue: section) == .image else { return nil }
 
         let imageView = UIImageView(image: viewModel.image)
         imageView.contentMode = .scaleAspectFill
-        roundViewCorners(imageView)
+
         return imageView
     }
 
@@ -127,7 +131,7 @@ class PhlogDetailViewController: UITableViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-        self.tableView.contentInsetAdjustmentBehavior = .never
+        self.tableView.contentInsetAdjustmentBehavior = .automatic
     }
 
     private func addMenu() {
@@ -147,16 +151,6 @@ class PhlogDetailViewController: UITableViewController {
                                                                  image: menuImage,
                                                                  primaryAction: nil,
                                                                  menu: barButtonMenu)
-    }
-
-    private func roundViewCorners(_ view: UIView) {
-        let corners: UIRectCorner = [.bottomLeft, .bottomRight]
-        let path = UIBezierPath(roundedRect: view.bounds,
-                                byRoundingCorners: corners,
-                                cornerRadii: CGSize(width: 25, height: 25))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        view.layer.mask = maskLayer
     }
 }
 
@@ -181,11 +175,6 @@ extension PhlogDetailViewController {
             default:
                 return 0
             }
-        }
-
-        static func byIndex(_ index: Int) -> Section {
-            guard index < self.allCases.count else { fatalError("Sections counts do not match") }
-            return self.allCases[index]
         }
     }
 }

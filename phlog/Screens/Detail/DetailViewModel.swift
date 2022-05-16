@@ -28,7 +28,7 @@ class DetailViewModel: NSObject {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
     }
     var headerViewHeight: CGFloat {
-        return UIScreen.main.bounds.height / 2.5
+        return UIScreen.main.bounds.height / 2
     }
     
     private(set) var phlog: PhlogPost

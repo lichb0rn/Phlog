@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +15,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="rFh-lA-YPX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="shadedBlack"/>
                         <sections>
                             <tableViewSection id="B9h-Tw-y8f" userLabel="Image and Controls">
                                 <cells>
@@ -70,8 +71,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="9sk-Ie-Gtj">
-                                                    <rect key="frame" x="8" y="0.0" width="398" height="150"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <rect key="frame" x="16" y="0.0" width="382" height="150"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="cgW-3v-qsb"/>
                                                     </constraints>
@@ -84,8 +85,8 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="9sk-Ie-Gtj" secondAttribute="trailing" constant="8" id="8TH-cC-LMy"/>
-                                                <constraint firstItem="9sk-Ie-Gtj" firstAttribute="leading" secondItem="SsO-zt-bHN" secondAttribute="leading" constant="8" id="AVg-tn-GxT"/>
+                                                <constraint firstAttribute="trailing" secondItem="9sk-Ie-Gtj" secondAttribute="trailing" constant="16" id="8TH-cC-LMy"/>
+                                                <constraint firstItem="9sk-Ie-Gtj" firstAttribute="leading" secondItem="SsO-zt-bHN" secondAttribute="leading" constant="16" id="AVg-tn-GxT"/>
                                                 <constraint firstAttribute="bottom" secondItem="9sk-Ie-Gtj" secondAttribute="bottom" id="oAv-pj-SGf"/>
                                                 <constraint firstItem="9sk-Ie-Gtj" firstAttribute="top" secondItem="SsO-zt-bHN" secondAttribute="top" id="x2M-PS-dfO"/>
                                             </constraints>
@@ -112,11 +113,11 @@
     <resources>
         <image name="location" catalog="system" width="128" height="118"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
+        <namedColor name="shadedBlack">
+            <color red="0.043000001460313797" green="0.043000001460313797" blue="0.043000001460313797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
