@@ -37,9 +37,7 @@ class MapViewModel: NSObject {
         do {
             locations = try phlogProvider.mainContext.fetch(fetchRequest)
             mapView.addAnnotations(locations)
-        } catch {
-            print("Could not fetch locations")
-        }
+        } catch { }
     }
 
     func region(for annotations: [MKAnnotation]) -> MKCoordinateRegion {
@@ -89,13 +87,14 @@ extension MapViewModel: MKMapViewDelegate {
         let identifier = "PhlogLocation"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if annotationView == nil {
-            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            pinView.isEnabled = true
-            pinView.canShowCallout = true
-            pinView.animatesDrop = false
-            pinView.pinTintColor = UIColor(red: 0.32, green: 0.82, blue: 0.4, alpha: 1)
+            let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            marker.isEnabled = true
+            marker.animatesWhenAdded = false
+            marker.markerTintColor = .darkGray
+            marker.canShowCallout = true
+            marker.glyphImage = UIImage(systemName: "camera")
 
-            annotationView = pinView
+            annotationView = marker
         }
 
         if let annotationView = annotationView {
