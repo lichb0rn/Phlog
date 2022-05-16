@@ -121,7 +121,7 @@ class DetailViewModelTests: XCTestCase {
 
 
     func test_requestedImageUpdate() {
-        let size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.5)
+        let size = CGSize(width: UIScreen.main.bounds.width, height: sut.headerViewHeight)
         let img = mockImageProvider.images["trash.slash.circle"]?.resizeTo(size: size)
 
         sut.updatePhoto(with: "trash.slash.circle")

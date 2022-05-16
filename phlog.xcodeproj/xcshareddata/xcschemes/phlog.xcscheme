@@ -38,11 +38,6 @@
                BlueprintName = "phlogTests"
                ReferencedContainer = "container:phlog.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "DetailViewControllerTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

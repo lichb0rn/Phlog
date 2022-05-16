@@ -14,9 +14,7 @@ class MapViewModelTests: XCTestCase {
         let mockCoreData = MockCoreDataStack()
         phlogProvider = PhlogProvider(db: mockCoreData)
         sut = MapViewModel(phlogProvider: phlogProvider)
-
-        let mapView = MKMapView()
-        sut.configure(mapView: mapView)
+        sut.mapView = MKMapView()
     }
 
     override func tearDownWithError() throws {
@@ -32,6 +30,11 @@ class MapViewModelTests: XCTestCase {
         let location2 = phlogProvider.newLocation(latitude: 150, longitude: 150, placemark: nil, context: phlogProvider.mainContext)
         location2.placemark = MockPlacemark()
         phlogProvider.saveChanges(context: phlogProvider.mainContext)
+    }
+
+    func whenDidLoad() {
+        let mapView = MKMapView()
+        sut.configure(mapView: mapView)
     }
 
     // MARK: - Tests

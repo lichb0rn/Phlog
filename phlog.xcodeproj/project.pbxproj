@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		890D3C5A2793E45300D4B4FE /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */; };
 		8911B0A62830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */; };
-		8911B0A82831205B00A0B089 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A72831205B00A0B089 /* MapViewControllerTests.swift */; };
 		8911B0AA2831220A00A0B089 /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8911B0A92831220A00A0B089 /* MapViewModelTests.swift */; };
 		8924DEE727AEE09A000C2AF8 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */; };
 		892A941F27EEF4910019A09E /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892A941E27EEF4910019A09E /* MapViewController.storyboard */; };
@@ -85,7 +84,6 @@
 		8907D28927CE1B5F00DFA463 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		890D3C592793E45300D4B4FE /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogDetailViewControllerTests.swift; sourceTree = "<group>"; };
-		8911B0A72831205B00A0B089 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		8911B0A92831220A00A0B089 /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		8924DEE627AEE09A000C2AF8 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		892A941E27EEF4910019A09E /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 				89CF29072826367F00BA418B /* API */,
 				89ACDA05275B3263009373E1 /* App */,
 				893CC5B727A3B8C4007E9DBA /* Extensions */,
-				89D0CE8D27F045E200DA09EE /* Providers */,
 				89ACDA07275B32EC009373E1 /* Model */,
 				89AD913F2765DFE40042C367 /* Protocols */,
 				89ACDA06275B3282009373E1 /* Resources */,
@@ -395,13 +392,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		89D0CE8D27F045E200DA09EE /* Providers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Providers;
-			sourceTree = "<group>";
-		};
 		89E192E527745873004CC365 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,7 +420,6 @@
 			children = (
 				89FC09682801599F00095B11 /* FeedViewControllerTests.swift */,
 				8911B0A52830C4AB00A0B089 /* PhlogDetailViewControllerTests.swift */,
-				8911B0A72831205B00A0B089 /* MapViewControllerTests.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -626,7 +615,6 @@
 				89CF290B282637F600BA418B /* LocationProviderTests.swift in Sources */,
 				89674A112806996A00BB0CB6 /* ImagePickerCoordinatorTests.swift in Sources */,
 				899B8F9C281D25C00054D803 /* MockLocationManager.swift in Sources */,
-				8911B0A82831205B00A0B089 /* MapViewControllerTests.swift in Sources */,
 				8911B0AA2831220A00A0B089 /* MapViewModelTests.swift in Sources */,
 				893FF216280A93C500A08065 /* MockImageProvider.swift in Sources */,
 				89FC096F28015F0D00095B11 /* TestImages.swift in Sources */,

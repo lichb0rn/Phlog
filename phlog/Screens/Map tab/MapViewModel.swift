@@ -19,6 +19,7 @@ class MapViewModel: NSObject {
         self.mapView = mapView
         self.mapView.delegate = self
         updateLocations()
+
         if !locations.isEmpty {
             showLocations()
         }
