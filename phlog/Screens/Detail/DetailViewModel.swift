@@ -22,7 +22,9 @@ class DetailViewModel: NSObject {
             }
         }
     }
-    @Published var address: String?
+
+    @Published private(set) var error: Error?
+    @Published private(set) var address: String?
     @Published var body: String?
     var date: String {
         return phlog.dateCreated.formatted(date: .long, time: .omitted)
@@ -67,7 +69,7 @@ class DetailViewModel: NSObject {
 }
 
 extension DetailViewModel {
-    func didAppear() {        
+    func didAppear() {
         guard let pictureData = phlog.picture?.pictureData,
               let picture = UIImage(data: pictureData)  else {
             return
@@ -108,19 +110,24 @@ extension DetailViewModel {
 }
 
 extension DetailViewModel {
+
     func addLocation() {
-        subscribeForPlacemark()
-        subscribeForLocation()
+        if locationProvider.isAuthorized {
+            subscribeForPlacemark()
+            subscribeForLocation()
+        } else {
+            error = PhlogLocationError.locationDenied
+        }
     }
 
     private func subscribeForLocation() {
         locationProvider.location
-            .sink { result in
+            .sink { [weak self] result in
                 switch result {
                 case .finished:
                     break
-                case .failure(_):
-                    break
+                case .failure(let err):
+                    self?.error = err
                 }
             } receiveValue: { location in
                 self.location = location
@@ -132,16 +139,17 @@ extension DetailViewModel {
 
     private func subscribeForPlacemark() {
         locationProvider.placemark
-            .sink { result in
+            .sink { [weak self] result in
                 switch result {
                 case .finished:
                     break
-                case .failure(_):
-                    break
+                case .failure(let err):
+                    self?.error = err
                 }
             } receiveValue: { placemark in
                 self.placemark = placemark
                 self.newPhlogPlacemark()
+                
             }
             .store(in: &cancellable)
     }
@@ -150,9 +158,9 @@ extension DetailViewModel {
         guard let location = location else { return }
         locationProvider.startGeocoding(location)
         let newPhlogLocation = phlogProvider.newLocation(latitude: location.coordinate.latitude,
-                                                        longitude: location.coordinate.longitude,
-                                                        placemark: nil,
-                                                        context: context)
+                                                         longitude: location.coordinate.longitude,
+                                                         placemark: nil,
+                                                         context: context)
         phlog.location = newPhlogLocation
     }
 
@@ -160,5 +168,19 @@ extension DetailViewModel {
         guard let location = phlog.location, let placemark = placemark else { return }
         location.placemark = placemark
         address = placemark.string()
+    }
+}
+
+enum PhlogLocationError {
+    case locationDenied
+    case invalidLocation
+}
+
+extension PhlogLocationError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .locationDenied: return "Unfortunately the app does not have permissions for this"
+        case .invalidLocation: return "Could not determine your current location"
+        }
     }
 }
