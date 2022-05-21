@@ -13,6 +13,7 @@ public class ActionButton: UIButton {
     public var plusColor: UIColor = UIColor.white
     public var fillColor: UIColor = UIColor(named: "shadedBlack")!
     public var borderColor: UIColor = UIColor.darkGray
+    public var cornerRadius: CGFloat = 10
     
     private let shape = CAShapeLayer()
     private let plus = CAShapeLayer()
@@ -39,18 +40,11 @@ public class ActionButton: UIButton {
         shape.lineWidth = Constants.shapeLineWidth
         shape.fillColor = fillColor.cgColor
         shape.strokeColor = borderColor.cgColor
-        let center = CGPoint(x: halfWidth, y: halfHeight)
-        let radius: CGFloat = min(bounds.width, bounds.height)
-        
-        let startAngle: CGFloat = 2 * .pi / 3
-        let endAngle: CGFloat = .pi / 3
-        
-        shape.path = UIBezierPath(arcCenter: center,
-                                  radius: radius / 2 - Constants.shapeLineWidth,
-                                  startAngle: startAngle,
-                                  endAngle: endAngle,
-                                  clockwise: true).cgPath
-        
+        let dimension: CGFloat = min(bounds.width, bounds.height)
+
+        shape.path = UIBezierPath(roundedRect:
+                                    CGRect(x: 0, y: 0, width: dimension, height: dimension),
+                                  cornerRadius: cornerRadius).cgPath
         self.layer.addSublayer(shape)
         
         // Plus sign
@@ -79,7 +73,6 @@ public class ActionButton: UIButton {
         self.layer.addSublayer(plus)
 
         addTarget(self, action: #selector(onTap), for: .touchUpInside)
-        
     }
     
     @objc private func onTap() {

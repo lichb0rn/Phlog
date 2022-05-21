@@ -32,6 +32,7 @@
 		89757209275C875A00E1E6AF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89757208275C875A00E1E6AF /* TabController.swift */; };
 		8975720F275CAAF200E1E6AF /* StoryboardedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */; };
 		89765A9C275BA0700076E2A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89765A9B275BA0700076E2A1 /* MapViewController.swift */; };
+		898837F628362F7C00F728C2 /* PhlogAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898837F528362F7C00F728C2 /* PhlogAnnotationView.swift */; };
 		898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */; };
 		8990AE39280FD3B30013EA91 /* PHImageImager+ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */; };
 		899986DA276906D50023229A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899986D9276906D50023229A /* ActionButton.swift */; };
@@ -107,6 +108,7 @@
 		89757208275C875A00E1E6AF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		8975720E275CAAF200E1E6AF /* StoryboardedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardedProtocol.swift; sourceTree = "<group>"; };
 		89765A9B275BA0700076E2A1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		898837F528362F7C00F728C2 /* PhlogAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhlogAnnotationView.swift; sourceTree = "<group>"; };
 		898C386A27A520F100286F49 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
 		8990AE38280FD3B30013EA91 /* PHImageImager+ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHImageImager+ImageService.swift"; sourceTree = "<group>"; };
 		899986D9276906D50023229A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				89765A9B275BA0700076E2A1 /* MapViewController.swift */,
 				892A941E27EEF4910019A09E /* MapViewController.storyboard */,
 				89D0CE8927F02D2500DA09EE /* MapViewModel.swift */,
+				898837F528362F7C00F728C2 /* PhlogAnnotationView.swift */,
 			);
 			path = "Map tab";
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				89D0CE8A27F02D2500DA09EE /* MapViewModel.swift in Sources */,
 				89D8E326281ADA4A00E557C1 /* UIViewController+Extension.swift in Sources */,
 				89C49656276A516D00BF8D30 /* FeedCell.swift in Sources */,
+				898837F628362F7C00F728C2 /* PhlogAnnotationView.swift in Sources */,
 				89EA3AFB276B74C80084D041 /* FeedLayout.swift in Sources */,
 				898C386B27A520F100286F49 /* ImagePickerCoordinator.swift in Sources */,
 				89319BC9282F76D9004E7DF6 /* PhlogDetailViewController.swift in Sources */,

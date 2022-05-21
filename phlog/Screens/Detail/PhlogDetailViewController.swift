@@ -66,6 +66,14 @@ class PhlogDetailViewController: UITableViewController {
         viewModel.$isMenuActive
             .sink { [weak self] in self?.navigationItem.rightBarButtonItem?.isEnabled = $0 }
             .store(in: &cancellable)
+
+        viewModel.$error
+            .compactMap { $0 }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                self?.showAlert(title: "Error", message: error.localizedDescription)
+            }
+            .store(in: &cancellable)
     }
 
 
