@@ -85,22 +85,18 @@ extension MapViewModel: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is PhlogLocation else { return nil }
 
-        let identifier = "PhlogLocation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: PhlogAnnotationView.identifier, for: annotation) as? PhlogAnnotationView
         if annotationView == nil {
-            let marker = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            marker.isEnabled = true
-            marker.animatesWhenAdded = false
-            marker.markerTintColor = .darkGray
-            marker.canShowCallout = true
-            marker.glyphImage = UIImage(systemName: "camera")
-
-            annotationView = marker
+            annotationView = PhlogAnnotationView(annotation: annotation, reuseIdentifier: PhlogAnnotationView.identifier)
         }
 
-        if let annotationView = annotationView {
-            annotationView.annotation = annotation
+        var image: UIImage
+        if let imageData = (annotation as? PhlogLocation)?.phlog?.pictureThumbnail {
+            image = UIImage(data: imageData) ?? UIImage(systemName: "camera")!
+        } else {
+            image = UIImage(systemName: "camera")!
         }
+        annotationView?.setImage(image)
 
         return annotationView
     }
