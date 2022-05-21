@@ -7,15 +7,14 @@ I don't use any 3rd party dependencies.
 
 ## The current state
 
-The app is desgined around *MVVM-C*. 
+The app is designed around *MVVM-C*. 
 Frameworks and stuff:
  - UIKit
- - Collection Views and Diffable Data Source
+ - Collection View and Diffable Data Source
  - Core Data and NSFetchedResultController
  - Photos (PHImageManager) and PhotosUI (PHPickerViewController) 
  
-```
-// The app is still deep in development, and many things are likely to change.
-```
 
-
+<img src="./screenshots/feed.png" width=390 height=844>
+<img src="./screenshots/phlog.png" width=390 height=844>
+<img src="./screenshots/map.png" width=390 height=844>

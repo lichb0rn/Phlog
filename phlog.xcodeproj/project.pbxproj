@@ -280,7 +280,6 @@
 				8907D28927CE1B5F00DFA463 /* README.md */,
 				89ACD9D1275B3237009373E1 /* phlog */,
 				89ACD9EB275B3239009373E1 /* phlogTests */,
-				89ACD9F5275B3239009373E1 /* phlogUITests */,
 				89ACD9D0275B3237009373E1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -317,13 +316,6 @@
 				8960752F27F6CF1A00845657 /* Mocks */,
 			);
 			path = phlogTests;
-			sourceTree = "<group>";
-		};
-		89ACD9F5275B3239009373E1 /* phlogUITests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = phlogUITests;
 			sourceTree = "<group>";
 		};
 		89ACDA05275B3263009373E1 /* App */ = {
