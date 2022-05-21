@@ -36,7 +36,7 @@ class PhlogAnnotationView: MKAnnotationView {
         imageView = UIImageView(frame: self.frame)
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = cornerRadius
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         addSubview(imageView)
     }
 
